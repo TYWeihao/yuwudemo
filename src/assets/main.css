@@ -1,0 +1,86 @@
+@import './base.css';
+
+#app {
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  font-weight: normal;
+  width:100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+.flex-x{
+  display: flex;
+  }
+.flex-y{
+  display: flex;
+  flex-direction: column;
+}
+.text-green{
+  color:#13d643
+}
+.text-white{
+  color:#fff
+}
+.text-red{
+  color:#d61313
+}
+.bottom-box{
+  height:35%
+}
+.box-title {
+  display: flex;
+  align-items: flex-end;
+}
+.tit {
+  background: url("../assets/img/line1.png") no-repeat bottom right;
+  font-size: 20px;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  color: #13e3ff;
+}
+.box-title p {
+  background: url("../assets/img/line2.png") no-repeat bottom right;
+  width: 100%;
+  height: 13px;
+  margin-bottom: 5px;
+  opacity: 0.5;
+}
+.box-content {
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+}
+.left{
+  /* width: 20%; */
+
+}
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+  background-image: url("./img/bg.png");
+  background-size: 100% 100%;
+    /* background: radial-gradient(
+      circle,
+      #0d263d,
+      #01061a
+    ) */
+  }
+
+}
