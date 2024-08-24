@@ -2,11 +2,10 @@
   <div ref="echartsRef" class="echarts"></div>
 </template>
 
-<script setup name="waterChart">
+<script setup name="pollutionPieChart">
 import { ref, onMounted } from "vue";
 import { useEcharts } from "@/hooks/useEcharts";
 import * as echarts from "echarts";
-
 const echartsRef = ref();
 const obj = {
   color: ["#3fb1e3", "#6be6c1", "#626c91", "#a0a7e6", "#c4ebad", "#96dee8"],
@@ -363,143 +362,65 @@ const obj = {
   },
 };
 echarts.registerTheme("walden", obj);
+
 onMounted(() => {
   let myChart = echarts.init(echartsRef.value, "walden");
-  // let value = 0.5;
-  // let data = [value, value, value];
   let option = {
-    title: {
-      text: "月度能源消耗情况",
-      textStyle: {
-        color: "#fff",
-      },
-    },
     tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        // Use axis to trigger tooltip
-        type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
-      },
+      // trigger: 'item'
+      show: false,
     },
     legend: {
-      top: "bottom",
-      textStyle: {
-        color: "#fff",
-      },
-    },
-    grid: {
-      left: "1%",
-      right: "0%",
-      bottom: "13%",
-      top: "20%",
-      containLabel: true,
-    },
-    xAxis: {
-      type: "value",
-      splitLine: {
-        show: false,
-      },
-      axisLabel: {
-        show: false,
-      },
-      axisTick: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
-      },
-    },
-    yAxis: {
-      type: "category",
-      data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月"],
-      splitLine: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
-      },
+      show: false,
+      top: "5%",
+      left: "center",
     },
     series: [
       {
-        name: "柴油",
-        type: "bar",
-        stack: "total",
+        name: "2022年度碳排放占比统计",
+        type: "pie",
+        radius: ["60%", "70%"],
+        avoidLabelOverlap: false,
+        padAngle: 1,
+        itemStyle: {
+          borderRadius: 10,
+        },
         label: {
           show: true,
-          fontSize: 10,
-          color: "#fff",
+          position: "center",
+          fontSize: 16,
+          color: "rgba(255, 255, 255)",
+          formatter: "{b} \n {d} %",
         },
         emphasis: {
-          focus: "series",
+          label: {
+            show: true,
+            fontSize: 16,
+            color: "rgba(255, 255, 255)",
+            formatter: "{b} \n {d} %",
+          },
         },
-        data: [320, 302, 301, 334, 390, 330, 320],
-      },
-      {
-        name: "汽油",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
+        labelLine: {
+          show: false,
         },
-        emphasis: {
-          focus: "series",
-        },
-        data: [120, 132, 101, 134, 90, 230, 210],
-      },
-      {
-        name: "天然气",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [220, 182, 191, 234, 290, 330, 310],
-      },
-      {
-        name: "热力",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [150, 212, 201, 154, 190, 330, 410],
-      },
-      {
-        name: "电力",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [820, 832, 901, 934, 1290, 1230, 1220],
+        data: [
+          { value: 1886, name: "主回风井" },
+          { value: 682, name: "北风井" },
+          { value: 544, name: "南风井" },
+        ],
       },
     ],
   };
+
   useEcharts(myChart, option);
 });
 </script>
+
 <style scoped>
 .echarts {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 180px;
 }
 </style>

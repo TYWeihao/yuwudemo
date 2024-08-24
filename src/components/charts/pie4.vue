@@ -2,11 +2,10 @@
   <div ref="echartsRef" class="echarts"></div>
 </template>
 
-<script setup name="waterChart">
+<script setup name="pollutionPieChart">
 import { ref, onMounted } from "vue";
 import { useEcharts } from "@/hooks/useEcharts";
 import * as echarts from "echarts";
-
 const echartsRef = ref();
 const obj = {
   color: ["#3fb1e3", "#6be6c1", "#626c91", "#a0a7e6", "#c4ebad", "#96dee8"],
@@ -363,143 +362,66 @@ const obj = {
   },
 };
 echarts.registerTheme("walden", obj);
+
 onMounted(() => {
   let myChart = echarts.init(echartsRef.value, "walden");
-  // let value = 0.5;
-  // let data = [value, value, value];
   let option = {
-    title: {
-      text: "月度能源消耗情况",
-      textStyle: {
-        color: "#fff",
-      },
-    },
     tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        // Use axis to trigger tooltip
-        type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
-      },
+      trigger: "item",
     },
-    legend: {
-      top: "bottom",
-      textStyle: {
-        color: "#fff",
-      },
-    },
-    grid: {
-      left: "1%",
-      right: "0%",
-      bottom: "13%",
-      top: "20%",
-      containLabel: true,
-    },
-    xAxis: {
-      type: "value",
-      splitLine: {
-        show: false,
-      },
-      axisLabel: {
-        show: false,
-      },
-      axisTick: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
-      },
-    },
-    yAxis: {
-      type: "category",
-      data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月"],
-      splitLine: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
+    visualMap: {
+      show: false,
+      min: 80,
+      max: 26000,
+      inRange: {
+        colorLightness: [0, 1],
       },
     },
     series: [
       {
-        name: "柴油",
-        type: "bar",
-        stack: "total",
+        name: "能耗占比",
+        type: "pie",
+        radius: "75%",
+        center: ["50%", "50%"],
+        data: [
+          { value: 20798.16, name: "电力" },
+          { value: 9819.8, name: "热力" },
+          { value: 1514.92, name: "气态天然气" },
+          { value: 565.73, name: "柴油" },
+          { value: 26.71, name: "汽油" },
+        ].sort(function (a, b) {
+          return a.value - b.value;
+        }),
+        roseType: "radius",
         label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
+          color: "rgba(255, 255, 255)",
         },
-        emphasis: {
-          focus: "series",
+        labelLine: {
+          lineStyle: {
+            color: "rgba(255, 255, 255, 0.3)",
+          },
+          smooth: 0.2,
+          length: 10,
+          length2: 20,
         },
-        data: [320, 302, 301, 334, 390, 330, 320],
-      },
-      {
-        name: "汽油",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
+        itemStyle: {
+          color: "#cfffff",
+          shadowBlur: 200,
+          shadowColor: "rgba(0, 0, 0, 0.5)",
         },
-        emphasis: {
-          focus: "series",
-        },
-        data: [120, 132, 101, 134, 90, 230, 210],
-      },
-      {
-        name: "天然气",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [220, 182, 191, 234, 290, 330, 310],
-      },
-      {
-        name: "热力",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [150, 212, 201, 154, 190, 330, 410],
-      },
-      {
-        name: "电力",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [820, 832, 901, 934, 1290, 1230, 1220],
       },
     ],
   };
+
   useEcharts(myChart, option);
 });
 </script>
+
 <style scoped>
 .echarts {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 160px;
 }
 </style>
