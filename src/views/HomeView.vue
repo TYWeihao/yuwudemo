@@ -376,18 +376,18 @@ const xiangmuData = [
                     <img src="./../assets/img/bg.png.jpg" alt="" style="width: 100%" />
                 </div> -->
                 <div class="left-box-content" style="overflow: hidden; width: 100%">
-                <article class="jianjie">
-    <div class="temporary_text">
+                    <article class="jianjie">
+                        <div class="temporary_text">
                             <img src="./../assets/img/bg.png.jpg" alt="" style="width: 100%" />
 
-    </div>
-<div class="jianjie_content">
-    <span class="jianjie_title">余吾煤业公司（屯留煤矿）</span>
-        <span class="jianjie_subtitle">位于山西省长治市屯留县，属潞安矿区。井田面积162.2平方公里，地质储量15.45亿吨，可采储量6.81亿吨，设计能力600万吨/年，配套600万吨/年的洗煤厂，概算总投资270007万元。</span>
-        <p class="jianjie_description">先后获得“中国煤炭行业特级安全高效矿井”、“国家级安全质量标准化煤矿”、“山西省优秀企业”、“山西省科技奉献奖先进集体”、“山西省矿（厂）区绿化模范单位”、“山西省水土保持示范工程”等荣誉称号。选煤厂被评为中国煤炭行业“十佳选煤厂”。</p>
-    
-</div>
-</article>
+                        </div>
+                        <div class="jianjie_content">
+                            <span class="jianjie_title">余吾煤业公司（屯留煤矿）</span>
+                            <span class="jianjie_subtitle">位于山西省长治市屯留县，属潞安矿区。井田面积162.2平方公里，地质储量15.45亿吨，可采储量6.81亿吨，设计能力600万吨/年，配套600万吨/年的洗煤厂，概算总投资270007万元。</span>
+                            <p class="jianjie_description">先后获得“中国煤炭行业特级安全高效矿井”、“国家级安全质量标准化煤矿”、“山西省优秀企业”、“山西省科技奉献奖先进集体”、“山西省矿（厂）区绿化模范单位”、“山西省水土保持示范工程”等荣誉称号。选煤厂被评为中国煤炭行业“十佳选煤厂”。</p>
+
+                        </div>
+                    </article>
                     <!-- <div data-position="top" class="carousel">
             <span class="carousel__text">
               山西潞安集团余吾煤业有限责任公司位于屯留区后庄北村，全矿现有5600余人，全矿井田规划面积为161.205平方千米,现设计生产能力为750万t/a，设计服务年限为53.86年，并建有一座设计能力力900万ta的选煤厂，是一座集机械化采煤、行政办公、生活福利等为一体的现代化大型煤矿。目前，煤矿主要开采3#煤层，根据采矿许可证，开采标高为800-30m，井田行政区划分属屯留区和襄垣县。主井工业场地、阎庄风井场地、南风井工业场地位于屯留区境内。</span
@@ -412,119 +412,177 @@ const xiangmuData = [
                         <span class="selection"></span>
                     </div>
                 </div>
-                <div class="left-box-content row" style="justify-content: space-between">
-                    <div class="row" style="align-items: center">
-                        <div style="color: #6da4c5; margin-right: 1rem; font-size: 0.8rem">
-                            合计排放量
-                        </div>
-                        <div style="color: #9ff; font-weight: bold; font-size: 1rem">
-                            131887.09 <small>tCO₂</small>
-                        </div>
-                    </div>
-                    <div style="display: flex; align-items: center; font-size: 0.8rem">
-                    同比
-                        <img class="arrow down" style="transform:rotateX(180deg)" src="./../assets/img/up.png" alt="" />
-                        3.5%
-                    </div>
-                </div>
                 <div class="left-box-content row">
-                    <div style="
+          <div
+            style="
               width: 33%;
               display: flex;
               flex-direction: column; /* align-items: stretch; */
               justify-content: center;
               padding: 0 0.5rem;
-            ">
-                        <!-- { value: 2462.83, name: "天然气" },
+            "
+          >
+            <!-- { value: 2462.83, name: "天然气" },
           { value: 530.1, name: "汽油" },
           { value: 1202.05, name: "柴油" },
           { value: 31658.22, name: "热力" },
           { value: 96510.89, name: "电力" } -->
 
-                        <div class="co2zonglan" style="color: #6be6c1">
-                            <div class="row" style="align-items: center">
-                                <div class="circle" style="background-color: #6be6c1"></div>
-                                <div>电力</div>
-                            </div>
-                            <div class="co2num"><div>96510.89</div>
-                              <small data-v-b4e148ca="" style="
-    display: flex;
-    align-items: center;
-    font-size: 0.6rem;
-">同比 <img class="down" style="transform:rotateX(180deg);width: 0.2rem;height: 0.5rem;margin: 2px 0.1rem 0;" src="/src/assets/img/up.png" alt="" data-v-b4e148ca=""> 2.5% </small>
-                            </div>
-                        </div>
-                        <div class="co2zonglan" style="color: #3fb1e3">
-                            <div class="row" style="align-items: center">
-                                <div class="circle" style="background-color: #3fb1e3"></div>
-                                <div>热力</div>
-                            </div>
-                            <div class="co2num"><div>31658.22</div>
-                             <small data-v-b4e148ca="" style="
-    display: flex;
-    align-items: center;
-    font-size: 0.6rem;
-">同比 <img class="down" style="transform:rotateX(180deg);width: 0.2rem;height: 0.5rem;margin: 2px 0.1rem 0;" src="/src/assets/img/up.png" alt="" data-v-b4e148ca=""> 3.2% </small>
-                            </div>
-                        </div>
-                        <div class="co2zonglan" style="color: #626c91">
-                            <div class="row" style="align-items: center">
-                                <div class="circle" style="background-color: #626c91"></div>
-                                <div>天然气</div>
-                            </div>
-                            <div class="co2num"><div>2462.83</div>
-                             <small data-v-b4e148ca="" style="
-    display: flex;
-    align-items: center;
-    font-size: 0.6rem;
-">同比 <img class="down" style="transform:rotateX(180deg);width: 0.2rem;height: 0.5rem;margin: 2px 0.1rem 0;" src="/src/assets/img/up.png" alt="" data-v-b4e148ca=""> 1.5% </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 33%">
-                        <pie />
-                    </div>
-                    <div style="
+            <div class="co2zonglan" style="color: #6be6c1">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #6be6c1"></div>
+                <div>电力</div>
+              </div>
+              <div class="co2num">
+                <div>96510.89</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  2.5%
+                </small>
+              </div>
+            </div>
+            <div class="co2zonglan" style="color: #3fb1e3">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #3fb1e3"></div>
+                <div>热力</div>
+              </div>
+              <div class="co2num">
+                <div>31658.22</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  3.2%
+                </small>
+              </div>
+            </div>
+            <div class="co2zonglan" style="color: #626c91">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #626c91"></div>
+                <div>天然气</div>
+              </div>
+              <div class="co2num">
+                <div>2462.83</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  1.5%
+                </small>
+              </div>
+            </div>
+          </div>
+          <div style="width: 33%">
+            <pie />
+          </div>
+          <div
+            style="
               width: 33%;
               display: flex;
               flex-direction: column; /* align-items: stretch; */
               justify-content: center;
               padding: 0 0.5rem;
-
-            ">
-                        <!-- { value: 2462.83, name: "天然气" },
+            "
+          >
+            <!-- { value: 2462.83, name: "天然气" },
           { value: 530.1, name: "汽油" },
           { value: 1202.05, name: "柴油" },
           { value: 31658.22, name: "热力" },
           { value: 96510.89, name: "电力" } -->
 
-                        <div class="co2zonglan" style="color: #a0a7e6">
-                            <div class="row" style="align-items: center">
-                                <div class="circle" style="background-color: #a0a7e6"></div>
-                                <div>汽油</div>
-                            </div>
-                            <div class="co2num"><div>530.1</div>
-                             <small data-v-b4e148ca="" style="
-    display: flex;
-    align-items: center;
-    font-size: 0.6rem;
-">同比 <img class="down" style="transform:rotateX(180deg);width: 0.2rem;height: 0.5rem;margin: 2px 0.1rem 0;" src="/src/assets/img/up.png" alt="" data-v-b4e148ca=""> 2.7% </small>
-                            </div>
-                        </div>
-                        <div class="co2zonglan" style="color: #c4ebad">
-                            <div class="row" style="align-items: center">
-                                <div class="circle" style="background-color: #c4ebad"></div>
-                                <div>柴油</div>
-                            </div>
-                            <div class="co2num"><div>1202.05</div>
-                             <small data-v-b4e148ca="" style="
-    display: flex;
-    align-items: center;
-    font-size: 0.6rem;
-">同比 <img class="down" style="transform:rotateX(180deg);width: 0.2rem;height: 0.5rem;margin: 2px 0.1rem 0;" src="/src/assets/img/up.png" alt="" data-v-b4e148ca=""> 2.9% </small>
-                            </div>
-                        </div>
-                    </div>
+            <div class="co2zonglan" style="color: #a0a7e6">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #a0a7e6"></div>
+                <div>汽油</div>
+              </div>
+              <div class="co2num">
+                <div>530.1</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  2.7%
+                </small>
+              </div>
+            </div>
+            <div class="co2zonglan" style="color: #c4ebad">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #c4ebad"></div>
+                <div>柴油</div>
+              </div>
+              <div class="co2num">
+                <div>1202.05</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  2.9%
+                </small>
+              </div>
+            </div>
+            </div>
                 </div>
             </div>
             <div class="left-box box">
@@ -660,44 +718,45 @@ const xiangmuData = [
     display: flex;
     justify-content: flex-end;">
                 <div class="huanjingbaohu">
-                    <div class="fq" ><div>废气排放量</div>
-                    <div class=" nd">3005.15 万m³</div>
-                    <div class="fqpopup">
-                  <div>实时浓度</div>
-                    <div>颗粒物</div>
-                    <div class="nd">2.432 mg/m³</div>
-                    <div>二氧化硫</div>
-                    <div class="nd">ND</div>
-                    <div>氮氧化物</div>
-                    <div class="nd">19.0345 mg/m³</div>
-                    </div>
+                    <div class="fq">
+                        <div>废气排放量</div>
+                        <div class=" nd">3005.15 万m³</div>
+                        <div class="fqpopup">
+                            <div>实时浓度</div>
+                            <div>颗粒物</div>
+                            <div class="nd">2.432 mg/m³</div>
+                            <div>二氧化硫</div>
+                            <div class="nd">ND</div>
+                            <div>氮氧化物</div>
+                            <div class="nd">19.0345 mg/m³</div>
+                        </div>
                     </div>
                     <div class="fs">
-                    <div>废水排放量</div>
-                  <div class="nd">2.034 万m³</div>
-                  <div class="fspopup">
-                  <div>实时浓度</div>
-                    <div>COD</div>
-                    <div class="nd">16.3322 mg/L</div>
-                    <div>氨氮</div>
-                    <div class="nd">0.263 mg/L</div>
-                    <div>PH</div>
-                    <div class="nd">5 - 6</div>
-                    </div>
+                        <div>废水排放量</div>
+                        <div class="nd">2.034 万m³</div>
+                        <div class="fspopup">
+                            <div>实时浓度</div>
+                            <div>COD</div>
+                            <div class="nd">16.3322 mg/L</div>
+                            <div>氨氮</div>
+                            <div class="nd">0.263 mg/L</div>
+                            <div>PH</div>
+                            <div class="nd">5 - 6</div>
+                        </div>
                     </div>
                     <div class="zs">
-                    <div>噪声均值</div>
-                    <div class="nd">47dB</div>
-                    <div class="zspopup">
-                    <div>厂界东侧</div>
-                    <div class="nd">40 dB</div>
-                    <div>厂界西侧</div>
-                    <div class="nd">50 dB</div>
-                    <div>厂界南侧</div>
-                    <div class="nd">48 dB</div>
-                    <div>厂界北侧</div>
-                    <div class="nd">48 dB</div>
-                    </div>
+                        <div>噪声均值</div>
+                        <div class="nd">47dB</div>
+                        <div class="zspopup">
+                            <div>厂界东侧</div>
+                            <div class="nd">40 dB</div>
+                            <div>厂界西侧</div>
+                            <div class="nd">50 dB</div>
+                            <div>厂界南侧</div>
+                            <div class="nd">48 dB</div>
+                            <div>厂界北侧</div>
+                            <div class="nd">48 dB</div>
+                        </div>
                     </div>
                     <div>固体废物</div>
                     <div>产生量</div>
@@ -709,16 +768,16 @@ const xiangmuData = [
                     <div class="nd">10.98 t</div>
                     <div>利用量</div>
                     <div class="nd">10.98 t</div>
-                  </div>
                 </div>
-                <div style="position:fixed;top:20%;left:30%">
+            </div>
+            <div style="position:fixed;top:20%;left:30%">
                 <img src="./../assets/img/point.gif" alt="" style="width: 7rem;height: 7rem;position:relative;top:16rem;
                 left:4rem">
                 <img src="./../assets/img/point.gif" alt="" style="width: 7rem;height: 7rem;position:relative;top:10rem;
                 left:14rem">
 
-                </div>
             </div>
+        </div>
         <div class="right">
             <div class="right-box box">
                 <div class="right-box-title title row-title">
@@ -743,15 +802,15 @@ const xiangmuData = [
                             <path d="M17 15.245v6.872a.5.5 0 0 1-.757.429L12 20l-4.243 2.546a.5.5 0 0 1-.757-.43v-6.87a8 8 0 1 1 10 0zm-8 1.173v3.05l3-1.8 3 1.8v-3.05A7.978 7.978 0 0 1 12 17a7.978 7.978 0 0 1-3-.582zM12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="rgba(149,149,255,1)"></path>
                         </svg>
                         <div class="num"><span>2272 m³</span></div>
-                        <div style="font-size: 0.6rem">瓦斯排放总量</div>
+                        <div style="font-size: 0.6rem">瓦斯利用总量</div>
                     </div>
                     <div style="text-align: center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
                             <path fill="none" d="M0 0h24v24H0z"></path>
                             <path d="M20.083 15.2l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zm0-4.7l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm-7.569-9.191l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0zM12 3.332L5.887 7 12 10.668 18.113 7 12 3.332z" fill="rgba(66,193,110,1)"></path>
                         </svg>
-                        <div class="num"><span>1886 m³</span></div>
-                        <div style="font-size: 0.6rem">瓦斯利用总量</div>
+                        <div class="num"><span>97 %</span></div>
+                        <div style="font-size: 0.6rem">瓦斯利用率</div>
                     </div>
                     <div style="text-align: center">
                         <svg height="64" width="64" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -934,21 +993,6 @@ const xiangmuData = [
   opacity: 1;
   transition-delay: .25s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .radio-input input {
   display: none;

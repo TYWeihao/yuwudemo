@@ -1,22 +1,33 @@
 <script setup>
 import co2 from "@/components/charts/co2.vue";
 import co2e from "@/components/charts/co2e.vue";
+import pie from "@/components/charts/pie.vue";
+import bar2 from "@/components/charts/bar2.vue";
 const xiangmuData = [
   {
-    name: "零碳能源使用比例",
-    value: "50%",
+    name: "加强设备节能管理，推进矿区节能降碳增效",
+    value:
+      "淘汰落后产能及高耗能工艺、装备，如旧压风机及压风管路更换，对矿井主通风机、瓦斯抽采泵节能改造等，提升设备用能效率。",
   },
   {
-    name: "矿区生产活动中新能源车辆占比",
-    value: "50%",
+    name: "提升余热和新能源利用，推动矿区低碳零碳供能",
+    value:
+      "开展主井工业场地乏风及低浓度瓦斯氧化、北风井工业场地乏风氧化、南风井场地乏风氧化供热及瓦斯电厂余热、空压风机余热回收利用等工程",
   },
   {
-    name: "乏风瓦斯利用率",
-    value: "50%",
+    name: "实施瓦斯高效利用技术，推动矿区瓦斯利用减碳",
+    value:
+      "采用低负压、定向钻机、煤层瓦斯增透技术等瓦斯抽采先进装备、工艺和技术，提升瓦斯抽采浓度和稳定性。余吾煤业通过氧化、提浓等方式开展低浓度瓦斯和乏风综合利用，有效提升瓦斯利用量。",
   },
   {
-    name: "停用矸石场地覆土绿化率",
-    value: "50%",
+    name: "开展修复治理碳汇恢复，推动矿区生态增汇固碳",
+    value:
+      "矿产资源开发设计、开采各阶段中，将制定切实可行的矿山土地保护和土地复垦方案与措施，并严格实施，引进先进土地复垦技术，对矿山压占、损毁而可复垦的土地应得到全面复垦利用。",
+  },
+  {
+    name: "加快智慧化矿井建设，提升矿区智能化水平",
+    value:
+      "对掘进工作面、提升、运输、通风、排水、压风、供配电等生产系统进行配套建设改造，通过推广应用视频监测、智能监测与保护、自动控制或集中控制等技术，实现矿井固定场所运输设备无人值守或集中控制。",
   },
 ];
 </script>
@@ -25,112 +36,355 @@ const xiangmuData = [
   <main>
     <div class="left">
       <div class="left-box box">
-        <div class="left-box-title">基本信息</div>
-        <div class="left-box-content">
-          <div>企业名称：余吾煤业</div>
-          <div>所属行业：煤炭开采</div>
-          <div>企业规模：大型企业</div>
-          <div>开业时间：2000-01-01</div>
-          <div>排污许可证号：123456789</div>
-          <div>有效期限：2021-01-01至2022-01-01</div>
-        </div>
-      </div>
-      <div class="left-box box">
-        <div class="left-box-title">二氧化碳排放总量</div>
-        <div class="left-box-content">
-          <img style="width: 100%; height: 200px" src="./../assets/img/co2.png" alt="" />
-          <div style="display: flex; justify-content: space-around">
-            <div style="display: flex; font-size: 0.6rem; align-items: center">
-              <div class="tag" style="background: #fac858"></div>
-              化石燃料燃烧排放
+        <div class="left-box-title title">降碳目标</div>
+        <div class="left-box-content row" style="flex-wrap: wrap">
+          <div class="p-card">
+            <div class="p-title">
+              <p class="title-text">合计排放量</p>
+              <p class="percent">完成 80%</p>
             </div>
-            <div style="display: flex; font-size: 0.6rem; align-items: center">
-              <div class="tag" style="background: #91cc75"></div>
-              购入热力对应的二氧化碳排放
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-around">
-            <div style="display: flex; font-size: 0.6rem; align-items: center">
-              <div class="tag" style="background: #5470c6"></div>
-              二氧化碳逃逸排放
-            </div>
+            <div class="data">
+              <p>19,361.89 <small style="color: #6da4c5"> / 24500 tCO₂</small></p>
 
-            <div style="display: flex; font-size: 0.6rem; align-items: center">
-              <div class="tag" style="background: #ee6666"></div>
-              购入电力对应的二氧化碳排放
+              <div class="range">
+                <div class="fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-card">
+            <div class="p-title">
+              <p class="title-text">吨原煤生产综合能耗</p>
+              <p class="percent">完成 75.5%</p>
+            </div>
+            <div class="data">
+              <p>1.85 <small style="color: #6da4c5"> / 2.45 kgce/t</small></p>
+
+              <div class="range">
+                <div class="fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-card" style="margin-top: 0.5rem">
+            <div class="p-title">
+              <p class="title-text">吨原煤生产电耗</p>
+              <p class="percent">完成 90.5%</p>
+            </div>
+            <div class="data">
+              <p>3.30 <small style="color: #6da4c5"> / 3.65 kwh/t</small></p>
+              <div class="range">
+                <div class="fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-card" style="margin-top: 0.5rem">
+            <div class="p-title">
+              <p class="title-text">吨原煤二氧化碳排放量</p>
+              <p class="percent">完成 73%</p>
+            </div>
+            <div class="data">
+              <p>1.39 <small style="color: #6da4c5"> / 1.91 kgce/t</small></p>
+              <div class="range">
+                <div class="fill"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="left-box box">
-        <div class="left-box-title">其他碳排数据</div>
+        <div class="left-box-title title">用能结构降碳情况</div>
+        <div class="left-box-content row" style="justify-content: space-between">
+          <div class="row" style="align-items: center">
+            <div style="color: #6da4c5; margin-right: 1rem; font-size: 0.8rem">
+              合计排放量
+            </div>
+            <div style="color: #9ff; font-weight: bold; font-size: 1rem">
+              131887.09 <small>tCO₂</small>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; font-size: 0.8rem">
+            同比
+            <img
+              class="arrow down"
+              style="transform: rotateX(180deg)"
+              src="./../assets/img/up.png"
+              alt=""
+            />
+            3.5%
+          </div>
+        </div>
+        <div class="left-box-content row">
+          <div
+            style="
+              width: 33%;
+              display: flex;
+              flex-direction: column; /* align-items: stretch; */
+              justify-content: center;
+              padding: 0 0.5rem;
+            "
+          >
+            <!-- { value: 2462.83, name: "天然气" },
+          { value: 530.1, name: "汽油" },
+          { value: 1202.05, name: "柴油" },
+          { value: 31658.22, name: "热力" },
+          { value: 96510.89, name: "电力" } -->
+
+            <div class="co2zonglan" style="color: #6be6c1">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #6be6c1"></div>
+                <div>电力</div>
+              </div>
+              <div class="co2num">
+                <div>96510.89</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  2.5%
+                </small>
+              </div>
+            </div>
+            <div class="co2zonglan" style="color: #3fb1e3">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #3fb1e3"></div>
+                <div>热力</div>
+              </div>
+              <div class="co2num">
+                <div>31658.22</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  3.2%
+                </small>
+              </div>
+            </div>
+            <div class="co2zonglan" style="color: #626c91">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #626c91"></div>
+                <div>天然气</div>
+              </div>
+              <div class="co2num">
+                <div>2462.83</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  1.5%
+                </small>
+              </div>
+            </div>
+          </div>
+          <div style="width: 33%">
+            <pie />
+          </div>
+          <div
+            style="
+              width: 33%;
+              display: flex;
+              flex-direction: column; /* align-items: stretch; */
+              justify-content: center;
+              padding: 0 0.5rem;
+            "
+          >
+            <!-- { value: 2462.83, name: "天然气" },
+          { value: 530.1, name: "汽油" },
+          { value: 1202.05, name: "柴油" },
+          { value: 31658.22, name: "热力" },
+          { value: 96510.89, name: "电力" } -->
+
+            <div class="co2zonglan" style="color: #a0a7e6">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #a0a7e6"></div>
+                <div>汽油</div>
+              </div>
+              <div class="co2num">
+                <div>530.1</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  2.7%
+                </small>
+              </div>
+            </div>
+            <div class="co2zonglan" style="color: #c4ebad">
+              <div class="row" style="align-items: center">
+                <div class="circle" style="background-color: #c4ebad"></div>
+                <div>柴油</div>
+              </div>
+              <div class="co2num">
+                <div>1202.05</div>
+                <small
+                  data-v-b4e148ca=""
+                  style="display: flex; align-items: center; font-size: 0.6rem"
+                  >同比
+                  <img
+                    class="down"
+                    style="
+                      transform: rotateX(180deg);
+                      width: 0.2rem;
+                      height: 0.5rem;
+                      margin: 2px 0.1rem 0;
+                    "
+                    src="/src/assets/img/up.png"
+                    alt=""
+                    data-v-b4e148ca=""
+                  />
+                  2.9%
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="left-box box">
+        <div class="left-box-title title">降碳主要任务</div>
         <div class="left-box-content">
-          <div class="table-container">
-            <table>
-              <thead>
-                <!-- <tr>
-                  <th>项目名称</th>
-                  <th>项目状态</th>
-                  <th>投资额</th>
-                  <th>节能量</th>
-                </tr> -->
-              </thead>
-              <tbody ref="tableBody">
-                <div class="table-wrapper" ref="tableWrapper">
-                  <tr v-for="(item, index) in xiangmuData" :key="index">
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.value }}</td>
-                  </tr>
-                </div>
-              </tbody>
-            </table>
+          <div class="list-container" v-for="item in xiangmuData" :key="item.name">
+            <div class="list">
+              <div class="front-content">
+                <p>{{ item.name }}</p>
+              </div>
+              <div class="content">
+                <p>
+                  {{ item.value }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="center">
-      <!-- <div class="center-box box">
-        <div class="center-box-title">总量指标</div>
-        <div class="center-box-content row">
-          <div class="zonghe-box flex-y">
-            <b class="text-green">2387.306</b>
-            <div>累计用电量</div>
-            <small>单位：千瓦时</small>
+      <div class="center-box box">
+        <div class="top">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 16 16"
+            >
+              <path fill="#0891b2" d="M9.5 6.5L10 0H9L2 9.5h4.5L6 16h1l7-9.5z" />
+            </svg>
+            <div>
+              节电量
+              <div class="topnum">126162.91 mwh</div>
+            </div>
           </div>
-          <div class="zonghe-box flex-y">
-            <b class="text-green">2387.306</b>
-            <div>累计用水量</div>
-            <small>单位：吨</small>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="#0891b2"
+                d="M304 64c-23.723 1.039-64 32-96 48c-32-10.667-79.124-37.34-96-32c-22.196 7.024-47.374 44.154-71.533 71h435.719C467.4 130.604 444.747 80.887 432 80c-15.998-1.113-80 48-80 48c-16-21.333-36.57-64.5-48-64M27.133 169l44.144 206H119V169zM137 169v14h46v-14zm64 0v206h239.725l44.142-206zm-64 32v14h46v-14zm0 32v14h46v-14zm0 32v14h46v-14zm0 32v14h46v-14zm0 32v14h46v-14zm0 32v14h46v-14zM25 393v30h462v-30zm11.822 48C34.387 445.436 33 450.543 33 456c0 17.227 13.773 31 31 31s31-13.773 31-31c0-5.457-1.387-10.564-3.822-15zm80 0c-2.435 4.436-3.822 9.543-3.822 15c0 17.227 13.773 31 31 31s31-13.773 31-31c0-5.457-1.387-10.564-3.822-15zm81.74 0l15 30h84.875l15-30zm142.26 0c-2.435 4.436-3.822 9.543-3.822 15c0 17.227 13.773 31 31 31s31-13.773 31-31c0-5.457-1.387-10.564-3.822-15zm80 0c-2.435 4.436-3.822 9.543-3.822 15c0 17.227 13.773 31 31 31s31-13.773 31-31c0-5.457-1.387-10.564-3.822-15z"
+              />
+            </svg>
+            <div>
+              节约标煤
+              <div class="topnum">96.80万 tce</div>
+            </div>
           </div>
-          <div class="zonghe-box flex-y">
-            <b class="text-green">2387.306</b>
-            <div>累计用煤量</div>
-            <small>单位：吨</small>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#0891b2"
+                d="M5 7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h3v-2H5V9h3V7zm6 0a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm0 2h2v6h-2zm5 1.5V12h3v1.5h-1.5A1.5 1.5 0 0 0 16 15v3h4.5v-1.5h-3V15H19a1.5 1.5 0 0 0 1.5-1.5V12a1.5 1.5 0 0 0-1.5-1.5z"
+              />
+            </svg>
+            <div>
+              减排二氧化碳
+              <div class="topnum">253.62 万吨</div>
+            </div>
           </div>
-          <div class="zonghe-box flex-y">
-            <b class="text-green">2387.306 </b>
-            <div>累计用气量</div>
-            <small>单位：立方米</small>
-          </div>
-          <div class="zonghe-box flex-y">
-            <b class="text-green">2387.306</b>
-            <div>累计用热量</div>
-            <small>单位：千焦</small>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#0891b2"
+                d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zm7-6q-.425 0-.712-.288T11 13t.288-.712T12 12t.713.288T13 13t-.288.713T12 14m-4 0q-.425 0-.712-.288T7 13t.288-.712T8 12t.713.288T9 13t-.288.713T8 14m8 0q-.425 0-.712-.288T15 13t.288-.712T16 12t.713.288T17 13t-.288.713T16 14m-4 4q-.425 0-.712-.288T11 17t.288-.712T12 16t.713.288T13 17t-.288.713T12 18m-4 0q-.425 0-.712-.288T7 17t.288-.712T8 16t.713.288T9 17t-.288.713T8 18m8 0q-.425 0-.712-.288T15 17t.288-.712T16 16t.713.288T17 17t-.288.713T16 18"
+              />
+            </svg>
+            <div>
+              安全生产天数
+              <div class="topnum">522 天</div>
+            </div>
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
     <div class="right">
       <div class="right-box box">
-        <div class="right-box-title">吨原煤二氧化碳排放量</div>
-        <div class="right-box-content" style="height: 320px">
+        <div class="right-box-title title">降碳趋势</div>
+        <div class="right-box-content" style="height: 220px">
           <co2 />
         </div>
       </div>
       <div class="right-box box">
-        <div class="right-box-title">吨原煤生产电耗</div>
-        <div class="right-box-content" style="height: 320px">
-          <co2e />
+        <div class="right-box-title title">降碳项目推进情况</div>
+        <div class="right-box-content" style="height: 500px">
+          <bar2 />
         </div>
       </div>
     </div>
@@ -138,11 +392,97 @@ const xiangmuData = [
 </template>
 
 <style scoped>
+/* From Uiverse.io by gharsh11032000 */
+.list-container {
+  /* width: 300px; */
+  /* height: 300px; */
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background-color: #00000078;
+  margin: 0.2rem 0;
+}
+
+.list {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transition: all 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.list .front-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.list .front-content p {
+  font-size: 0.8rem;
+  /* font-weight: 700; */
+  color: #6da4c5;
+  opacity: 1;
+  padding: 0.5rem;
+  /* background: linear-gradient(-45deg, #29bdf8 0%, #0f48ff 100%); */
+  /* background-clip: text; */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.list .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  background: linear-gradient(-45deg, #074c58 0%, #2ba4c0 100%);
+  color: #e8e8e8;
+  padding: 0.5rem;
+  line-height: 1.5;
+  border-radius: 5px;
+  pointer-events: none;
+  transform: translateX(-99%);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 0.8rem;
+}
+
+.list .content .heading {
+  font-size: 32px;
+  font-weight: 700;
+}
+.list:hover {
+  height: 80px;
+}
+.list:hover .content {
+  transform: translateY(0);
+}
+
+.list:hover .front-content {
+  transform: translateX(-30%);
+}
+
+.list:hover .front-content p {
+  opacity: 0;
+}
+
 .tag {
   width: 1.2rem;
   height: 0.8rem;
   border-radius: 4px;
   margin-right: 0.2rem;
+}
+.left {
+  background: #00000028;
 }
 .row {
   display: flex;
@@ -150,25 +490,114 @@ const xiangmuData = [
 }
 .left,
 .right {
-  margin-top: 30px;
+  margin-top: -20px;
+  background: #00000028;
 }
 .center {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 0.5rem;
+  padding-top: 3rem;
 }
 .box {
-  background-image: url("./../assets/img/boxbg.png");
-  background-size: 100% 100%;
+  /* background-image: url("./../assets/img/boxbg.png"); */
+  /* background-size: 100% 100%; */
   color: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  /* margin-bottom: 1rem; */
 }
-.box .left-box-title,
+.title {
+  min-height: 28px;
+  min-width: 166px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  position: relative;
+  cursor: pointer;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(-12.74%, rgb(8 98 109 / 50%)),
+    color-stop(56.76%, rgba(106, 224, 255, 0.271))
+  );
+  background: linear-gradient(
+    90deg,
+    rgb(10 127 190 / 91%) -12.74%,
+    rgb(1 24 31 / 78%) 56.76%
+  );
+  border: 2px solid #074d90;
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+.row-title {
+  justify-content: space-between;
+  text-align: center;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  bottom: -2px;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #fffcf7;
+}
+
+.title::before {
+  content: "";
+  width: 4px;
+  height: 28px;
+  background: #19173b;
+  border: 2px solid #acf7ff;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 0;
+  bottom: -7px;
+  left: 4px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.box .carousel {
+  /* position: relative; */
+  /* left: 0; */
+  max-width: 300px;
+  animation: carousel 30s linear var(--carousel_direction, normal) infinite;
+}
+
+.box .carousel[data-direction="right"] {
+  --carousel_direction: reverse;
+}
+.box .carousel[data-position="top"] {
+  /* top: 0.75rem; */
+}
+.box .carousel[data-position="bottom"] {
+  bottom: 0.75rem;
+}
+
+.box .carousel .carousel__text {
+  font-size: 0.75rem;
+  /* color: black; */
+  text-wrap: nowrap;
+}
+
+@keyframes carousel {
+  to {
+    transform: translate(-800%);
+  }
+}
+/* .box .left-box-title,
 .right-box-title,
 .center-box-title {
   font-size: 1rem;
-  /* text-align: center; */
   padding: 0.5rem 3rem;
   box-sizing: border-box;
   background-image: url(/src/assets/img/titlebgblue.png);
@@ -177,45 +606,34 @@ const xiangmuData = [
 }
 .center-box-title {
   background-size: 50% 100%;
-}
+} */
 .left-box-content,
 .right-box-content {
   padding: 0.5rem;
   box-sizing: border-box;
 }
-.co2zonglan01 {
-  font-size: 1rem;
-  height: 3rem;
-  padding: 0.5rem 2rem 0.5rem 3.5rem;
-
-  box-sizing: border-box;
-  background-image: url(/src/assets/img/01.png);
-  background-size: 100% 100%;
-  margin-bottom: 0.2rem;
-  display: flex;
-  justify-content: space-between;
+.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.2rem;
 }
-.co2zonglan02 {
-  font-size: 1rem;
-  height: 3rem;
-  padding: 0.5rem 2rem 0.5rem 3.5rem;
-
-  box-sizing: border-box;
-  background-image: url(/src/assets/img/02.png);
-  background-size: 100% 100%;
-  margin-bottom: 0.2rem;
+.co2zonglan {
+  /* width: 50%; */
+  text-align: left;
+  font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
+  margin: 0.5rem 0;
+  /* padding: 0.5rem; */
 }
-.co2zonglan03 {
-  font-size: 1rem;
-  height: 3rem;
-  padding: 0.5rem 2rem 0.5rem 3.5rem;
-  box-sizing: border-box;
-  background-image: url(/src/assets/img/02.png);
-  background-size: 100% 100%;
+.co2num {
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: bold;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .pie {
   width: 100px;
@@ -239,117 +657,110 @@ const xiangmuData = [
   font-size: 0.8rem;
   text-align: center;
 }
-.table-container {
-  max-height: 100px;
-  overflow: hidden;
-  position: relative;
+.top {
+  display: flex;
+  justify-content: space-around;
+  background-color: #00000078;
+  padding: 0.5rem;
+  font-size: 0.6rem;
 }
-
-.table-wrapper {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
+.top > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-thead,
-tbody {
-  display: block;
-}
-
-thead {
-  width: 100%;
-}
-
-tbody {
-  width: 100%;
-  display: block;
-  overflow: hidden;
-}
-
-tbody tr {
-  display: table;
-  width: 100%;
-  /* table-layout: fixed; */
-}
-
-th,
-td {
-  padding: 2px;
-  text-align: left;
-  border: 1px solid #ddd; /* 根据需要调整 */
-  text-align: center;
-}
-th {
+.topnum {
+  font-size: 0.8rem;
   color: #fff;
-  border: none;
-  font-size: 0.7rem;
 }
-td {
-  color: #abe8f0;
-  border: none;
+.top > div > svg {
+  margin-right: 0.5rem;
+}
+/* From Uiverse.io by Yaya12085 */
+.p-card {
+  padding: 1rem;
+  background-color: #00000078;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* max-width: 320px; */
+  /* border-radius: 4px; */
+  width: 47%;
+}
+
+.p-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.8rem;
 }
-thead tr {
-  position: sticky;
-  top: 0;
-  background-color: #16449c;
-  z-index: 10;
-  width: 100%;
-  display: table;
+
+.p-title span {
+  position: relative;
+  padding: 0.5rem;
+  background-color: #10b981;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
 }
 
-tr th:first-child,
-tr td:first-child {
-  width: 75%;
+.p-title span svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  height: 1rem;
+  transform: rotateX(180deg);
 }
-tr th:nth-child(2),
-tr td:nth-child(2) {
-  width: 25%;
+
+.title-text {
+  /* margin-left: 0.5rem; */
+  color: #6da4c5;
+  font-size: 0.6rem;
 }
-.ebox {
-  text-align: center;
-  color: #ddd;
-  margin-bottom: 1rem;
+.arrow {
+  width: 0.5rem;
+  height: 1rem;
+  margin: 2px 0.5rem 0;
 }
-.ebg {
-  background-image: url(/src/assets/img/ebg.png);
-  background-size: 100% 100%;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 1rem;
-  /* margin-top: 0.5rem; */
-  height: 6rem;
-  color: #fff;
-  font-weight: bold;
+.percent {
+  margin-left: 0.5rem;
+  color: #02972f;
+  font-weight: 600;
+  display: flex;
+  font-size: 0.8rem;
 }
-.flex-y {
+
+.data {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-.zonghe-box {
-  align-items: center;
-  height: 120px;
-  color: #13e3ff;
-  background: #092cbf36;
-  padding: 0 1rem 1rem;
-  margin: 10px;
-  box-sizing: content-box;
-  backdrop-filter: blur(15px);
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
-    inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164);
-}
-.zonghe-box b {
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  text-shadow: 0 0 2px #13e3ff, 0 0 30px #37e7ff;
-}
-.zonghe-box div {
-  color: #abe8f0;
+
+.data p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
   font-size: 1rem;
-  word-break: keep-all;
+  line-height: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.data .range {
+  position: relative;
+  background-color: #e5e7eb;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.data .range .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #10b981;
+  width: 76%;
+  height: 100%;
+  border-radius: 0.25rem;
 }
 </style>
