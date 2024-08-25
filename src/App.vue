@@ -88,18 +88,19 @@ function changePath(data) {
       </div>
       <div
         class="guide-button"
-        :class="{ active: path == '/wasiguankong' }"
-        @click="changePath('/wasiguankong')"
-      >
-        瓦斯管控
-      </div>
-      <div
-        class="guide-button"
         :class="{ active: path == '/nenghaoshuangkong' }"
         @click="changePath('/nenghaoshuangkong')"
       >
         能耗双控
       </div>
+      <div
+        class="guide-button"
+        :class="{ active: path == '/wasiguankong' }"
+        @click="changePath('/wasiguankong')"
+      >
+        瓦斯管控
+      </div>
+
       <div
         class="guide-button"
         :class="{ active: path == '/huanjingbaohu' }"
