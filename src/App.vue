@@ -32,7 +32,7 @@ function changePath(data) {
         >Widget weather</a
       >
     </div>
-    <div class="title">
+    <div class="page-title">
       能碳●环保协同管理平台
       <!--下拉选择年份-->
       <select
@@ -119,6 +119,16 @@ function changePath(data) {
 
   <RouterView :key="$route.fullPath" />
 </template>
+<style>
+body {
+    font-family: 'Orbitron', sans-serif; /* 默认使用Orbitron */
+}
+
+/* 中文字体覆盖 */
+body {
+    font-family: 'YousheBiaotiHei', 'Orbitron', sans-serif;
+}
+</style>
 
 <style scoped>
 header {
@@ -159,7 +169,7 @@ header {
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 80px;
+  top: 85px;
   width: 100vw;
   left: 0;
 }
@@ -174,14 +184,15 @@ header {
   justify-content: space-around;
 } */
 .guide-button {
+  font-family: 'YousheBiaotiHei', sans-serif;
   padding: 0.5rem 1.5rem;
   background-image: url("./assets/img/buttonbg.png");
   background-size: 100% 100%;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .guide-button.active {
   background-image: url("./assets/img/buttonbgactive.png");
@@ -196,5 +207,27 @@ main {
 option {
   background: #000;
   color: #fff;
+}
+.page-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: YousheBiaotiHei, sans-serif;
+  text-align: center;
+  color: linear-gradient(rgb(238, 241, 242), rgb(143, 150, 151));
+  height: 35px;
+  position: relative;
+  width: 100%;
+  font-size: 2.5rem;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    #eef1f2,
+    #8f9697,
+    #eef1f2
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 </style>

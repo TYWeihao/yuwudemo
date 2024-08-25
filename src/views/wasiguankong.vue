@@ -142,7 +142,7 @@ const tab = ref(1);
 .center-box-title {
   font-size: 1rem;
   /* text-align: center; */
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 5rem;
   box-sizing: border-box;
   background-image: url(/src/assets/img/titlebgblue.png);
   background-size: 100% 100%;

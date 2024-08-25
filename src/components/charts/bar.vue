@@ -15,6 +15,7 @@ const obj = {
   title: {
     textStyle: {
       color: "#666666",
+      fontFamily: 'YousheBiaotiHei'
     },
     subtextStyle: {
       color: "#999999",
@@ -368,130 +369,135 @@ onMounted(() => {
   // let value = 0.5;
   // let data = [value, value, value];
   let option = {
-    title: {
-      text: "月度能源消耗情况",
-      textStyle: {
+  title: {
+    text: "月度能源消耗情况",
+    textStyle: {
+      color: "#fff",
+    },
+  },
+  tooltip: {
+    trigger: "axis",
+    axisPointer: {
+      type: "shadow",
+    },
+  },
+  legend: {
+    top: "bottom",
+    textStyle: {
+      color: "#fff",
+    },
+  },
+  grid: {
+    left: "1%",
+    right: "0%",
+    bottom: "13%",
+    top: "20%",
+    containLabel: true,
+  },
+  xAxis: {
+    type: "value",
+    splitLine: {
+      show: false,
+    },
+    axisLabel: {
+      show: false,
+    },
+    axisTick: {
+      show: false,
+    },
+    axisLine: {
+      show: false,
+    },
+  },
+  yAxis: {
+    type: "category",
+    data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月"],
+    splitLine: {
+      show: false,
+    },
+    axisLine: {
+      show: false,
+    },
+  },
+  series: [
+    {
+      name: "柴油",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        fontSize: 10,
         color: "#fff",
+        fontFamily: 'YousheBiaotiHei', // 使用指定字体
       },
-    },
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        // Use axis to trigger tooltip
-        type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
+      emphasis: {
+        focus: "series",
       },
+      data: [320, 302, 301, 334, 390, 330, 320],
     },
-    legend: {
-      top: "bottom",
-      textStyle: {
+    {
+      name: "汽油",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        fontSize: 10,
         color: "#fff",
+        fontFamily: 'YousheBiaotiHei', // 使用指定字体
       },
+      emphasis: {
+        focus: "series",
+      },
+      data: [120, 132, 101, 134, 90, 230, 210],
     },
-    grid: {
-      left: "1%",
-      right: "0%",
-      bottom: "13%",
-      top: "20%",
-      containLabel: true,
+    {
+      name: "天然气",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        fontSize: 10,
+        color: "#fff",
+        fontFamily: 'YousheBiaotiHei', // 使用指定字体
+      },
+      emphasis: {
+        focus: "series",
+      },
+      data: [220, 182, 191, 234, 290, 330, 310],
     },
-    xAxis: {
-      type: "value",
-      splitLine: {
-        show: false,
+    {
+      name: "热力",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        fontSize: 10,
+        color: "#fff",
+        fontFamily: 'YousheBiaotiHei', // 使用指定字体
       },
-      axisLabel: {
-        show: false,
+      emphasis: {
+        focus: "series",
       },
-      axisTick: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
-      },
+      data: [150, 212, 201, 154, 190, 330, 410],
     },
-    yAxis: {
-      type: "category",
-      data: ["1月", "2月", "3月", "4月", "5月", "6月", "7月"],
-      splitLine: {
-        show: false,
+    {
+      name: "电力",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        fontSize: 10,
+        color: "#fff",
+        fontFamily: 'YousheBiaotiHei', // 使用指定字体
       },
-      axisLine: {
-        show: false,
+      emphasis: {
+        focus: "series",
       },
+      data: [820, 832, 901, 934, 1290, 1230, 1220],
     },
-    series: [
-      {
-        name: "柴油",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [320, 302, 301, 334, 390, 330, 320],
-      },
-      {
-        name: "汽油",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [120, 132, 101, 134, 90, 230, 210],
-      },
-      {
-        name: "天然气",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [220, 182, 191, 234, 290, 330, 310],
-      },
-      {
-        name: "热力",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [150, 212, 201, 154, 190, 330, 410],
-      },
-      {
-        name: "电力",
-        type: "bar",
-        stack: "total",
-        label: {
-          show: true,
-          fontSize: 10,
-          color: "#fff",
-        },
-        emphasis: {
-          focus: "series",
-        },
-        data: [820, 832, 901, 934, 1290, 1230, 1220],
-      },
-    ],
-  };
+  ],
+};
+
   useEcharts(myChart, option);
 });
 </script>
