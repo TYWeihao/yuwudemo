@@ -26,7 +26,7 @@ function changePath(data) {
       id="ww_b4181c860728b"
       v="1.3"
       loc="id"
-      a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffff","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
+      a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffffb3fffb3","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
     >
       <a href="https://weatherwidget.org/" id="ww_b4181c860728b_u" target="_blank"
         >Widget weather</a
@@ -39,7 +39,7 @@ function changePath(data) {
         style="
           margin-left: 1rem;
           padding: 0.1rem 0.5rem;
-          color: #fff;
+          color: #ffffffb3;
           font-weight: bold;
           background: none;
           border: none;
@@ -120,16 +120,7 @@ function changePath(data) {
 
   <RouterView :key="$route.fullPath" />
 </template>
-<style>
-body {
-    font-family: 'Orbitron', sans-serif; /* 默认使用Orbitron */
-}
-
-/* 中文字体覆盖 */
-body {
-    font-family: 'YousheBiaotiHei', 'Orbitron', sans-serif;
-}
-</style>
+<style></style>
 
 <style scoped>
 header {
@@ -143,7 +134,7 @@ header {
 .time {
   font-family: "segment";
   font-size: 1rem;
-  color: #fff;
+  color: #ffffffb3;
   margin-top: 3px;
   display: flex;
 }
@@ -185,14 +176,14 @@ header {
   justify-content: space-around;
 } */
 .guide-button {
-  font-family: 'YousheBiaotiHei', sans-serif;
+  font-family: "YousheBiaotiHei", sans-serif;
   padding: 0.5rem 1.5rem;
   background-image: url("./assets/img/buttonbg.png");
   background-size: 100% 100%;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  color: #fff;
+  color: #ffffffb3;
   font-size: 1rem;
 }
 .guide-button.active {
@@ -207,9 +198,9 @@ main {
 }
 option {
   background: #000;
-  color: #fff;
+  color: #ffffffb3;
 }
-.page-title{
+.page-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,12 +212,7 @@ option {
   width: 100%;
   font-size: 2.5rem;
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    #eef1f2,
-    #8f9697,
-    #eef1f2
-  );
+  background: linear-gradient(to bottom, #eef1f2, #8f9697, #eef1f2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;

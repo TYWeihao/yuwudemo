@@ -28,14 +28,14 @@ onMounted(() => {
   }
   let option = {
     textStyle: {
-      color: "#fff",
+      color: "#ffffffb3",
       fontSize: 14,
     },
     legend: {
       top: "bottom",
       data: ["原煤", "精煤"],
       textStyle: {
-        color: "#fff",
+        color: "#ffffffb3",
         fontSize: 14,
       },
     },

@@ -9,8 +9,15 @@ import * as echarts from "echarts";
 
 const echartsRef = ref();
 const obj = {
-  color: ["#27e2f985", "#27b0e885", "#5394ef", "#246bd3", "#0b5abe", "#11318d"],
-  backgroundColor: "rgba(252,252,252,0)",
+  color: [
+    "rgba(208,100,138,0.68)",
+    "rgba(245,141,178,0.66)",
+    "rgba(242,179,201,0.67)",
+    "rgba(78,163,151,0.67)",
+    "rgba(34,195,170,0.64)",
+    "rgba(123,217,165,0.63)",
+  ],
+  backgroundColor: "rgba(255,255,255,0)",
   textStyle: {},
   title: {
     textStyle: {
@@ -92,11 +99,11 @@ const obj = {
   },
   candlestick: {
     itemStyle: {
-      color: "#e6a0d2",
+      color: "#d0648a",
       color0: "transparent",
-      borderColor: "#e6a0d2",
-      borderColor0: "#3fb1e3",
-      borderWidth: "2",
+      borderColor: "#d0648a",
+      borderColor0: "#22c3aa",
+      borderWidth: "1",
     },
   },
   graph: {
@@ -111,7 +118,14 @@ const obj = {
     symbolSize: "8",
     symbol: "emptyCircle",
     smooth: false,
-    color: ["#27e2f9", "#27b0e8", "#5394ef", "#246bd3", "#0b5abe", "#11318d"],
+    color: [
+      "rgba(78,163,151,0.67)",
+      "rgba(34,195,170,0.64)",
+      "rgba(123,217,165,0.63)",
+      "rgba(208,100,138,0.68)",
+      "rgba(245,141,178,0.66)",
+      "rgba(242,179,201,0.67)",
+    ],
     label: {
       color: "#ffffffb3fffb3",
     },
@@ -119,40 +133,40 @@ const obj = {
   map: {
     itemStyle: {
       areaColor: "#eeeeee",
-      borderColor: "#aaaaaa",
+      borderColor: "#999999",
       borderWidth: 0.5,
     },
     label: {
-      color: "#ffffffb3fffb3",
+      color: "#28544e",
     },
     emphasis: {
       itemStyle: {
-        areaColor: "rgba(63,177,227,0.25)",
-        borderColor: "#3fb1e3",
+        areaColor: "rgba(34,195,170,0.25)",
+        borderColor: "#22c3aa",
         borderWidth: 1,
       },
       label: {
-        color: "#3fb1e3",
+        color: "#349e8e",
       },
     },
   },
   geo: {
     itemStyle: {
       areaColor: "#eeeeee",
-      borderColor: "#aaaaaa",
+      borderColor: "#999999",
       borderWidth: 0.5,
     },
     label: {
-      color: "#ffffffb3fffb3",
+      color: "#28544e",
     },
     emphasis: {
       itemStyle: {
-        areaColor: "rgba(63,177,227,0.25)",
-        borderColor: "#3fb1e3",
+        areaColor: "rgba(34,195,170,0.25)",
+        borderColor: "#22c3aa",
         borderWidth: 1,
       },
       label: {
-        color: "#3fb1e3",
+        color: "#349e8e",
       },
     },
   },
@@ -305,41 +319,41 @@ const obj = {
   },
   timeline: {
     lineStyle: {
-      color: "#626c91",
+      color: "#4ea397",
       width: 1,
     },
     itemStyle: {
-      color: "#626c91",
+      color: "#4ea397",
       borderWidth: 1,
     },
     controlStyle: {
-      color: "#626c91",
-      borderColor: "#626c91",
+      color: "#4ea397",
+      borderColor: "#4ea397",
       borderWidth: 0.5,
     },
     checkpointStyle: {
-      color: "#3fb1e3",
-      borderColor: "#3fb1e3",
+      color: "#4ea397",
+      borderColor: "#3cebd2",
     },
     label: {
-      color: "#626c91",
+      color: "#4ea397",
     },
     emphasis: {
       itemStyle: {
-        color: "#626c91",
+        color: "#4ea397",
       },
       controlStyle: {
-        color: "#626c91",
-        borderColor: "#626c91",
+        color: "#4ea397",
+        borderColor: "#4ea397",
         borderWidth: 0.5,
       },
       label: {
-        color: "#626c91",
+        color: "#4ea397",
       },
     },
   },
   visualMap: {
-    color: ["#2a99c9", "#afe8ff"],
+    color: ["#d0648a", "#22c3aa", "#adfff1"],
   },
   dataZoom: {
     backgroundColor: "rgba(255,255,255,0)",
@@ -362,144 +376,173 @@ const obj = {
     },
   },
 };
-echarts.registerTheme("walden", obj);
 
+echarts.registerTheme("walden3", obj);
 onMounted(() => {
-  let myChart = echarts.init(echartsRef.value, "walden");
+  let myChart = echarts.init(echartsRef.value, "walden3");
   // let value = 0.5;
   // let data = [value, value, value];
   let option = {
+    title: {
+      // text: "月度能源消耗情况",
+      textStyle: {
+        color: "#ffffffb3",
+      },
+    },
     tooltip: {
       trigger: "axis",
       axisPointer: {
-        type: "cross",
-        crossStyle: {
-          color: "#999",
-        },
+        type: "shadow",
+      },
+    },
+    legend: {
+      top: "bottom",
+      textStyle: {
+        color: "#ffffffb3",
       },
     },
     grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "15%",
-      top: "0",
+      left: "1%",
+      right: "0%",
+      bottom: "13%",
+      top: "2%",
       containLabel: true,
     },
-    textStyle: {
-      color: "#ffffffb3",
+    xAxis: {
+      type: "value",
+      splitLine: {
+        show: false,
+      },
+      axisLabel: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLine: {
+        show: false,
+      },
     },
-    legend: {
-      data: ["原煤产量", "碳排放强度", "碳排放强度较2020年下降率"],
-      textStyle: {
-        color: "#ffffffb3",
-        fontSize: 10,
+    yAxis: {
+      type: "category",
+      data: [
+        "瓦斯抽采系统",
+        "办公及生活系统",
+        "通讯系统",
+        "监测监控系统",
+        "压风系统",
+        "排水系统",
+        "机电（供电）系统",
+        "通风系统",
+        "运输系统",
+        "采掘生产部署系统",
+      ],
+      splitLine: {
+        show: false,
       },
-      top: "bottom",
+      axisLabel: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLine: {
+        show: false,
+      },
     },
-    xAxis: [
-      {
-        type: "category",
-        data: ["1月", "2月", "3月", "4月", "5月", "6月"],
-        axisPointer: {
-          type: "shadow",
-        },
-        splitLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-      },
-    ],
-    yAxis: [
-      {
-        type: "value",
-        min: 0,
-        max: 70,
-        interval: 50,
-        axisLabel: {
-          formatter: "{value} 吨",
-        },
-        splitLine: {
-          show: false,
-        },
-        axisLabel: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-      },
-      {
-        type: "value",
-        min: 0,
-        max: 50,
-        interval: 5,
-        axisLabel: {
-          formatter: "{value} %",
-        },
-        splitLine: {
-          show: false,
-        },
-        axisLabel: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-      },
-    ],
     series: [
       {
-        name: "原煤产量",
+        name: "柴油",
         type: "bar",
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " 吨";
+        stack: "total",
+        // label: {
+        //   show: true,
+        //   fontSize: 10,
+        //   color: "#ffffffb3",
+        //   fontFamily: "YousheBiaotiHei", // 使用指定字体
+        // },
+        label: {
+          show: true,
+          position: [0, "130%"],
+          textStyle: {
+            color: "#9ff",
+          },
+          formatter: function (params) {
+            return params.name;
           },
         },
-        itemStyle: {
-          borderRadius: 5,
+        emphasis: {
+          focus: "series",
         },
-        barWidth: 10,
-        data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+        data: [120, 102, 101, 134, 190, 130, 120, 334, 390, 330],
       },
       {
-        name: "碳排放强度",
+        name: "汽油",
         type: "bar",
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " 吨";
-          },
+        stack: "total",
+        // label: {
+        //   show: true,
+        //   fontSize: 10,
+        //   color: "#ffffffb3",
+        //   fontFamily: "YousheBiaotiHei", // 使用指定字体
+        // },
+        emphasis: {
+          focus: "series",
         },
-        itemStyle: {
-          borderRadius: 5,
-        },
-        barWidth: 10,
-        data: [29.8, 26.5, 19.2, 18.9, 15.6, 13.3, 11.0, 6.7, 5.4, 4.1, 2.8, 1.5],
+        data: [120, 132, 101, 134, 90, 230, 210, 134, 90, 230],
       },
       {
-        name: "碳排放强度较2020年下降率",
-        type: "line",
-        yAxisIndex: 1,
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " %";
-          },
+        name: "天然气",
+        type: "bar",
+        stack: "total",
+        // label: {
+        //   show: true,
+        //   fontSize: 10,
+        //   color: "#ffffffb3",
+        //   fontFamily: "YousheBiaotiHei", // 使用指定字体
+        // },
+        emphasis: {
+          focus: "series",
         },
-        data: [2.0, 3.5, 5.0, 7.2, 9.8, 12.5, 15.4, 18.6, 22.0, 25.7, 29.7, 34.0],
+        data: [220, 182, 191, 234, 190, 130, 110, 234, 290, 330],
+      },
+      {
+        name: "热力",
+        type: "bar",
+        stack: "total",
+        // label: {
+        //   show: true,
+        //   fontSize: 10,
+        //   color: "#ffffffb3",
+        //   fontFamily: "YousheBiaotiHei", // 使用指定字体
+        // },
+        emphasis: {
+          focus: "series",
+        },
+        data: [150, 212, 201, 154, 190, 330, 410, 154, 190, 330],
+      },
+      {
+        name: "电力",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+          fontSize: 10,
+          color: "#ffffffb3",
+          fontFamily: "YousheBiaotiHei", // 使用指定字体
+        },
+        emphasis: {
+          focus: "series",
+        },
+        itemStyle: {
+          borderRadius: [0, 5, 5, 0],
+        },
+        barWidth: 15,
+        data: [820, 832, 901, 934, 1090, 1030, 1020, 934, 1290, 1230],
       },
     ],
   };
+
   useEcharts(myChart, option);
 });
 </script>

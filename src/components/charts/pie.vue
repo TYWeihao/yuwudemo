@@ -8,7 +8,7 @@ import { useEcharts } from "@/hooks/useEcharts";
 import * as echarts from "echarts";
 const echartsRef = ref();
 const obj = {
-  color: ["#3fb1e3", "#6be6c1", "#626c91", "#a0a7e6", "#c4ebad", "#96dee8"],
+  color: ["#0d2fbe", "#1aa7ec", "#466afb", "#64bad0", "#1a2d84", "#1e7bcb"],
   backgroundColor: "rgba(252,252,252,0)",
   textStyle: {},
   title: {
@@ -110,9 +110,9 @@ const obj = {
     symbolSize: "8",
     symbol: "emptyCircle",
     smooth: false,
-    color: ["#3fb1e3", "#6be6c1", "#626c91", "#a0a7e6", "#c4ebad", "#96dee8"],
+    color: ["#0d2fbe", "#1aa7ec", "#466afb", "#64bad0", "#1a2d84", "#1e7bcb"],
     label: {
-      color: "#ffffff",
+      color: "#ffffffb3fffb3",
     },
   },
   map: {
@@ -122,7 +122,7 @@ const obj = {
       borderWidth: 0.5,
     },
     label: {
-      color: "#ffffff",
+      color: "#ffffffb3fffb3",
     },
     emphasis: {
       itemStyle: {
@@ -142,7 +142,7 @@ const obj = {
       borderWidth: 0.5,
     },
     label: {
-      color: "#ffffff",
+      color: "#ffffffb3fffb3",
     },
     emphasis: {
       itemStyle: {
@@ -352,11 +352,11 @@ const obj = {
   },
   markPoint: {
     label: {
-      color: "#ffffff",
+      color: "#ffffffb3fffb3",
     },
     emphasis: {
       label: {
-        color: "#ffffff",
+        color: "#ffffffb3fffb3",
       },
     },
   },

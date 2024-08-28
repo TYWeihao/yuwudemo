@@ -30,12 +30,12 @@ onMounted(() => {
       containLabel: true,
     },
     textStyle: {
-      color: "#fff",
+      color: "#ffffffb3",
     },
     legend: {
       data: ["原煤产量", "吨原煤二氧化碳排放量", "吨原煤二氧化碳排放较2020年下降率"],
       textStyle: {
-        color: "#fff",
+        color: "#ffffffb3",
         fontSize: 14,
       },
     },

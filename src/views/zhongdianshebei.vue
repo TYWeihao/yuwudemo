@@ -161,7 +161,7 @@ const xiangmuData = [
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #fff;
+  color: #ffffffb3;
   margin-bottom: 20px;
 }
 .device-name {

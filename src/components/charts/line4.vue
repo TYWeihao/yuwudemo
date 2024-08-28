@@ -9,7 +9,7 @@ import * as echarts from "echarts";
 
 const echartsRef = ref();
 const obj = {
-  color: ["#27e2f985", "#27b0e885", "#5394ef", "#246bd3", "#0b5abe", "#11318d"],
+  color: ["#0d2fbe", "#1aa7ec", "#466afb", "#64bad0", "#1a2d84", "#1e7bcb"],
   backgroundColor: "rgba(252,252,252,0)",
   textStyle: {},
   title: {
@@ -25,10 +25,10 @@ const obj = {
       borderWidth: "2",
     },
     lineStyle: {
-      width: "3",
+      width: "2",
     },
-    symbolSize: "8",
-    symbol: "emptyCircle",
+    symbolSize: "0",
+    // symbol: "emptyCircle",
     smooth: false,
   },
   radar: {
@@ -369,134 +369,161 @@ onMounted(() => {
   // let value = 0.5;
   // let data = [value, value, value];
   let option = {
+    textStyle: {
+      color: "#ffffffb3",
+    },
     tooltip: {
       trigger: "axis",
       axisPointer: {
         type: "cross",
-        crossStyle: {
-          color: "#999",
-        },
       },
     },
     grid: {
       left: "3%",
       right: "4%",
-      bottom: "15%",
-      top: "0",
+      bottom: "3%",
       containLabel: true,
     },
-    textStyle: {
-      color: "#ffffffb3",
-    },
     legend: {
-      data: ["原煤产量", "碳排放强度", "碳排放强度较2020年下降率"],
+      data: ["电力", "热力"],
       textStyle: {
         color: "#ffffffb3",
-        fontSize: 10,
       },
-      top: "bottom",
     },
-    xAxis: [
-      {
-        type: "category",
-        data: ["1月", "2月", "3月", "4月", "5月", "6月"],
-        axisPointer: {
-          type: "shadow",
-        },
-        splitLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+      splitLine: {
+        show: false,
       },
-    ],
-    yAxis: [
-      {
-        type: "value",
-        min: 0,
-        max: 70,
-        interval: 50,
-        axisLabel: {
-          formatter: "{value} 吨",
-        },
-        splitLine: {
-          show: false,
-        },
-        axisLabel: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
+      // prettier-ignore
+      data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45'],
+    },
+    yAxis: {
+      type: "value",
+      axisLabel: {
+        formatter: "{value} W",
       },
-      {
-        type: "value",
-        min: 0,
-        max: 50,
-        interval: 5,
-        axisLabel: {
-          formatter: "{value} %",
-        },
-        splitLine: {
-          show: false,
-        },
-        axisLabel: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
+      splitLine: {
+        show: false,
       },
-    ],
+      axisLabel: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLine: {
+        show: false,
+      },
+    },
+    // visualMap: {
+    //   show: false,
+    //   dimension: 0,
+    //   pieces: [
+    //     {
+    //       lte: 6,
+    //       color: "green",
+    //     },
+    //     {
+    //       gt: 6,
+    //       lte: 8,
+    //       color: "red",
+    //     },
+    //     {
+    //       gt: 8,
+    //       lte: 14,
+    //       color: "green",
+    //     },
+    //     {
+    //       gt: 14,
+    //       lte: 17,
+    //       color: "red",
+    //     },
+    //     {
+    //       gt: 17,
+    //       color: "green",
+    //     },
+    //   ],
+    // },
     series: [
       {
-        name: "原煤产量",
-        type: "bar",
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " 吨";
-          },
-        },
-        itemStyle: {
-          borderRadius: 5,
-        },
-        barWidth: 10,
-        data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
-      },
-      {
-        name: "碳排放强度",
-        type: "bar",
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " 吨";
-          },
-        },
-        itemStyle: {
-          borderRadius: 5,
-        },
-        barWidth: 10,
-        data: [29.8, 26.5, 19.2, 18.9, 15.6, 13.3, 11.0, 6.7, 5.4, 4.1, 2.8, 1.5],
-      },
-      {
-        name: "碳排放强度较2020年下降率",
+        name: "电力",
         type: "line",
-        yAxisIndex: 1,
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " %";
-          },
+        smooth: true,
+        lineStyle: {
+          width: 0,
         },
-        data: [2.0, 3.5, 5.0, 7.2, 9.8, 12.5, 15.4, 18.6, 22.0, 25.7, 29.7, 34.0],
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: "rgb(55, 162, 255)",
+            },
+            {
+              offset: 1,
+              color: "rgb(116, 21, 219)",
+            },
+          ]),
+        },
+
+        // prettier-ignore
+        data: [300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
+        markArea: {
+          label: {
+            color: "#6da4c5",
+          },
+          itemStyle: {
+            color: "#6da4c544",
+          },
+          data: [
+            [
+              {
+                name: "高耗能",
+                xAxis: "07:30",
+              },
+              {
+                xAxis: "10:00",
+              },
+            ],
+            [
+              {
+                name: "高耗能",
+                xAxis: "17:30",
+              },
+              {
+                xAxis: "21:15",
+              },
+            ],
+          ],
+        },
+      },
+      {
+        name: "热力",
+        type: "line",
+        smooth: true,
+        lineStyle: {
+          width: 0,
+        },
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.8,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: "rgb(0, 221, 255)",
+            },
+            {
+              offset: 1,
+              color: "rgb(77, 119, 255)",
+            },
+          ]),
+        },
+
+        // prettier-ignore
+        data: [100, 120, 150, 160, 170, 300, 210,190, 200, 190, 180, 190, 200, 230, 250, 300, 320, 240, 245, 210],
       },
     ],
   };

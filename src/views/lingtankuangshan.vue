@@ -545,7 +545,7 @@ const xiangmuData = [
 }
 .co2num {
   font-size: 0.8rem;
-  color: #fff;
+  color: #ffffffb3;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -587,7 +587,7 @@ const xiangmuData = [
 }
 .topnum {
   font-size: 0.8rem;
-  color: #fff;
+  color: #ffffffb3;
 }
 .top > div > svg {
   margin-right: 0.5rem;
@@ -623,7 +623,7 @@ const xiangmuData = [
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #ffffff;
+  color: #ffffffb3fffb3;
   height: 1rem;
   transform: rotateX(180deg);
 }
@@ -655,7 +655,7 @@ const xiangmuData = [
 .data p {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: #ffffffb3fffb3;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 700;

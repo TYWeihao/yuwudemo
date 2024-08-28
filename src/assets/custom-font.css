@@ -18,7 +18,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+/* 
 .title {
     font-family: 'YousheBiaotiHei', sans-serif;
     min-height: 28px;
@@ -30,22 +30,22 @@
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: start;
-    justify-content: flex-start;
+    justify-content: space-around;
     position: relative;
     cursor: pointer;
     background: -webkit-gradient(linear,
         left top,
         right top,
-        color-stop(0%, rgba(10, 127, 190, 0.91)), /* 保留浅蓝色 */
-        color-stop(100%, rgba(10, 127, 190, 0))); /* 渐变到透明 */
+        color-stop(0%, rgba(10, 127, 190, 0.91)), 
+        color-stop(100%, rgba(10, 127, 190, 0))); 
     background: linear-gradient(90deg,
-        rgba(10, 127, 190, 0.91) 0%, /* 保留浅蓝色 */
-        rgba(10, 127, 190, 0) 100%); /* 渐变到透明 */
-    border-bottom: 2px solid #074d90; /* 只保留底部边框 */
-    color: #ffffff;
+        rgba(10, 127, 190, 0.91) 0%, 
+        rgba(10, 127, 190, 0) 100%);
+    border-bottom: 2px solid #074d90;
+    color: #ffffffb3fffb3;
     font-size: 1.2rem;
-    padding-left: 15px; /* 增加左侧内边距，让内容不紧贴边框 */
-}
+    padding-left: 15px;
+} */
 
 .semi{
     font-family: 'SemiBold', sans-serif;

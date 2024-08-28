@@ -14,7 +14,7 @@ onMounted(() => {
   // let data = [value, value, value];
   let option = {
     textStyle: {
-      color: "#fff",
+      color: "#ffffffb3",
     },
     tooltip: {
       trigger: "axis",

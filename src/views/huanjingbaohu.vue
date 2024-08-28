@@ -207,7 +207,7 @@ const xiangmuData = [
 .box {
   background-image: url("./../assets/img/boxbg.png");
   background-size: 100% 100%;
-  color: #fff;
+  color: #ffffffb3;
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -330,7 +330,7 @@ td {
   text-align: center;
 }
 th {
-  color: #fff;
+  color: #ffffffb3;
   border: none;
   font-size: 0.7rem;
 }
@@ -387,7 +387,7 @@ tr td:nth-child(4) {
   font-size: 1rem;
   /* margin-top: 0.5rem; */
   height: 6rem;
-  color: #fff;
+  color: #ffffffb3;
   font-weight: bold;
 }
 .flex-y {

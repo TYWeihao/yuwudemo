@@ -13,7 +13,7 @@ onMounted(() => {
 
   let option = {
     textStyle: {
-      color: "#fff",
+      color: "#ffffffb3",
       fontSize: 14,
     },
     tooltip: {
@@ -30,7 +30,7 @@ onMounted(() => {
       type: "scroll",
       bottom: 0,
       textStyle: {
-        color: "#fff",
+        color: "#ffffffb3",
         fontSize: 14,
       },
       data: (function () {

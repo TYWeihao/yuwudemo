@@ -13,12 +13,12 @@ onMounted(() => {
 
   let option = {
     textStyle: {
-      color: "#fff",
+      color: "#ffffffb3",
     },
     legend: {
       top: "bottom",
       textStyle: {
-        color: "#fff",
+        color: "#ffffffb3",
       },
     },
 
