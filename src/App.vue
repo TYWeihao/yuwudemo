@@ -22,15 +22,33 @@ function changePath(data) {
 <template>
   <header>
     <div
-      style="scale: 0.6; position: fixed; right: -100px; top: 0; z-index: 9999"
-      id="ww_b4181c860728b"
-      v="1.3"
-      loc="id"
-      a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffff","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
+      style="
+        scale: 0.6;
+        position: absolute;
+        right: -58px;
+        top: 0px;
+        z-index: 9999;
+        display: flex;
+        width: 560px;
+        align-items: center;
+        justify-content: space-between;
+      "
     >
-      <a href="https://weatherwidget.org/" id="ww_b4181c860728b_u" target="_blank"
-        >Widget weather</a
+      <div
+        id="ww_b4181c860728b"
+        v="1.3"
+        loc="id"
+        a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffff","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
       >
+        <a href="https://weatherwidget.org/" id="ww_b4181c860728b_u" target="_blank"
+          >Widget weather</a
+        >
+      </div>
+      <img
+        src="./assets/img/logo2.png"
+        alt=""
+        style="width: 140px; height: 70%; cursor: pointer"
+      />
     </div>
     <div class="page-title">
       能碳●环保协同管理平台
@@ -122,12 +140,12 @@ function changePath(data) {
 </template>
 <style>
 body {
-    font-family: 'Orbitron', sans-serif; /* 默认使用Orbitron */
+  font-family: "Orbitron", sans-serif; /* 默认使用Orbitron */
 }
 
 /* 中文字体覆盖 */
 body {
-    font-family: 'YousheBiaotiHei', 'Orbitron', sans-serif;
+  font-family: "YousheBiaotiHei", "Orbitron", sans-serif;
 }
 </style>
 
@@ -185,7 +203,7 @@ header {
   justify-content: space-around;
 } */
 .guide-button {
-  font-family: 'YousheBiaotiHei', sans-serif;
+  font-family: "YousheBiaotiHei", sans-serif;
   padding: 0.5rem 1.5rem;
   background-image: url("./assets/img/buttonbg.png");
   background-size: 100% 100%;
@@ -209,7 +227,7 @@ option {
   background: #000;
   color: #fff;
 }
-.page-title{
+.page-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,12 +239,7 @@ option {
   width: 100%;
   font-size: 2.5rem;
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    #eef1f2,
-    #8f9697,
-    #eef1f2
-  );
+  background: linear-gradient(to bottom, #eef1f2, #8f9697, #eef1f2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
