@@ -20,8 +20,8 @@ window.init = () => {
       map.value.centerAndZoom(new window.BMapGL.Point(112.406499, 37.502849), 8);
       map.value.enableScrollWheelZoom(false);
       //调整地图角度
-      map.value.setTilt(15);
-      map.value.setHeading(5);
+      map.value.setTilt(25);
+      map.value.setHeading(10);
       map.value.setZoom(7.5);
       map.value.setMapStyleV2({
         styleId: "7edc9f0146d3be6bcd67404be50c1d43",
@@ -39,17 +39,34 @@ function getBoundary() {
   const bdary = new window.BMapGL.Boundary();
   bdary.get("山西省", function (rs) {
     const count = rs.boundaries.length;
+    // for (let i = 0; i < count; i++) {
+    //   const ply = new window.BMapGL.Polygon(rs.boundaries[i], {
+    //     strokeWeight: 2,
+    //     strokeColor: "#7ba2c5",
+    //     fillOpacity: 0.2,
+    //     fillColor: "#96fafa",
+    //   });
+    //   map.value.addOverlay(ply);
+    // }
     for (let i = 0; i < count; i++) {
-      const ply = new window.BMapGL.Polygon(rs.boundaries[i], {
-        strokeWeight: 2,
-        strokeColor: "#7ba2c5",
-        fillOpacity: 0.2,
-        fillColor: "#96fafa",
+      let path = [];
+      let str = rs.boundaries[i].replace(" ", "");
+      let points = str.split(";");
+      for (let j = 0; j < points.length; j++) {
+        let lng = points[j].split(",")[0];
+        let lat = points[j].split(",")[1];
+        path.push(new BMapGL.Point(lng, lat));
+      }
+      let prism = new BMapGL.Prism(path, 50000, {
+        topFillColor: "#5679ea",
+        topFillOpacity: 0.6,
+        sideFillColor: "#5679ea",
+        sideFillOpacity: 0.9,
       });
-      map.value.addOverlay(ply);
+      map.value.addOverlay(prism);
     }
   });
-  geoJson.value.features.forEach((item) => {
+  geoJson.value.features.forEach((items) => {
     const points = item.geometry.coordinates.map((point) => {
       console.log(point);
       return new window.BMapGL.Point(point[0], point[1]);

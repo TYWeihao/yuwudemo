@@ -22,15 +22,33 @@ function changePath(data) {
 <template>
   <header>
     <div
-      style="scale: 0.6; position: fixed; right: -100px; top: 0; z-index: 9999"
-      id="ww_b4181c860728b"
-      v="1.3"
-      loc="id"
-      a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffffb3fffb3","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
+      style="
+        scale: 0.6;
+        position: absolute;
+        right: -58px;
+        top: 0px;
+        z-index: 9999;
+        display: flex;
+        width: 460px;
+        align-items: center;
+        justify-content: space-between;
+      "
     >
-      <a href="https://weatherwidget.org/" id="ww_b4181c860728b_u" target="_blank"
-        >Widget weather</a
+      <div
+        id="ww_b4181c860728b"
+        v="1.3"
+        loc="id"
+        a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffff","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
       >
+        <a href="https://weatherwidget.org/" id="ww_b4181c860728b_u" target="_blank"
+          >Widget weather</a
+        >
+      </div>
+      <img
+        src="./assets/img/logo2.png"
+        alt=""
+        style="width: 60px; height: 70%; cursor: pointer"
+      />
     </div>
     <div class="page-title">
       能碳●环保协同管理平台
