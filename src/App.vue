@@ -29,7 +29,7 @@ function changePath(data) {
         top: 0px;
         z-index: 9999;
         display: flex;
-        width: 460px;
+        width: 560px;
         align-items: center;
         justify-content: space-between;
       "
@@ -47,7 +47,7 @@ function changePath(data) {
       <img
         src="./assets/img/logo2.png"
         alt=""
-        style="width: 60px; height: 70%; cursor: pointer"
+        style="width: 140px; height: 70%; cursor: pointer"
       />
     </div>
     <div class="page-title">
