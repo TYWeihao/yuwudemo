@@ -3,6 +3,7 @@ import co2 from "@/components/charts/co2.vue";
 import co2e from "@/components/charts/co2e.vue";
 import pie from "@/components/charts/pie.vue";
 import bar2 from "@/components/charts/bar2.vue";
+import Map from "./map.vue";
 const xiangmuData = [
   {
     name: "加强设备节能管理，推进矿区节能降碳增效",
@@ -372,6 +373,9 @@ const xiangmuData = [
             </div>
           </div>
         </div>
+      </div>
+      <div class="center-box box" style="padding: 0; height: 700px">
+        <Map />
       </div>
     </div>
     <div class="right">

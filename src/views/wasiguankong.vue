@@ -1,6 +1,6 @@
 <script setup>
 import line from "@/components/charts/line.vue";
-
+import Map from "./map.vue";
 import { ref } from "vue";
 console.log(line);
 const tab = ref(1);
@@ -35,6 +35,9 @@ const tab = ref(1);
       </div>
     </div>
     <div class="center">
+      <div class="center-box box" style="padding: 0; height: 600px">
+        <Map />
+      </div>
       <div class="center-box box">
         <div class="center-box-title">今日统计</div>
         <div class="center-box-content row">
@@ -126,8 +129,9 @@ const tab = ref(1);
   margin-top: 30px;
 }
 .center {
+  margin-top: 40px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 0.5rem;
 }
 .box {

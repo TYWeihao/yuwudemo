@@ -12,18 +12,6 @@
         </div>
       </div>
     </div>
-    <div>
-      <div>余吾煤业</div>
-      <div class="pyramid-loader">
-        <div class="wrapper">
-          <span class="side side1"></span>
-          <span class="side side2"></span>
-          <span class="side side3"></span>
-          <span class="side side4"></span>
-          <span class="shadow"></span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -128,7 +116,8 @@ function initThreeJS() {
   cssRenderer = new CSS3DRenderer();
   cssRenderer.setSize(container.value.clientWidth, container.value.clientHeight);
   cssRenderer.domElement.style.position = "absolute";
-  cssRenderer.domElement.style.top = 0;
+  cssRenderer.domElement.style.top = "80px";
+  cssRenderer.domElement.style.left = "500px"; // 确保不会拦截鼠标事件
   cssRenderer.domElement.style.pointerEvents = "none"; // 确保不会拦截鼠标事件
   container.value.appendChild(cssRenderer.domElement);
 }
@@ -355,7 +344,7 @@ function loadGeoJSON() {
     const element = document.querySelector("#pyramid-loader");
 
     const cssObject = new CSS3DObject(element);
-    cssObject.position.set(120, 260, -180); // 调整位置
+    cssObject.position.set(120, 400, -180); // 调整位置
     cssObject.rotation.x = Math.PI / 1.8; // 调整旋转
     group.add(cssObject);
     const boundingBox = new THREE.Box3().setFromObject(group);

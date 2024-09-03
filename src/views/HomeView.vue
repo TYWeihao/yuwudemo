@@ -3,7 +3,7 @@ import bar from "@/components/charts/bar.vue";
 import pie from "@/components/charts/pie.vue";
 import pie3 from "@/components/charts/pie3.vue";
 import pie4 from "@/components/charts/pie4.vue";
-import Map from "./map3D.vue";
+import Map from "./map.vue";
 import line4 from "@/components/charts/line4.vue";
 import co2 from "@/components/charts/co2.vue";
 import "@/assets/custom-font.css";

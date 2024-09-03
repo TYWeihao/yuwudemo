@@ -1,67 +1,111 @@
 <script setup>
-import bar2 from "@/components/charts/bar2.vue";
+import bar2 from "@/components/charts/bar4.vue";
 import pie2 from "@/components/charts/pie2.vue";
 import line3 from "@/components/charts/line3.vue";
+import Map from "./map.vue";
+
 const xiangmuData = [
   {
-    name: "项目1",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12345",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目2",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12346",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目3",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12347",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目4",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12348",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目5",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12349",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目6",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12350",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目7",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12351",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目8",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12352",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目9",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12353",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
   },
   {
-    name: "项目10",
-    status: "已完成",
-    money: "1000万",
-    energy: "1000吨标准煤",
+    area: "晋A12354",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12355",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12356",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12357",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12358",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12359",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12360",
+    status: "运煤车",
+    energy: "出",
+    money: "2024-09-01 12:00",
+  },
+  {
+    area: "晋A12361",
+    status: "危险品运输车",
+    energy: "进",
+    money: "2024-09-01 12:00",
   },
 ];
 </script>
@@ -112,10 +156,36 @@ const xiangmuData = [
       </div>
     </div>
     <div class="center">
+      <div class="center-box box" style="padding: 0; height: 500px">
+        <Map />
+      </div>
       <div class="center-box box">
-        <div class="center-box-title">无组织排放情况</div>
+        <div class="center-box-title">门禁情况</div>
         <div class="center-box-content" style="height: 200px">
-          <line3 />
+          <div class="table-container">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>车牌号</th>
+                    <th>车辆类型</th>
+                    <th>进出情况</th>
+                    <th>时间</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in xiangmuData" :key="item.name">
+                    <td>{{ item.area }}</td>
+                    <td>
+                      {{ item.status }}
+                    </td>
+                    <td>{{ item.energy }}</td>
+                    <td>{{ item.money }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -197,11 +267,13 @@ const xiangmuData = [
 }
 .left,
 .right {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .center {
+  margin-top: 40px;
+
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 0.5rem;
 }
 .box {
@@ -284,7 +356,7 @@ const xiangmuData = [
   text-align: center;
 }
 .table-container {
-  max-height: 100px;
+  max-height: 200px;
   overflow: hidden;
   position: relative;
 }
