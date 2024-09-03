@@ -25,7 +25,7 @@ onMounted(() => {
     grid: {
       left: "3%",
       right: "4%",
-      bottom: "5%",
+      bottom: "15%",
       top: "5%",
       containLabel: true,
     },
@@ -42,19 +42,7 @@ onMounted(() => {
     xAxis: [
       {
         type: "category",
-        data: [
-          "2020",
-          "2021",
-          "2022",
-          "2023",
-          "2024",
-          "2025",
-          "2026",
-          "2027",
-          "2028",
-          "2029",
-          "2030",
-        ],
+
         axisPointer: {
           type: "shadow",
         },
@@ -64,7 +52,7 @@ onMounted(() => {
       {
         type: "value",
         min: 0,
-        max: 80,
+        // max: 80,
         interval: 50,
         axisLabel: {
           formatter: "{value} 吨",
@@ -92,19 +80,23 @@ onMounted(() => {
         },
       },
     ],
+    dataset: {
+      dimensions: ["product", "累计发电量", "乏风氧化发电量"],
+      source: [
+        { product: "2023年", 累计发电量: 8958.68, 乏风氧化发电量: 1101 },
+        { product: "2024年截止至8月底", 累计发电量: 6470.09, 乏风氧化发电量: 1169 },
+      ],
+    },
     series: [
       {
-        name: "原煤产量",
         type: "bar",
         tooltip: {
           valueFormatter: function (value) {
             return value + " 吨";
           },
         },
-        data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
       },
       {
-        name: "原煤生产耗电量",
         type: "bar",
         itemStyle: {
           color: "#FF5722", // 更改柱状图颜色为橙色
@@ -114,21 +106,6 @@ onMounted(() => {
             return value + " MWh";
           },
         },
-        data: [78, 75, 72, 69, 66, 63, 60, 57, 54, 51, 48, 45],
-      },
-      {
-        name: "吨原煤生产电耗",
-        type: "line",
-        yAxisIndex: 1,
-        itemStyle: {
-          color: "#2196F3", // 更改线条颜色为蓝色
-        },
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + " kWh";
-          },
-        },
-        data: [19.6, 18.3, 17.0, 15.9, 14.8, 13.8, 12.9, 12.0, 11.2, 10.4, 9.7, 9.0],
       },
     ],
   };

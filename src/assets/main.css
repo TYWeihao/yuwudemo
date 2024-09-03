@@ -9,7 +9,15 @@
   height: 100vh;
   overflow: hidden;
 }
-
+.title{
+  font-family: 'YousheBiaotiHei', sans-serif;
+  color: #ffffff;
+  font-size: 1rem;
+  padding-left: 15px;
+  margin-top:0.8rem;
+  /* 外发光 */
+  text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
+}
 a,
 .green {
   text-decoration: none;
@@ -36,6 +44,16 @@ a,
 }
 .bottom-box {
   height: 35%;
+}
+.box{
+  height:calc((100vh - 100px - 3rem) / 3);
+}
+.box {
+  background-image: url("./../assets/img/boxbg.png");
+  background-size: 100% 100%;
+  color: #ffffffb3;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
 }
 .box-title {
   display: flex;
@@ -88,17 +106,15 @@ a,
   background-position: -100px 100px, -100px 100px;
   transform: rotate3d(0.5, 1, 0, 30deg);
 }
-.left {
-  /* background: #00000028; */
-}
 .row {
   display: flex;
   justify-content: space-around;
 }
 .left,
 .right {
-  margin-top: -20px;
+  /* margin-top: 20px; */
   background: #00000010;
+  width: 26%;
 }
 .center {
   display: flex;
@@ -106,123 +122,13 @@ a,
   padding: 0.5rem;
   padding-top: 3rem;
 }
-.box {
-  /* background-image: url("./../assets/img/boxbg.png"); */
-  /* background-size: 100% 100%; */
-  color: #ffffffb3;
-  padding: 0.5rem 1rem;
-  /* margin-bottom: 1rem; */
-}
-/* .title {
-  min-height: 28px;
-  min-width: 166px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  position: relative;
-  cursor: pointer;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(-12.74%, rgb(8 98 109 / 50%)),
-    color-stop(56.76%, rgba(106, 224, 255, 0.271))
-  );
-  background: linear-gradient(
-    90deg,
-    rgb(10 127 190 / 91%) -12.74%,
-    rgb(1 24 31 / 78%) 56.76%
-  );
-  border: 2px solid #074d90;
-  color: #ffffffb3fffb3;
-  font-size: 0.8rem;
-} */
-.title {
-  font-family: "YousheBiaotiHei", sans-serif;
-  min-height: 28px;
-  min-width: 166px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: start;
-  justify-content: space-between;
-  position: relative;
-  cursor: pointer;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(0%, rgba(1, 58, 88, 0.91)),
-    /* 保留浅蓝色 */ color-stop(100%, rgba(10, 127, 190, 0))
-  ); /* 渐变到透明 */
-  background: linear-gradient(
-    90deg,
-    rgb(3 56 84 / 91%) 0%,
-    /* 保留浅蓝色 */ rgba(10, 127, 190, 0) 100%
-  );
-  /* border-bottom: 2px solid #074d90; 只保留底部边框 */
-  color: #ffffffb3;
-  font-size: 1.2rem;
-  padding-left: 15px; /* 增加左侧内边距，让内容不紧贴边框 */
-}
-.title::after {
-  content: "";
-  position: absolute;
-  left: -2px;
-  bottom: 0px;
-  width: 4px; /* 设置线条的宽度 */
-  height: 100%; /* 设置线条的高度为整个标题的高度 */
-  background-color: #ffffff84; /* 设置粗线的颜色 */
-}
 
-.title::before {
-  content: "";
-  position: absolute;
-  left: 4px; /* 细线相对于粗线的位置 */
-  bottom: 0px;
-  width: 2px; /* 设置细线的宽度 */
-  height: 100%; /* 设置线条的高度为整个标题的高度 */
-  background-color: #ffffff84; /* 设置细线的颜色 */
-}
+
 .row-title {
   justify-content: space-between;
   text-align: center;
 }
-/* .title::after {
-  content: "";
-  position: absolute;
-  left: -2px;
-  bottom: -2px;
-  border-top: 15px solid transparent;
-  border-left: 15px solid #ffffffb3cf7;
-}
 
-.title::before {
-  content: "";
-  width: 4px;
-  height: 28px;
-  background: #19173b;
-  border: 2px solid #acf7ff;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  position: absolute;
-  border-top: 0;
-  border-left: 0;
-  border-bottom: 0;
-  bottom: -7px;
-  left: 4px;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-} */
 .content-box {
   background: #0238663d;
   /* border-radius: 10px 100px 10px 10px; */
@@ -397,27 +303,8 @@ a,
 @media (min-width: 1024px) {
   body {
     display: flex;
-    background-image: url("./img/bg.png");
+    /* background-color: #030734; */
+    background-image: url("./img/bg2.png");
     background-size: 100% 100%;
-    /* background: radial-gradient(
-      circle,
-      #0d263d,
-      #01061a
-    ) */
-  }
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      circle,
-      rgba(2, 69, 132, 0.904) 0%,
-      rgba(0, 0, 0, 0.771) 100%
-    );
-    z-index: -1;
-    pointer-events: none; /* 确保伪元素不影响用户交互 */
   }
 }
