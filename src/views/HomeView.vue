@@ -92,7 +92,7 @@ import "@/assets/custom-font.css";
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >541774 <small>吨</small></span
+                >116855 <small>吨</small></span
               >
             </div>
           </div>
@@ -115,7 +115,7 @@ import "@/assets/custom-font.css";
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >38552 <small>吨ce</small></span
+                >26526 <small>吨ce</small></span
               >
             </div>
           </div>
@@ -141,13 +141,13 @@ import "@/assets/custom-font.css";
               <div style="display: flex">
                 碳排放总量
                 <div style="font-weight: 600; color: #ffde00; margin-left: 5px">
-                  541774.26 吨
+                  116855.26 吨
                 </div>
               </div>
               <div style="display: flex">
                 碳排放强度
                 <div style="font-weight: 600; color: #ffde00; margin-left: 5px">
-                  18.06 kgCO2/t原煤
+                  17.18 kgCO₂/t原煤
                 </div>
               </div>
             </div>
@@ -172,10 +172,10 @@ import "@/assets/custom-font.css";
       <!-- <div class="center-box box" style="padding: 0; height: 800px">
         <Map />
       </div> -->
-      <div style="position: absolute; top: 155px; left: 32%">
+      <div style="position: absolute; top: 155px; left: 28%">
         <div class="ebox">
           <div class="ebg">2030 年</div>
-          <div>零碳矿山目标达成时间</div>
+          <div style="margin-top: -1rem">零碳矿山目标达成时间</div>
         </div>
       </div>
     </div>
@@ -202,7 +202,7 @@ import "@/assets/custom-font.css";
               <div style="display: flex">
                 能耗强度
                 <div style="font-weight: 600; color: #ffde00; margin-left: 5px">
-                  18.06 t标煤/t原煤
+                  3.9 kgce/t
                 </div>
               </div>
             </div>
@@ -223,17 +223,17 @@ import "@/assets/custom-font.css";
             flex-wrap: wrap;
           "
         >
-          <div style="text-align: center; width: 27%">
-            <div class="num"><span>19640 m³</span></div>
+          <div style="text-align: center; width: 32%">
+            <div class="num"><span>3398万 m³</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
             <div style="font-size: 0.8rem">瓦斯利用总量</div>
           </div>
-          <div style="text-align: center; width: 27%">
-            <div class="num"><span>25164 m³</span></div>
+          <div style="text-align: center; width: 32%">
+            <div class="num"><span>478098 tCO₂</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
-            <div style="font-size: 0.8rem">瓦斯总减排量</div>
+            <div style="font-size: 0.8rem">瓦斯利用碳减排量</div>
           </div>
-          <div style="text-align: center; width: 27%">
+          <div style="text-align: center; width: 32%">
             <div class="num"><span>52.25 %</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
             <div style="font-size: 0.8rem">瓦斯利用率</div>
@@ -332,9 +332,376 @@ import "@/assets/custom-font.css";
         </div>
       </div>
     </div>
+    <div class="switch-view">
+      <div class="select">
+        <div
+          class="selected"
+          data-default="中央工业广场"
+          data-one="北风井"
+          data-two="南风井"
+          data-three="地下总采区"
+          data-four="北风井东翼采区"
+          data-five="北风井西翼采区"
+          data-six="南五采区"
+          data-seven="南一采区"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 512 512"
+            class="arrow"
+          >
+            <path
+              d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+            ></path>
+          </svg>
+        </div>
+        <div class="options">
+          <div title="中央工业广场">
+            <input id="all" name="option" type="radio" checked="" />
+            <label class="option" for="中央工业广场" data-txt="中央工业广场"></label>
+          </div>
+          <div title="北风井">
+            <input id="option-1" name="option" type="radio" />
+            <label class="option" for="option-1" data-txt="北风井"></label>
+          </div>
+          <div title="南风井">
+            <input id="option-2" name="option" type="radio" />
+            <label class="option" for="option-2" data-txt="南风井"></label>
+          </div>
+          <div title="地下总采区">
+            <input id="option-3" name="option" type="radio" />
+            <label class="option" for="option-3" data-txt="地下总采区"></label>
+          </div>
+          <div title="北风井东翼采区">
+            <input id="option-4" name="option" type="radio" />
+            <label class="option" for="option-4" data-txt="北风井东翼采区"></label>
+          </div>
+          <div title="北风井西翼采区">
+            <input id="option-5" name="option" type="radio" />
+            <label class="option" for="option-5" data-txt="北风井西翼采区"></label>
+          </div>
+          <div title="南五采区">
+            <input id="option-6" name="option" type="radio" />
+            <label class="option" for="option-6" data-txt="南五采区"></label>
+          </div>
+          <div title="南一采区">
+            <input id="option-7" name="option" type="radio" />
+            <label class="option" for="option-7" data-txt="南一采区"></label>
+          </div>
+        </div>
+      </div>
+      <div class="radio-inputs">
+        <label>
+          <input class="radio-input" type="checkbox" name="engine" />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.2rem"
+                height="1.2rem"
+                viewBox="0 0 8 8"
+              >
+                <path
+                  fill="#00ffff"
+                  d="M0 0v7h1V0zm7 0v7h1V0zM2 1v1h2V1zm1 2v1h2V3zm1 2v1h2V5z"
+                />
+              </svg>
+            </span>
+            <span class="radio-label">项目</span>
+          </span>
+        </label>
+        <label>
+          <input checked="" class="radio-input" type="checkbox" name="engine" />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.2rem"
+                height="1.2rem"
+                viewBox="0 0 24 24"
+              >
+                <g fill="none" fill-rule="evenodd">
+                  <path
+                    d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"
+                  />
+                  <path
+                    fill="#00ffff"
+                    d="M18 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3zm0 2H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1m-6 1c2.08 0 3.716.448 4.628.77c.891.317 1.325 1.192 1.227 2.02l-.024.155l-.722 3.61c-.196.977-1.232 1.45-2.079 1.112c-.645-.258-1.7-.604-2.75-.66l-.3-.007c-1.133.005-2.312.388-3.01.667c-.805.321-1.78-.09-2.043-.97l-.036-.143l-.722-3.609c-.174-.872.256-1.839 1.203-2.174A14 14 0 0 1 12 6m0 2c-1.719 0-3.08.355-3.856.62l.6 2.997c.683-.24 1.623-.506 2.624-.59l.738-1.474a1 1 0 1 1 1.788.894l-.352.705c.65.122 1.244.3 1.715.465l.6-2.997A12.1 12.1 0 0 0 12 8"
+                  />
+                </g>
+              </svg>
+            </span>
+            <span class="radio-label">设备</span>
+          </span>
+        </label>
+        <label>
+          <input class="radio-input" type="checkbox" name="engine" />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.2rem"
+                height="1.2rem"
+                viewBox="0 0 48 48"
+              >
+                <g
+                  fill="none"
+                  stroke="#00ffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                >
+                  <path
+                    d="M43 6H5m18 17V6M8.425 19.58l31.876 8.54l-1.743 2.64l-4.002 7.21l-1.743 2.639l-28.011-7.506z"
+                  />
+                  <path d="m38.558 30.76l3.864 1.035l-2.07 7.727l-5.796-1.552" />
+                </g>
+              </svg>
+            </span>
+            <span class="radio-label">监测</span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <!-- <div class="input">
+      <button class="value">中央工业广场</button>
+      <button class="value">北风井</button>
+      <button class="value">南风井</button>
+      <button class="value">地下总采区</button>
+      <button class="value">北风井东翼采区</button>
+      <button class="value">南五采区</button>
+      <button class="value">南一采区</button>
+    </div> -->
   </main>
 </template>
 <style scoped>
+/* From Uiverse.io by 3bdel3ziz-T */
+/* From Uiverse.io by Yaya12085 */
+.radio-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-inputs > * {
+  margin: 6px;
+}
+
+.radio-input:checked + .radio-tile {
+  border-color: #00ffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #00ffff;
+  border-color: #00ffff;
+}
+
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #00ffff;
+}
+
+.radio-input:focus + .radio-tile {
+  /* border-color: #2260ff; */
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc; */
+}
+
+.radio-input:focus + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  min-height: 60px;
+  border-radius: 0.5rem;
+  border: 2px solid #0632a7;
+  background-color: #0000009e;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+  border-color: #2260ff;
+}
+
+.radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-icon svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #494949;
+}
+
+.radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.select {
+  width: fit-content;
+  cursor: pointer;
+  position: relative;
+  transition: 300ms;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.selected {
+  background-color: #0000009e;
+  padding: 18px;
+  margin: 6px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 100000;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+}
+
+.arrow {
+  position: relative;
+  right: 0px;
+  height: 10px;
+  transform: rotate(90deg);
+  width: 25px;
+  fill: white;
+  z-index: 100000;
+  transition: 300ms;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #2a2f3b;
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  transition: 300ms;
+}
+
+.select:hover > .options {
+  opacity: 1;
+  top: 0;
+}
+
+.select:hover > .selected .arrow {
+  transform: rotate(0deg);
+}
+
+.option {
+  border-radius: 5px;
+  padding: 5px;
+  transition: 300ms;
+  background-color: #2a2f3b;
+  width: 150px;
+  font-size: 15px;
+}
+.option:hover {
+  background-color: #323741;
+}
+
+.options input[type="radio"] {
+  display: none;
+}
+
+.options label {
+  display: inline-block;
+}
+.options label::before {
+  content: attr(data-txt);
+}
+
+.options input[type="radio"]:checked + label {
+  display: none;
+}
+
+.options input[type="radio"]#all:checked + label {
+  display: none;
+}
+
+.select:has(.options input[type="radio"]#all:checked) .selected::before {
+  content: attr(data-default);
+}
+.select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+  content: attr(data-one);
+}
+.select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+  content: attr(data-two);
+}
+.select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+  content: attr(data-three);
+}
+.select:has(.options input[type="radio"]#option-4:checked) .selected::before {
+  content: attr(data-four);
+}
+.select:has(.options input[type="radio"]#option-5:checked) .selected::before {
+  content: attr(data-five);
+}
+.select:has(.options input[type="radio"]#option-6:checked) .selected::before {
+  content: attr(data-six);
+}
+.select:has(.options input[type="radio"]#option-7:checked) .selected::before {
+  content: attr(data-seven);
+}
 .hb-box {
   display: flex;
   flex-direction: column;
@@ -388,6 +755,7 @@ import "@/assets/custom-font.css";
 }
 .jianjie .jianjie_content {
   font-size: 0.8rem;
+  text-align: justify;
   /* width: 80%; */
   /* height: 100%; */
 }
@@ -431,76 +799,39 @@ import "@/assets/custom-font.css";
 .huanjingbaohu div {
   padding: 0.3rem 5px 0;
 }
-
-.process {
-  width: 100%;
-  height: 0.5rem;
-  background: #00000078;
-  border-radius: 0.5rem;
-  margin: 0.5rem 0;
-  position: relative;
-  text-align: right;
-}
-
-.process span {
-  font-size: 0.6rem;
-}
-
-.process1:before {
-  content: "";
-  width: 60.6%;
+.switch-view {
+  padding: 1rem;
+  /* background-color: #00000091; */
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: #6be6c1;
-  border-radius: 0.5rem;
+  bottom: 1rem;
+  right: 28vw;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
-  color: #ffffffb3;
+  align-items: end;
+  /* border-radius: 0.5rem; */
+  /* border: 1px solid #00ffff33; */
+  /* box-shadow: 0 0 4px #00ffffb3; */
 }
-
-.process2:before {
-  content: "";
-  width: 21.92%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: #3fb1e3;
-  border-radius: 0.5rem;
+.switch-view-item {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
-  color: #ffffffb3;
-}
-
-.process3:before {
-  content: "";
-  width: 17.48%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: #626c91;
-  border-radius: 0.5rem;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  /* padding: 0.5rem; */
+  margin: 0.5rem;
+  color: #00ffffbb;
   font-size: 0.8rem;
-  color: #ffffffb3;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
 }
-
 .arrow {
   width: 0.5rem;
   height: 1rem;
   margin: 2px 0.5rem 0;
 }
 .num {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #00ffff;
   font-weight: bold;
   font-family: "YousheBiaotiHei", sans-serif;
@@ -753,7 +1084,7 @@ tr td:nth-child(4) {
   text-align: center;
   color: #ddd;
   /* margin-bottom: 1rem; */
-  width: 130px;
+  width: 170px;
 }
 
 .ebg {

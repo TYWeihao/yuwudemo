@@ -27,7 +27,7 @@ onMounted(() => {
       left: "3%",
       right: "4%",
       bottom: "5%",
-      top: "5%",
+      top: "15%",
       containLabel: true,
     },
     textStyle: {
@@ -45,7 +45,7 @@ onMounted(() => {
     xAxis: [
       {
         type: "category",
-        data: ["2020", "2021", "2022", "2023", "2024"],
+        data: ["2020", "2021", "2022", "2023"],
         axisPointer: {
           type: "shadow",
         },
@@ -110,27 +110,27 @@ onMounted(() => {
         type: "bar",
         tooltip: {
           valueFormatter: function (value) {
-            return value + " 吨";
+            return value + " 万吨";
           },
         },
         itemStyle: {
           color: "#00ffff",
         },
         // barWidth: 10,
-        data: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+        data: [1021.8888, 1086.0008, 1041.9688, 1155.6666],
       },
       {
         name: "碳排放强度",
         type: "bar",
         tooltip: {
           valueFormatter: function (value) {
-            return value + " 吨";
+            return value + " kgCO₂/t原煤";
           },
         },
         itemStyle: {
           color: "#ff7e00",
         },
-        data: [29.8, 26.5, 19.2, 18.9, 15.6, 13.3, 11.0, 6.7, 5.4, 4.1, 2.8, 1.5],
+        data: [21.28, 19.81, 17.58, 17.22],
       },
       // {
       //   name: "碳排放强度较2020年下降率",

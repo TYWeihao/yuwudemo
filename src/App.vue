@@ -33,6 +33,7 @@ onMounted(() => {
         align-items: center;
         justify-content: space-between;
         margin-top: 2rem;
+        min-height: 70px;
       "
     >
       <div style="display: flex; align-items: center">
@@ -64,12 +65,16 @@ onMounted(() => {
           loc="id"
           a='{"t":"horizontal","lang":"zh","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#ffffff","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3,"el_nme":3}'
         >
-          <a href="https://weatherwidget.org/" id="ww_b4181c860728b_u" target="_blank"
+          <a
+            href="https://weatherwidget.org/"
+            id="ww_b4181c860728b_u"
+            target="_blank"
+            style="display: none"
             >Widget weather</a
           >
         </div>
         <img
-          src="./assets/img/logo2.png"
+          src="./assets/img/ok.png"
           alt=""
           style="width: 100px; height: 70%; cursor: pointer"
         />
@@ -86,17 +91,29 @@ onMounted(() => {
       >
         零碳矿山
       </div>
-      <div class="guide-button" :class="{ active: path == '/tanpaishuangkong' }">
+      <div class="guide-button" :class="{ active: path == '/lingtankuangshan2' }">
         碳排双控
       </div>
-      <div class="guide-button" :class="{ active: path == '/nenghaoshuangkong' }">
+      <div
+        class="guide-button"
+        :class="{ active: path == '/nenghaoshuangkong' }"
+        @click="changePath('/nenghaoshuangkong')"
+      >
         能耗双控
       </div>
-      <div class="guide-button" :class="{ active: path == '/wasiguankong' }">
+      <div
+        class="guide-button"
+        :class="{ active: path == '/wasiguankong' }"
+        @click="changePath('/wasiguankong')"
+      >
         瓦斯管控
       </div>
 
-      <div class="guide-button" :class="{ active: path == '/huanjingbaohu' }">
+      <div
+        class="guide-button"
+        :class="{ active: path == '/huanjingbaohu' }"
+        @click="changePath('/huanjingbaohu')"
+      >
         环境保护
       </div>
       <!-- <div

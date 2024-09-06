@@ -302,7 +302,7 @@ const xiangmuData = [
       </div>
       <div class="left-box box">
         <div class="left-box-title title">用能情况分析</div>
-        <div class="left-box-content">
+        <div class="left-box-content" style="height:100%">
          <div style="display: flex">
             <div class="flex-y" style="width: 30%; font-size: 0.8rem; display: flex">
               <div
@@ -370,9 +370,9 @@ const xiangmuData = [
               <pie4 />
             </div>
           </div>
-          <div style="width: 100%; height: 180px">
+          <!-- <div style="width: 100%; height: 180px">
             <bar />
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="left-box box">
@@ -405,24 +405,21 @@ const xiangmuData = [
         </div>
       </div>
     </div>
-    <div class="center"  style="background-color:#00000090">
-      <div class="center-box box" style="margin-top:20px">
-        <div class="center-box-title title">能源流向图</div>
-        <div class="center-box-content" style="height: 700px">
+    <div class="center"  style="background-color:#00000090;width:40%;margin-top:3rem">
+      
           <sangji />
-        </div>
-      </div>
     </div>
     <div class="right">
       <div class="right-box box">
         <div class="right-box-title title">24小时能耗趋势</div>
-        <div class="right-box-content"  style="height: 260px">
+        <div class="right-box-content"  style="height: 90%">
           <line4 />
         </div>
       </div>
-      <div class="right-box box">
+      <div class="right-box box" style="  height:calc((100vh - 100px - 3rem) * 0.66);
+      ">
         <div class="right-box-title title">系统耗能分析</div>
-        <div class="right-box-content" style="height: 480px">
+        <div class="right-box-content" style="height: 460px">
           <bar3 />
         </div>
       </div>
@@ -431,6 +428,9 @@ const xiangmuData = [
 </template>
 
 <style scoped>
+.center{
+  width: 52%;
+}
 .co2zonglan01 {
   font-size: 1rem;
   height: 3rem;
