@@ -405,8 +405,8 @@ onMounted(() => {
           show: true,
         },
         data: [
-          { value: 3886.33, name: "南风井" },
-          { value: 3494.21, name: "北风井" },
+          { value: 4222.74, name: "南风井" },
+          { value: 3157.8, name: "北风井" },
 
           { value: 1578.14, name: "中央区" },
         ],

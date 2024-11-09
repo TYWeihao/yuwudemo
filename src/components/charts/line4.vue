@@ -45,24 +45,44 @@ onMounted(() => {
       // prettier-ignore
       data: ['2020', '2021', '2022', '2023', '2024'],
     },
-    yAxis: {
-      type: "value",
-      axisLabel: {
-        formatter: "{value} W",
+    yAxis: [
+      {
+        type: "value",
+        axisLabel: {
+          formatter: "{value} W",
+        },
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
       },
-      splitLine: {
-        show: false,
+      {
+        type: "value",
+        axisLabel: {
+          formatter: "{value} W",
+        },
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
       },
-      axisLabel: {
-        show: false,
-      },
-      axisTick: {
-        show: false,
-      },
-      axisLine: {
-        show: false,
-      },
-    },
+    ],
     // visualMap: {
     //   show: false,
     //   dimension: 0,
@@ -117,7 +137,7 @@ onMounted(() => {
         },
 
         // prettier-ignore
-        data: [200, 280, 180, 260, 170],
+        data: [30483.72, 28741.12, 28536.62, 35286.08, 26705.69],
       },
       {
         name: "热力",
@@ -127,6 +147,7 @@ onMounted(() => {
           width: 2,
           color: "#ff7e00",
         },
+        yAxisIndex: 1,
         showSymbol: false,
         areaStyle: {
           opacity: 0.8,
@@ -143,7 +164,7 @@ onMounted(() => {
         },
 
         // prettier-ignore
-        data: [90, 150, 110, 160, 120],
+        data: [660900, 633953, 400281, 515355, 346074],
       },
       {
         name: "其他",
@@ -169,7 +190,7 @@ onMounted(() => {
         },
 
         // prettier-ignore
-        data: [20, 100, 40, 80, 60],
+        data: [4731.88, 3954.82, 2508.16, 3104.83, 2513.13],
       },
     ],
   };

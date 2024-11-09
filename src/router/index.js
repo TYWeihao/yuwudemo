@@ -5,6 +5,8 @@ import huanjingbaohu from '../views/huanjingbaohu.vue'
 import nenghaoshuangkong from '../views/nenghaoshuangkong.vue'
 import zhongdianshebei from '../views/zhongdianshebei.vue'
 import wasiguankong from '../views/wasiguankong.vue'
+import tanpaishuangkong from '../views/tanpaishuangkong.vue'
+import mapLayer from '../views/mapLayer.vue'
 const router = createRouter({
   // base: '/aiapp/',
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +40,16 @@ const router = createRouter({
       path: '/wasiguankong',
       name: 'wasiguankong',
       component: wasiguankong
+    },
+    {
+      path: '/mapLayer',
+      name: 'mapLayer',
+      component: mapLayer
+    },
+    {
+      path: '/tanpaishuangkong',
+      name: 'tanpaishuangkong',
+      component: tanpaishuangkong
     }
   ]
 })

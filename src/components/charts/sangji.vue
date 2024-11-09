@@ -26,11 +26,18 @@ onMounted(() => {
         type: "sankey",
         layout: "none",
         // orient: "vertical",
+        right: "5%",
         emphasis: {
           focus: "adjacency",
         },
         data: [
           //
+          {
+            name: "能源消耗",
+            itemStyle: {
+              color: "#999",
+            },
+          },
           {
             name: "余吾矿110KV变电站",
             itemStyle: {
@@ -45,53 +52,53 @@ onMounted(() => {
               borderColor: "#AA1249",
             },
           },
-          { name: "主井下变电所", depth: 1 },
-          { name: "主瓦斯泵站", depth: 1 },
-          { name: "主通风机房", depth: 1 },
+          { name: "主井下变电所", depth: 2 },
+          { name: "主瓦斯泵站", depth: 2 },
+          { name: "主通风机房", depth: 2 },
           //主提升
           {
             name: "主提升",
-            depth: 1,
+            depth: 2,
           },
           //副立井
           {
             name: "副立井",
-            depth: 1,
+            depth: 2,
           },
           //空压机房
           {
             name: "空压机房",
-            depth: 1,
+            depth: 2,
           },
           //洗煤厂
           {
             name: "洗煤厂",
-            depth: 1,
+            depth: 2,
           },
           //污水处理站
           {
             name: "污水处理站",
-            depth: 1,
+            depth: 2,
           },
           //办公用电
           {
             name: "办公用电",
-            depth: 1,
+            depth: 2,
           },
           //生活用电
           {
             name: "生活用电",
-            depth: 1,
+            depth: 2,
           },
           //机修厂
           {
             name: "机修厂",
-            depth: 1,
+            depth: 2,
           },
           //地面辅助
           {
             name: "地面辅助",
-            depth: 1,
+            depth: 2,
           },
           { name: "北风井35KV变电站" },
           { name: "南风井井下变电所" },
@@ -134,6 +141,7 @@ onMounted(() => {
           },
         ],
         links: [
+          { source: "能源消耗", target: "余吾矿110KV变电站", value: 1390 },
           { source: "余吾矿110KV变电站", target: "南风井35KV变电站", value: 110 },
           { source: "余吾矿110KV变电站", target: "主井下变电所", value: 100 },
           { source: "余吾矿110KV变电站", target: "主瓦斯泵站", value: 100 },
@@ -178,7 +186,6 @@ onMounted(() => {
           color: "#ffffffb3",
           position: "top",
         },
-        nodeAlign: "right",
       },
     ],
   };

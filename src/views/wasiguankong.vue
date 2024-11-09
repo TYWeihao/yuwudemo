@@ -1,96 +1,164 @@
 <script setup>
 import ch4 from "@/components/charts/ch4.vue";
 import pie5 from "@/components/charts/pie5.vue";
+import pie6 from "@/components/charts/pie6.vue";
+
 // import Map from "./map.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const tab = ref(1);
+const layers = ref([
+  {
+    name: "西风井",
+    image: new URL("@/assets/img/wa01_a.jpg", import.meta.url).href,
+  },
+  { name: "南风井", image: new URL("@/assets/img/wa02_a.jpg", import.meta.url).href },
+  { name: "北风井", image: new URL("@/assets/img/wa03_a.jpg", import.meta.url).href },
+
+  // 添加更多层...
+]);
+
+const activeLayer = ref("西风井");
+const currentLayerImage = computed(() => {
+  const layer = layers.value.find((layer) => layer.name === activeLayer.value);
+  return layer ? layer.image : "";
+});
+function switchLayer(layer) {
+  console.log(layer);
+  activeLayer.value = layer;
+  currentLayerImage.value = layer.image;
+}
+console.log(currentLayerImage.value);
 </script>
 
 <template>
-  <main>
+  <main :style="{ backgroundImage: `url(${currentLayerImage})` }">
     <div class="left">
       <div class="left-box box">
-        <div class="left-box-title title">
-          >瓦斯总量<small style="font-size: 0.6rem; float: right; margin-top: 0.5rem"
-            >矿井类型：高浓度瓦斯矿井</small
+        <div class="left-box-title title">>瓦斯总览</div>
+        <div class="left-box-content" style="flex-direction: column">
+          <div
+            style="
+              display: flex;
+              width: 80%;
+              align-items: baseline;
+              padding-left: 0.5rem;
+              margin-bottom: 1rem;
+              justify-content: space-between;
+              font-size: 1rem;
+            "
           >
-        </div>
-        <div class="left-box-content">
-          <div style="padding: 1rem; width: 50%">
-            <div style="margin-bottom: 2rem">
-              <div>2023年瓦斯总量</div>
-              <!-- 进度条展示 数据1886 m³-->
-              <div class="process process1"><span>9394 万m³</span></div>
-            </div>
-            <div style="margin-bottom: 2rem">
-              <div>北风井瓦斯</div>
-              <div class="process process3"><span>2986 万m³</span></div>
-            </div>
-          </div>
-          <div style="padding: 1rem; width: 50%">
-            <div style="margin-bottom: 2rem">
-              <div>中央区瓦斯</div>
-              <div class="process process2"><span>2766 万m³</span></div>
-            </div>
+            煤矿瓦斯等级：
+            <b
+              style="
+                font-size: 1rem;
 
-            <div style="margin-bottom: 2rem">
-              <div>南风井瓦斯</div>
-              <div class="process process4"><span>3642 万m³</span></div>
-            </div>
+                color: #6be6c1;
+                font-family: 'YousheBiaotiHei', sans-serif;
+                text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
+                margin: 0 0.5rem;
+              "
+              >高瓦斯矿井</b
+            >
+            <!-- <small style="font-size: 0.8rem"> 万m³</small> -->
+          </div>
+          <div
+            style="
+              display: flex;
+              width: 80%;
+              align-items: baseline;
+              padding-left: 0.5rem;
+              margin-bottom: 1rem;
+
+              justify-content: space-between;
+              font-size: 1rem;
+            "
+          >
+            相对瓦斯涌出量:
+            <b
+              style="
+                font-size: 1rem;
+                color: #6be6c1;
+                font-family: 'YousheBiaotiHei', sans-serif;
+                text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
+                margin: 0 0.5rem;
+              "
+              >16.7 m³/t</b
+            >
+            <!-- <small style="font-size: 0.8rem"> 万m³</small> -->
+          </div>
+          <div
+            style="
+              display: flex;
+              width: 80%;
+              align-items: baseline;
+              padding-left: 0.5rem;
+              justify-content: space-between;
+              font-size: 1rem;
+            "
+          >
+            瓦斯总量：
+            <b
+              style="
+                font-size: 1rem;
+                color: #6be6c1;
+                font-family: 'YousheBiaotiHei', sans-serif;
+                text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
+                margin: 0 0.5rem;
+              "
+              >16204万m³</b
+            >
           </div>
         </div>
       </div>
       <div class="left-box box">
-        <div class="left-box-title title">>瓦斯利用成效</div>
-        <div class="left-box-content" style="justify-content: space-around">
+        <div class="left-box-title title">>瓦斯总量</div>
+        <div class="left-box-content" style="flex-direction: column">
           <div
             style="
-              text-align: center;
-              text-align: center;
-              background: #0000002e;
-              padding: 0.5rem;
-              border-radius: 0.5rem;
+              display: flex;
+              width: 100%;
+              align-items: baseline;
+              padding-left: 0.5rem;
+              margin: 0.5rem 0;
+              justify-content: flex-end;
             "
           >
-            <div style="font-size: 0.8rem">年减碳排量</div>
-
-            <div class="num"><span>577524.36吨</span></div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="3rem"
-              height="3rem"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="#059669"
-                d="M14.421 7.624a3.7 3.7 0 0 0-2.907.5a.258.258 0 0 0-.045.392a.345.345 0 0 0 .441.062a3.04 3.04 0 0 1 2.39-.411a2.74 2.74 0 0 1 2.241 3.139l-.027.119a2.6 2.6 0 0 1-.132.414a.34.34 0 0 0 .169.421a.284.284 0 0 0 .4-.126a3 3 0 0 0 .194-.646l.009-.039a3.34 3.34 0 0 0-2.733-3.825m3 13.09H16.5l1.063-1.159a.84.84 0 0 0 .009-1.035a1.27 1.27 0 0 0-1.024-.476a1.184 1.184 0 0 0-1.291 1.03a.429.429 0 0 0 .837 0a.42.42 0 0 1 .461-.362a.36.36 0 0 1 .294.144a.29.29 0 0 1 .019.326l-1.531 1.669a.28.28 0 0 0-.035.348a.44.44 0 0 0 .373.182h1.745a.342.342 0 1 0 0-.667zM8.864 19a2.1 2.1 0 0 1-.757.14a1.57 1.57 0 0 1-1.713-1.365a1.57 1.57 0 0 1 1.713-1.365a2.1 2.1 0 0 1 .749.137a.47.47 0 0 0 .559-.154a.307.307 0 0 0-.193-.446a3.1 3.1 0 0 0-1.115-.2a2.34 2.34 0 0 0-2.55 2.032a2.34 2.34 0 0 0 2.55 2.033a3.1 3.1 0 0 0 1.128-.21a.306.306 0 0 0 .19-.447a.47.47 0 0 0-.561-.155m3.351-3.26a2.337 2.337 0 0 0-2.549 2.032a2.34 2.34 0 0 0 2.549 2.033a2.34 2.34 0 0 0 2.55-2.033a2.34 2.34 0 0 0-2.55-2.032m0 3.4a1.57 1.57 0 0 1-1.715-1.368a1.57 1.57 0 0 1 1.712-1.365a1.57 1.57 0 0 1 1.713 1.365a1.57 1.57 0 0 1-1.71 1.365zm-4.027-4.312a.334.334 0 0 0 0-.667H5.726a3.057 3.057 0 0 1-1.048-5.93a.333.333 0 0 0 .2-.412a3.978 3.978 0 1 1 7.6-2.347a.34.34 0 0 0 .266.231a.33.33 0 0 0 .324-.135a3.35 3.35 0 0 1 2.711-1.393h.022A3.27 3.27 0 0 1 18.186 5.2a3.33 3.33 0 0 1 .931 2.451a.334.334 0 0 0 .667.032a4 4 0 0 0-1.116-2.945a3.94 3.94 0 0 0-2.859-1.232a4.03 4.03 0 0 0-2.895 1.217a4.646 4.646 0 0 0-8.876 1.922a4.7 4.7 0 0 0 .126 1.077a3.724 3.724 0 0 0 1.562 7.106Zm12.449-6.606a.334.334 0 0 0-.422.517a3.058 3.058 0 0 1-1.936 5.422H9.555a.334.334 0 0 0 0 .667h8.724a3.725 3.725 0 0 0 2.358-6.606"
-              />
-            </svg>
+            抽采瓦斯
+            <b
+              style="
+                font-size: 1rem;
+                color: #6be6c1;
+                font-family: 'YousheBiaotiHei', sans-serif;
+                text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
+                margin: 0 0.5rem;
+              "
+              >16204</b
+            ><small style="font-size: 0.8rem"> 万m³</small>
           </div>
-          <div
-            style="
-              text-align: center;
-              text-align: center;
-              background: #0000002e;
-              padding: 0.5rem;
-              border-radius: 0.5rem;
-            "
-          >
-            <div style="font-size: 0.8rem">年节能量</div>
+          <pie6 />
+          <!-- <div style="display: flex; width: 100%">
+            <div style="padding: 0.5rem 1rem; width: 50%">
+              <div style="margin-bottom: 2rem">
+                <div>甲烷浓度>30%瓦斯</div>
+                <div class="process"><span>0 </span></div>
+              </div>
+              <div style="margin-bottom: 2rem">
+                <div>甲烷浓度8%以下瓦斯</div>
+                <div class="process process3"><span>6810 万m³</span></div>
+              </div>
+            </div>
+            <div style="padding: 0.5rem 1rem; width: 50%">
+              <div style="margin-bottom: 2rem">
+                <div>甲烷浓度8%-30%瓦斯</div>
+                <div class="process process4"><span>9394 万m³</span></div>
+              </div>
 
-            <div class="num"><span>19784tce</span></div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="3rem"
-              height="3rem"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="#059669"
-                d="M11.005 11.08c0-1.574-.795-3.867-2.359-6.719c-.269-.49-.97-.483-1.27-.02q-.629.97-1.877 1.981l-.37.29l-.354.268l-.49.378c-1.729 1.377-2.41 2.602-2.26 4.411c.131 1.6 1.099 2.746 2.762 3.27q-.878 1.025-2.324 1.622a.75.75 0 1 0 .574 1.387c1.833-.76 3.149-1.976 3.912-3.634q.428-.93.684-1.833l.043-.156l.102-.412l.068-.33l.042-.237l.066-.477a9 9 0 0 0 .056-1.12l-.004-.024a.75.75 0 0 1 1.5.023q.033 2.191-.886 4.464l-.025.088a.454.454 0 0 0 .634.495l.114-.057q.11-.062.196-.137c.722-.624 1.466-1.945 1.466-3.52M17 6h-5.25l-.102.007a.75.75 0 0 0 .102 1.494H17l.145.006A1.5 1.5 0 0 1 18.5 9.001v6l-.007.144A1.5 1.5 0 0 1 17 16.5H7.75c-.406.028-.75.321-.75.75c0 .415.336.75.75.75H17l.176-.005A3 3 0 0 0 20 15v-1l1 .018l.135-.009a1 1 0 0 0 .866-.991v-2l-.008-.121a1 1 0 0 0-.992-.879L20 10V9l-.005-.176A3 3 0 0 0 17 6.001"
-              />
-            </svg>
-          </div>
+              <div style="margin-bottom: 2rem">
+                <div>通风瓦斯</div>
+                <div class="process process2"><span>2242 万m³</span></div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
       <div class="left-box box">
@@ -118,7 +186,7 @@ const tab = ref(1);
                     font-size: 1rem;
                   "
                 >
-                  4910 万m³
+                  5052 万m³
                 </div>
               </div>
               <div style="display: flex; font-size: 0.8rem">
@@ -133,7 +201,7 @@ const tab = ref(1);
                     font-size: 1rem;
                   "
                 >
-                  54%
+                  31.2%
                 </div>
               </div>
             </div>
@@ -142,45 +210,87 @@ const tab = ref(1);
         </div>
       </div>
     </div>
-    <div class="center"></div>
+    <div class="center">
+      <!-- <div class="wasi-bg">
+        <img style="width: 100%" src="./../assets/img/wa01.jpg" alt="" />
+      </div> -->
+    </div>
     <div class="right">
       <div class="right-box box">
-        <div class="right-box-title title">>瓦斯发电总量</div>
-        <div class="left-box-content" style="padding: 2rem 0">
-          <div style="display: flex; align-items: flex-end">
-            <div>
-              <b
-                style="
-                  font-size: 1.8rem;
-                  color: #6be6c1;
-                  font-family: 'YousheBiaotiHei', sans-serif;
-                  text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
-                "
-                >8598.68<small style="font-size: 0.8rem"> 万KWh</small></b
-              >
-              <div style="text-align: right">瓦斯总发电量</div>
-            </div>
-            <div>
+        <div class="left-box-title title">>瓦斯利用成效</div>
+        <div class="left-box-content" style="flex-direction: column">
+          <div style="display: flex">
+            <div
+              style="
+                text-align: center;
+                text-align: center;
+                background: #0000002e;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+              "
+            >
+              <div style="font-size: 0.8rem">年减碳排量</div>
+
+              <div class="num"><span>577524.36吨</span></div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="4rem"
-                height="4rem"
-                viewBox="0 0 20 20"
+                width="3rem"
+                height="3rem"
+                viewBox="0 0 24 24"
               >
-                <g fill="#00ffff">
-                  <path
-                    d="M12.187 10H16a.5.5 0 0 1 .325.88l-4.958 4.241l-5.024 4.743c-.39.368-1.007-.053-.807-.55L8.474 12H6a.5.5 0 0 1-.46-.697l3-7A.5.5 0 0 1 9 4h5a.5.5 0 0 1 .46.697L12.187 10Z"
-                    opacity=".2"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    d="M15 8.5h-3.813l2.273-5.303A.5.5 0 0 0 13 2.5H8a.5.5 0 0 0-.46.303l-3 7A.5.5 0 0 0 5 10.5h2.474l-2.938 7.314c-.2.497.417.918.807.55l5.024-4.743l4.958-4.241A.5.5 0 0 0 15 8.5Zm-4.571 1h3.217l-3.948 3.378l-3.385 3.195l2.365-5.887a.5.5 0 0 0-.464-.686H5.758l2.572-6h3.912L9.969 8.803a.5.5 0 0 0 .46.697Z"
-                    clip-rule="evenodd"
-                    opacity=".4"
-                  />
-                </g>
+                <path
+                  fill="#059669"
+                  d="M14.421 7.624a3.7 3.7 0 0 0-2.907.5a.258.258 0 0 0-.045.392a.345.345 0 0 0 .441.062a3.04 3.04 0 0 1 2.39-.411a2.74 2.74 0 0 1 2.241 3.139l-.027.119a2.6 2.6 0 0 1-.132.414a.34.34 0 0 0 .169.421a.284.284 0 0 0 .4-.126a3 3 0 0 0 .194-.646l.009-.039a3.34 3.34 0 0 0-2.733-3.825m3 13.09H16.5l1.063-1.159a.84.84 0 0 0 .009-1.035a1.27 1.27 0 0 0-1.024-.476a1.184 1.184 0 0 0-1.291 1.03a.429.429 0 0 0 .837 0a.42.42 0 0 1 .461-.362a.36.36 0 0 1 .294.144a.29.29 0 0 1 .019.326l-1.531 1.669a.28.28 0 0 0-.035.348a.44.44 0 0 0 .373.182h1.745a.342.342 0 1 0 0-.667zM8.864 19a2.1 2.1 0 0 1-.757.14a1.57 1.57 0 0 1-1.713-1.365a1.57 1.57 0 0 1 1.713-1.365a2.1 2.1 0 0 1 .749.137a.47.47 0 0 0 .559-.154a.307.307 0 0 0-.193-.446a3.1 3.1 0 0 0-1.115-.2a2.34 2.34 0 0 0-2.55 2.032a2.34 2.34 0 0 0 2.55 2.033a3.1 3.1 0 0 0 1.128-.21a.306.306 0 0 0 .19-.447a.47.47 0 0 0-.561-.155m3.351-3.26a2.337 2.337 0 0 0-2.549 2.032a2.34 2.34 0 0 0 2.549 2.033a2.34 2.34 0 0 0 2.55-2.033a2.34 2.34 0 0 0-2.55-2.032m0 3.4a1.57 1.57 0 0 1-1.715-1.368a1.57 1.57 0 0 1 1.712-1.365a1.57 1.57 0 0 1 1.713 1.365a1.57 1.57 0 0 1-1.71 1.365zm-4.027-4.312a.334.334 0 0 0 0-.667H5.726a3.057 3.057 0 0 1-1.048-5.93a.333.333 0 0 0 .2-.412a3.978 3.978 0 1 1 7.6-2.347a.34.34 0 0 0 .266.231a.33.33 0 0 0 .324-.135a3.35 3.35 0 0 1 2.711-1.393h.022A3.27 3.27 0 0 1 18.186 5.2a3.33 3.33 0 0 1 .931 2.451a.334.334 0 0 0 .667.032a4 4 0 0 0-1.116-2.945a3.94 3.94 0 0 0-2.859-1.232a4.03 4.03 0 0 0-2.895 1.217a4.646 4.646 0 0 0-8.876 1.922a4.7 4.7 0 0 0 .126 1.077a3.724 3.724 0 0 0 1.562 7.106Zm12.449-6.606a.334.334 0 0 0-.422.517a3.058 3.058 0 0 1-1.936 5.422H9.555a.334.334 0 0 0 0 .667h8.724a3.725 3.725 0 0 0 2.358-6.606"
+                />
               </svg>
             </div>
+            <div
+              style="
+                text-align: center;
+                text-align: center;
+                background: #0000002e;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+              "
+            >
+              <div style="font-size: 0.8rem">年节能量</div>
+
+              <div class="num"><span>19784tce</span></div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="3rem"
+                height="3rem"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#059669"
+                  d="M11.005 11.08c0-1.574-.795-3.867-2.359-6.719c-.269-.49-.97-.483-1.27-.02q-.629.97-1.877 1.981l-.37.29l-.354.268l-.49.378c-1.729 1.377-2.41 2.602-2.26 4.411c.131 1.6 1.099 2.746 2.762 3.27q-.878 1.025-2.324 1.622a.75.75 0 1 0 .574 1.387c1.833-.76 3.149-1.976 3.912-3.634q.428-.93.684-1.833l.043-.156l.102-.412l.068-.33l.042-.237l.066-.477a9 9 0 0 0 .056-1.12l-.004-.024a.75.75 0 0 1 1.5.023q.033 2.191-.886 4.464l-.025.088a.454.454 0 0 0 .634.495l.114-.057q.11-.062.196-.137c.722-.624 1.466-1.945 1.466-3.52M17 6h-5.25l-.102.007a.75.75 0 0 0 .102 1.494H17l.145.006A1.5 1.5 0 0 1 18.5 9.001v6l-.007.144A1.5 1.5 0 0 1 17 16.5H7.75c-.406.028-.75.321-.75.75c0 .415.336.75.75.75H17l.176-.005A3 3 0 0 0 20 15v-1l1 .018l.135-.009a1 1 0 0 0 .866-.991v-2l-.008-.121a1 1 0 0 0-.992-.879L20 10V9l-.005-.176A3 3 0 0 0 17 6.001"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              margin-top: 0.5rem;
+              width: 100%;
+              text-align: left;
+              align-items: baseline;
+              padding-left: 0.5rem;
+            "
+          >
+            瓦斯总发电量
+            <b
+              style="
+                font-size: 1.2rem;
+                color: #6be6c1;
+                font-family: 'YousheBiaotiHei', sans-serif;
+                text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
+                margin: 0 0.5rem;
+              "
+              >8958.68</b
+            ><small style="font-size: 0.8rem"> 万KWh</small>
           </div>
         </div>
       </div>
@@ -191,7 +301,7 @@ const tab = ref(1);
         </div>
       </div>
       <div class="right-box box">
-        <div class="right-box-title title">>乏风瓦斯发电</div>
+        <div class="right-box-title title">>乏风瓦斯利用</div>
         <div class="left-box-content row" style="flex-wrap: wrap">
           <div
             class="zl-card"
@@ -299,19 +409,56 @@ const tab = ref(1);
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >6.3 <small>%</small></span
+                >2.09 <small>%</small></span
               >
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="switch-view">
+      <div class="radio-inputs view-radio">
+        <label>
+          <div class="tooltip">
+            <input
+              class="radio-input"
+              type="radio"
+              name="view"
+              :checked="
+                activeLayer == '西风井' ||
+                activeLayer == '南风井' ||
+                activeLayer == '北风井'
+              "
+            />
+            <span class="radio-tile ground">
+              <span class="radio-label">地面</span>
+            </span>
+            <div class="tooltiptext">
+              <div
+                style="
+                  padding: 0.2rem;
+                  border-bottom: 1px solid #33333390;
+                  position: relative;
+                  z-index: 99999999999999999999999;
+                "
+                @click="switchLayer('西风井')"
+              >
+                西风井
+              </div>
+              <div style="padding: 0.2rem" @click="switchLayer('南风井')">南风井</div>
+              <div style="padding: 0.2rem" @click="switchLayer('北风井')">北风井</div>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class="radio-inputs"></div>
+    </div>
   </main>
 </template>
 
 <style scoped>
 main {
-  background-image: url("./../assets/img/bg.png");
+  /* background-image: url("./../assets/img/wa01_a.jpg"); */
   background-size: 100% 100%;
 }
 .zl-card {
@@ -490,5 +637,233 @@ main {
   align-items: center;
   font-size: 0.8rem;
   color: #fff;
+}
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #00ffff;
+}
+.view-radio .radio-input:checked + .radio-tile {
+  border-color: #00ff66;
+}
+.view-radio .radio-input:checked + .radio-tile:before {
+  border-color: #00ff66;
+}
+.view-radio .radio-input:checked + .radio-tile .radio-label {
+  color: #00ff66;
+}
+.radio-input:focus + .radio-tile {
+  /* border-color: #2260ff; */
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc; */
+}
+
+.radio-input:focus + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  min-height: 60px;
+  border-radius: 0.5rem;
+  border: 2px solid #ffffffa3;
+  background-color: #0000009e;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+  border-color: #2260ff;
+}
+
+.radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-icon svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #494949;
+}
+
+.radio-label {
+  color: #fff;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+  background-color: #0000006e;
+  padding: 0.1rem 0.2rem;
+  border-radius: 5px;
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.select {
+  width: fit-content;
+  cursor: pointer;
+  position: relative;
+  transition: 300ms;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.selected {
+  background-color: #0000009e;
+  padding: 18px;
+  margin: 6px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 100000;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+}
+.radio-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 350px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-inputs > * {
+  margin: 6px;
+}
+
+.radio-input:checked + .radio-tile {
+  border-color: #00ffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #00ffff;
+  border-color: #00ffff;
+}
+.project:checked + .radio-tile {
+  border-color: #ea580c;
+}
+
+.project:checked + .radio-tile:before {
+  border-color: #ea580c;
+}
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #00ffff;
+}
+.switch-view {
+  padding: 1rem;
+  /* background-color: #00000091; */
+  position: absolute;
+  bottom: 1rem;
+  right: 28vw;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  z-index: 1000000;
+  width: 44%;
+  /* border-radius: 0.5rem; */
+  /* border: 1px solid #00ffff33; */
+  /* box-shadow: 0 0 4px #00ffffb3; */
+}
+.switch-view-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* padding: 0.5rem; */
+  margin: 0.5rem;
+  color: #00ffffbb;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 9999999999999999999999;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #061d68b8;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  /* z-index: 1; */
+  bottom: 115%;
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 9999999999999999999999;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
 }
 </style>

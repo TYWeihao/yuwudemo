@@ -384,7 +384,7 @@ onMounted(() => {
     grid: {
       left: "1%",
       right: "0%",
-      bottom: "13%",
+      bottom: "25%",
       top: "3%",
       containLabel: true,
     },
@@ -415,7 +415,22 @@ onMounted(() => {
     },
     series: [
       {
-        name: "中央区",
+        name: "甲烷浓度>30%瓦斯",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: false,
+          fontSize: 10,
+          color: "#ffffffb3",
+          fontFamily: "YousheBiaotiHei", // 使用指定字体
+        },
+        emphasis: {
+          focus: "series",
+        },
+        data: [0, 0, 0, 0, 0, 0, 0],
+      },
+      {
+        name: "甲烷浓度8%-30%瓦斯",
         type: "bar",
         stack: "total",
         label: {
@@ -427,10 +442,10 @@ onMounted(() => {
         emphasis: {
           focus: "series",
         },
-        data: [74, 68, 77, 83, 73, 65, 68],
+        data: [220, 182, 191, 234, 290, 130, 210],
       },
       {
-        name: "北风井",
+        name: "甲烷浓度8%以下瓦斯",
         type: "bar",
         stack: "total",
         label: {
@@ -445,7 +460,7 @@ onMounted(() => {
         data: [120, 132, 101, 134, 90, 230, 210],
       },
       {
-        name: "南风井",
+        name: "通风瓦斯",
         type: "bar",
         stack: "total",
         label: {
@@ -457,7 +472,7 @@ onMounted(() => {
         emphasis: {
           focus: "series",
         },
-        data: [220, 182, 191, 234, 290, 130, 210],
+        data: [74, 68, 77, 83, 73, 65, 68],
       },
     ],
   };

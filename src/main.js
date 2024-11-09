@@ -3,9 +3,10 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
+import countTo from 'vue3-count-to';
 const app = createApp(App)
 
+app.use(countTo);
 app.use(router)
 
 app.mount('#app')

@@ -40,26 +40,44 @@ onMounted(() => {
         <img
           src="./assets/img/logo.png"
           alt=""
-          style="width: 100px; height: 70%; cursor: pointer"
+          style="width: 40px; cursor: pointer; margin-top: 2px"
         />
-        <div
-          style="
-            margin-left: 0.5rem;
-            padding: 0.1rem 0.5rem;
-            border-left: 2px solid #e62129;
-            color: #e62129;
-            font-weight: bold;
-          "
-        >
-          余 吾 煤 业
+        <div>
+          <div style="display: flex; align-items: center">
+            <div
+              style="
+                margin-left: 0.1rem;
+                padding: 0.1rem 0.5rem;
+                /* border-left: 2px solid #e62129; */
+                color: #e62129;
+                font-weight: bold;
+                font-size: 1.1rem;
+              "
+            >
+              余 吾 煤 业 公 司
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                font-size: 0.8rem;
+                color: rgb(204 166 40);
+                font-weight: bold;
+                text-align: center;
+              "
+            >
+              团 结 奋 进,守 正 创 新
+            </div>
+          </div>
         </div>
+
         <div class="time">
           <div id="date">{{ date }}</div>
           <div id="time">{{ time }}</div>
         </div>
       </div>
       <div style="display: flex; align-items: center">
-        <div
+        <!-- <div
           id="ww_b4181c860728b"
           v="1.3"
           loc="id"
@@ -72,7 +90,29 @@ onMounted(() => {
             style="display: none"
             >Widget weather</a
           >
-        </div>
+        </div> -->
+        <!-- <div class="mydict">
+          <div>
+            <label>
+              <input type="radio" name="radio" checked="" />
+              <span>2023年</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" />
+              <span>2022年</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" />
+              <span>2021年</span>
+            </label>
+          </div>
+        </div> -->
+        <select>
+          <option value="2024">2024年</option>
+          <option value="2023">2023年</option>
+          <option value="2022">2022年</option>
+          <option value="2021">2021年</option>
+        </select>
         <img
           src="./assets/img/ok.png"
           alt=""
@@ -89,9 +129,13 @@ onMounted(() => {
         :class="{ active: path == '/lingtankuangshan' }"
         @click="changePath('/lingtankuangshan')"
       >
-        零碳矿山
+        余吾模式
       </div>
-      <div class="guide-button" :class="{ active: path == '/lingtankuangshan2' }">
+      <div
+        class="guide-button"
+        :class="{ active: path == '/tanpaishuangkong' }"
+        @click="changePath('/tanpaishuangkong')"
+      >
         碳排双控
       </div>
       <div
@@ -124,6 +168,30 @@ onMounted(() => {
         重点设备
       </div> -->
     </div>
+    <!-- <div
+      style="
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        font-size: 2rem;
+        color: rgb(230, 33, 41);
+        font-weight: bold;
+      "
+    >
+      团 结 奋 进
+    </div>
+    <div
+      style="
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        font-size: 2rem;
+        color: rgb(230, 33, 41);
+        font-weight: bold;
+      "
+    >
+      守 正 创 新
+    </div> -->
   </header>
 
   <RouterView :key="$route.fullPath" />
@@ -158,7 +226,7 @@ header {
 .guide {
   display: flex;
   justify-content: center;
-  /* position: fixed; */
+  position: relative;
   /* top: 85px; */
   /* width: 100vw; */
   /* left: 0; */
@@ -189,5 +257,77 @@ main {
 option {
   background: #000;
   color: #ffffffb3;
+}
+/* From Uiverse.io by mahiatlinux */
+:focus {
+  outline: 0;
+  border-color: #00ffff;
+  box-shadow: 0 0 0 4px #2a4a8f;
+}
+
+.mydict div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 1rem;
+  justify-content: center;
+}
+
+.mydict input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mydict input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #00ffff;
+  background-color: #1c2b4a;
+  z-index: 1;
+  color: #00ffff;
+}
+
+label span {
+  display: block;
+  cursor: pointer;
+  background-color: #1e2635;
+  padding: 0.375em 0.75em;
+  position: relative;
+  margin-left: 0.0625em;
+  box-shadow: 0 0 0 0.0625em #4a5568;
+  letter-spacing: 0.05em;
+  color: #a0aec0;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+
+label:first-child span {
+  border-radius: 0.375em 0 0 0.375em;
+}
+
+label:last-child span {
+  border-radius: 0 0.375em 0.375em 0;
+}
+
+select {
+  background-color: #1e2635;
+  border: 0.0625em solid #4a5568;
+  border-radius: 0.375em;
+  color: #a0aec0;
+  font-size: 1em;
+  padding: 0.375em 1.75em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.375em center;
+  background-size: 0.75em 0.75em;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  z-index: 999999999999999999999999999999;
+  margin-right: 1rem;
 }
 </style>

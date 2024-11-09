@@ -93,7 +93,7 @@ function setTitle(params, type) {
       ":直接排放" +
       params.data.value +
       "tCO₂,占直接排放总量" +
-      (params.data.value / 81462).toFixed(4) * 100 +
+      ((params.data.value / 81462) * 100).toFixed(2) +
       "%";
   } else if (type == "2" || type == "4") {
     option.value.title.text =
@@ -101,7 +101,7 @@ function setTitle(params, type) {
       ":间接排放" +
       params.data.value +
       "tCO₂,占间接排放总量" +
-      (params.data.value / 128513).toFixed(4) * 100 +
+      ((params.data.value / 128513) * 100).toFixed(2) +
       "%";
   }
   useEcharts(myChart.value, option.value);
@@ -128,8 +128,7 @@ onMounted(() => {
     },
     series: {
       type: "sankey",
-      // layout: "none",
-
+      top: "top",
       emphasis: {
         focus: "self",
       },
@@ -150,11 +149,9 @@ onMounted(() => {
       },
       data: [
         {
-          name: "直接排放",
-          label: {
-            formatter: function (params) {
-              return params.name + " 40%";
-            },
+          name: "碳排放",
+          itemStyle: {
+            color: "#00ffff",
           },
         },
         {
@@ -165,6 +162,16 @@ onMounted(() => {
             },
           },
         },
+        { name: "购入电力排放" },
+
+        {
+          name: "直接排放",
+          label: {
+            formatter: function (params) {
+              return params.name + " 40%";
+            },
+          },
+        },
         { name: "柴油燃烧排放" },
         { name: "汽油燃烧排放" },
         { name: "天然气燃烧排放" },
@@ -172,7 +179,6 @@ onMounted(() => {
         { name: "甲烷抽采逃逸排放" },
         { name: "二氧化碳逃逸排放" },
         { name: "二氧化碳排放" },
-        { name: "购入电力排放" },
         { name: "购入热力排放" },
         { name: "采掘生产部署系统" },
         { name: "运输系统" },
@@ -194,17 +200,13 @@ onMounted(() => {
         { name: "公司小车队" },
       ],
       links: [
-        { source: "直接排放", target: "柴油燃烧排放", value: 4000 },
-        { source: "直接排放", target: "汽油燃烧排放", value: 2000 },
-        { source: "直接排放", target: "天然气燃烧排放", value: 2462 },
-
-        { source: "天然气燃烧排放", target: "气态天然气燃烧排放", value: 2462 },
-
-        { source: "直接排放", target: "甲烷抽采逃逸排放", value: 70000 }, //694654
-        { source: "直接排放", target: "二氧化碳排放", value: 3000 },
-        { source: "二氧化碳排放", target: "二氧化碳逃逸排放", value: 3000 },
-
+        {
+          source: "碳排放",
+          target: "间接排放",
+          value: 128513,
+        },
         { source: "间接排放", target: "购入电力排放", value: 98513 },
+
         { source: "购入电力排放", target: "采掘生产部署系统", value: 23823 },
         { source: "购入电力排放", target: "运输系统", value: 16373 },
         { source: "购入电力排放", target: "通风系统", value: 18596 },
@@ -215,6 +217,20 @@ onMounted(() => {
         { source: "购入电力排放", target: "通讯系统", value: 5000 },
         { source: "购入电力排放", target: "办公及生活系统", value: 8942 },
         { source: "购入电力排放", target: "瓦斯抽采系统", value: 4995 },
+        {
+          source: "碳排放",
+          target: "直接排放",
+          value: 81462,
+        },
+        { source: "直接排放", target: "柴油燃烧排放", value: 4000 },
+        { source: "直接排放", target: "汽油燃烧排放", value: 2000 },
+        { source: "直接排放", target: "天然气燃烧排放", value: 2462 },
+
+        { source: "天然气燃烧排放", target: "气态天然气燃烧排放", value: 2462 },
+
+        { source: "直接排放", target: "甲烷抽采逃逸排放", value: 70000 }, //694654
+        { source: "直接排放", target: "二氧化碳排放", value: 3000 },
+        { source: "二氧化碳排放", target: "二氧化碳逃逸排放", value: 3000 },
 
         { source: "间接排放", target: "购入热力排放", value: 30000 },
         { source: "购入热力排放", target: "北风井供热", value: 10000 },

@@ -13,6 +13,12 @@ onMounted(() => {
   // let value = 0.5;
   // let data = [value, value, value];
   let option = {
+    title: {
+      text: "24小时耗能情况",
+      textStyle: {
+        color: "#ffffffb3",
+      },
+    },
     textStyle: {
       color: "#ffffffb3",
     },
@@ -21,6 +27,12 @@ onMounted(() => {
       axisPointer: {
         type: "cross",
       },
+    },
+    grid: {
+      left: "1%",
+      right: "0%",
+      bottom: "13%",
+      containLabel: true,
     },
     xAxis: {
       type: "category",
@@ -86,7 +98,7 @@ onMounted(() => {
           data: [
             [
               {
-                name: "超标",
+                name: "",
                 xAxis: "07:30",
               },
               {
@@ -95,7 +107,7 @@ onMounted(() => {
             ],
             [
               {
-                name: "超标",
+                name: "",
                 xAxis: "17:30",
               },
               {
@@ -115,6 +127,6 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 200px;
 }
 </style>

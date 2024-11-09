@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "echarts": "^5.5.1",
+    "echarts-gl": "^2.0.9",
     "moment": "^2.30.1",
     "three": "^0.167.0",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-animate-number": "^0.4.2",
+    "vue-router": "^4.3.3",
+    "vue3-count-to": "^1.1.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",

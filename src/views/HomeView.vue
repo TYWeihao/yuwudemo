@@ -1,23 +1,442 @@
 <script setup>
-import bar from "@/components/charts/bar.vue";
-import pie from "@/components/charts/pie.vue";
-import pie3 from "@/components/charts/pie3.vue";
-import pie4 from "@/components/charts/pie4.vue";
-// import Map from "./map.vue";
 import line4 from "@/components/charts/line4.vue";
-import co2 from "@/components/charts/co2.vue";
 import "@/assets/custom-font.css";
+import { ref, computed } from "vue";
+import Line6 from "../components/charts/line6.vue";
+import qiyejianjie from "./HomeViewComponents/qiyejianjie.vue";
+import zongliangzhibiao from "./HomeViewComponents/zongliangzhibiao.vue";
+import tanpaifang from "./HomeViewComponents/tanpaifang.vue";
+import nenghaoqushi from "./HomeViewComponents/nenghaoqushi.vue";
+import wasiliyong from "./HomeViewComponents/wasiliyong.vue";
+import moment from "moment";
+
+const today = moment();
+const endDay = moment([2030, 11, 31]);
+const days = endDay.diff(today, "days");
+const daysArray = days.toString().split("").map(Number);
+const showDetail = ref(false);
+const devicesMarker = ref(null);
+const devicesChecked = ref(true);
+const showingLayer = ref("中央工业广场");
+const projectsChecked = ref(true);
+const equipmentChecked = ref(true);
+const showingDevice = ref(null);
+devicesMarker.value = {
+  中央工业广场: {
+    项目: [
+      {
+        name: "中央区空压机余热利用",
+        type: "绿色供能低碳",
+        position: ["60%", "40%"],
+      },
+    ],
+    设备: [
+      {
+        name: "1# 提升机",
+        type: "提升机",
+        position: ["49%", "40%"],
+        brand: "SIEMAG",
+        image: new URL("@/assets/img/tsj.png", import.meta.url).href,
+        gl: "641",
+        dl: "1240",
+        dy: "550",
+        description:
+          "Φ4.5m 四绳落地式摩擦轮25吨双箕斗提升机，提升循环时间83秒。主电机为SIEMENS公司生产的1DM5640-6XT08型电机，额定功率：4000 KW，额定电压：2625V，额定电流：852A。2套提升机每天除检修停运约3小时外，其它时间均自动提升运行。",
+      },
+      {
+        name: "2# 提升机",
+        type: "提升机",
+        position: ["50%", "45%"],
+        brand: "SIEMAG",
+        image: new URL("@/assets/img/tsj.png", import.meta.url).href,
+        gl: "641",
+        dl: "1240",
+        dy: "550",
+        description:
+          "Φ4.5m 四绳落地式摩擦轮25吨双箕斗提升机，提升循环时间83秒。主电机为SIEMENS公司生产的1DM5640-6XT08型电机，额定功率：4000 KW，额定电压：2625V，额定电流：852A。2套提升机每天除检修停运约3小时外，其它时间均自动提升运行。",
+      },
+      {
+        name: "瓦斯泵站",
+        type: "瓦斯抽采",
+        position: ["62%", "60%"],
+        image: new URL("@/assets/img/wsbz.jpg", import.meta.url).href,
+        description:
+          "瓦斯抽采泵站，主要用于瓦斯抽采，保证井下瓦斯浓度在安全范围内。泵站主要设备有：瓦斯抽采泵、瓦斯抽采管路、瓦斯抽采控制系统等。瓦斯泵型号2BEC72-1BG3-YB4246，额定抽放量450m3/min，电机功率560KW/台，瓦斯抽采泵台数5台，现运行情况开2台。",
+      },
+      // {
+      //   name: "瓦斯电厂",
+      //   type: "电力设备",
+      //   position: ["40%", "60%"],
+      // },
+    ],
+    监测: [],
+  },
+  地下总采区: {
+    项目: [
+      // {
+      //   name: "地下总采区项目1",
+      //   type: "低碳零碳供能",
+      //   position: ["30%", "60%"],
+      // },
+    ],
+    设备: [
+      //       南翼主皮带	DTL140/250/4*500	南翼胶带大巷	4	2000	7200	57600000
+      // 北翼主皮带	DTL140/250/4*500	北翼胶带输送机	4	2000	7200	57600000
+      // 西翼主皮带	DTL140/250/4*500	西翼胶带输送机	4	2000	7200	57600000
+      // 东翼主皮带	DTL140/350/4*1000	东翼胶带输送机	4	4000	7200	115200000
+      //       南翼二部皮带	DTL140/250/4*500	南翼胶带大巷2#皮带	4	2000	7200	57600000
+      // 南二胶带下山皮带	DTL140/250/4*500	南二胶带下山皮带	4	2000	7200	57600000
+      // 南一上山主皮带	DTL140/250/2*400	南一胶带上山1#皮带	2	800	7200	11520000
+      // 南一上山120皮带	DTL140/250/2*400	南一胶带上山2#皮带	2	800	7200	11520000
+      // 南三1#主皮带	DTL160/350/3*1000	南三胶带大巷1#皮带	4	4000	7200	115200000
+      // 南三2#主皮带	DTL160/350/4*1000	南三胶带大巷2#皮带	4	1000	7200	28800000
+
+      {
+        name: "南翼主皮带",
+        type: "输送机",
+        position: ["60%", "43%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "北翼主皮带",
+        type: "输送机",
+        position: ["42%", "40%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "西翼主皮带",
+        type: "输送机",
+        position: ["40%", "50%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "东翼主皮带",
+        type: "输送机",
+        position: ["37%", "60%"],
+        brand: "DTL140/350/4*1000",
+        gl: "4000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "南翼二部皮带",
+        type: "输送机",
+        position: ["50%", "40%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "南一上山主皮带",
+        type: "输送机",
+        position: ["62%", "48%"],
+        brand: "DTL140/250/2*400",
+        gl: "800",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+    ],
+    监测: [],
+  },
+  井下: {
+    项目: [
+      // {
+      //   name: "地下总采区项目1",
+      //   type: "低碳零碳供能",
+      //   position: ["30%", "60%"],
+      // },
+    ],
+    设备: [
+      //       南翼主皮带	DTL140/250/4*500	南翼胶带大巷	4	2000	7200	57600000
+      // 北翼主皮带	DTL140/250/4*500	北翼胶带输送机	4	2000	7200	57600000
+      // 西翼主皮带	DTL140/250/4*500	西翼胶带输送机	4	2000	7200	57600000
+      // 东翼主皮带	DTL140/350/4*1000	东翼胶带输送机	4	4000	7200	115200000
+      //       南翼二部皮带	DTL140/250/4*500	南翼胶带大巷2#皮带	4	2000	7200	57600000
+      // 南二胶带下山皮带	DTL140/250/4*500	南二胶带下山皮带	4	2000	7200	57600000
+      // 南一上山主皮带	DTL140/250/2*400	南一胶带上山1#皮带	2	800	7200	11520000
+      // 南一上山120皮带	DTL140/250/2*400	南一胶带上山2#皮带	2	800	7200	11520000
+      // 南三1#主皮带	DTL160/350/3*1000	南三胶带大巷1#皮带	4	4000	7200	115200000
+      // 南三2#主皮带	DTL160/350/4*1000	南三胶带大巷2#皮带	4	1000	7200	28800000
+
+      {
+        name: "南翼主皮带",
+        type: "输送机",
+        position: ["60%", "43%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "北翼主皮带",
+        type: "输送机",
+        position: ["42%", "40%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "西翼主皮带",
+        type: "输送机",
+        position: ["40%", "50%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "东翼主皮带",
+        type: "输送机",
+        position: ["37%", "60%"],
+        brand: "DTL140/350/4*1000",
+        gl: "4000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "南翼二部皮带",
+        type: "输送机",
+        position: ["50%", "40%"],
+        brand: "DTL140/250/4*500",
+        gl: "2000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "南一上山主皮带",
+        type: "输送机",
+        position: ["62%", "48%"],
+        brand: "DTL140/250/2*400",
+        gl: "800",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+    ],
+    监测: [],
+  },
+  南风井: {
+    项目: [
+      {
+        name: "南风井项目1",
+        type: "低碳零碳供能",
+        position: ["50%", "55%"],
+      },
+    ],
+    设备: [
+      {
+        name: "南风井设备1",
+        type: "电力设备",
+        position: ["55%", "35%"],
+      },
+      {
+        name: "南风井设备2",
+        type: "电力设备",
+        position: ["60%", "50%"],
+      },
+    ],
+    监测: [],
+  },
+  北风井: {
+    项目: [],
+    设备: [],
+    监测: [],
+  },
+  采区: {
+    项目: [
+      // {
+      //   name: "采区项目1",
+      //   type: "低碳零碳供能",
+      //   position: ["50%", "55%"],
+      // },
+    ],
+    设备: [
+      //       东翼采区	主采	综采一队	采煤机	MG400/930-WD	1	930	18	6110100
+      // 东翼采区	主采	综采一队	带式输送机	DSJ120/180/4*400	1	1600	18	10512000
+      // 东翼采区	主采	综采一队	带式输送机	DSJ120/180/3*400	1	1200	18	7884000
+      // 东翼采区	主采	综采一队	前部刮板输送机	SGZ1000/2×1200（变频）	1	2400	18	15768000
+      // 东翼采区	主采	综采一队	后部刮板输送机	SGZ1000/2×1200（变频）	1	2400	18	15768000
+      // 东翼采区	主采	综采一队	转载机	SZZ1200/400	1	400	18	2628000
+      // 东翼采区	主采	综采一队	破碎机	PLM3500	1	250	18	1642500
+
+      {
+        name: "采煤机",
+        type: "采煤机",
+        position: ["34.5%", "47%"],
+        brand: "MG400/930-WD",
+        gl: "930",
+        image: new URL("@/assets/img/cmj.png", import.meta.url).href,
+        description:
+          "MG400/930-WD交流电牵引采煤机是一种多电机驱动、横向抽屉式布置，采用机载式交流变频调速装置的新型电牵引采煤机。MG400/930-WD交流电牵引采煤机适用于较倾斜、中硬煤层长壁式综采工作面采高范围为1.8~3.2米(根据配置可以改变采高和截深)。可在周围空气中的瓦斯、煤尘、硫化氢、二氧化碳等不超过《煤矿安全规程》中所规定的安全含量的矿并中使用;该机组电气系统应用两台DTC变频器采用光缆通讯技术，一一的牵引方式，",
+      },
+      {
+        name: "带式输送机",
+        type: "输送机",
+        position: ["40%", "45.5%"],
+        brand: "DSJ120/180/4*400",
+        gl: "1600",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+        description:
+          "DSJ型伸缩钢架带式输送机用于综合机械化采煤工作面的顺槽输送，也可用于一般工作面的顺槽和巷道掘进运输部位，用于顺槽运输的机尾部配刮板输送机与工作面运输机相接；用于巷道掘进运输时，机尾部配带式转载机与掘进机相接。",
+      },
+      {
+        name: "带式输送机",
+        type: "输送机",
+        position: ["40%", "51.5%"],
+        brand: "DSJ120/180/3*400",
+        gl: "1200",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+        description:
+          "DSJ型伸缩钢架带式输送机用于综合机械化采煤工作面的顺槽输送，也可用于一般工作面的顺槽和巷道掘进运输部位，用于顺槽运输的机尾部配刮板输送机与工作面运输机相接；用于巷道掘进运输时，机尾部配带式转载机与掘进机相接。",
+      },
+      {
+        name: "前部刮板输送机",
+        type: "输送机",
+        position: ["52%", "46.8%"],
+        brand: "SGZ1000/2×1200（变频）",
+        gl: "2400",
+        image: new URL("@/assets/img/qbgb.png", import.meta.url).href,
+        // description:
+        //   "SGZ1000/2×1200（变频）型前部刮板输送机是的新一代输送设备，适用于煤矿综采工作面的煤矿输送，具有高效、安全、环保等特点。该设备主要由机架、输送带、驱动装置、张紧装置、清扫装置、电气控制系统等部分组成。该设备具有输送能力大、输送距离远、输送效率高、安全性好、维护方便等特点。",
+      },
+      {
+        name: "后部刮板输送机",
+        type: "输送机",
+        position: ["34.5%", "48.7%"],
+        brand: "SGZ1000/2×1200（变频）",
+        gl: "2400",
+        image: new URL("@/assets/img/qbgb.png", import.meta.url).href,
+        description:
+          "SGZ1000/2×1200（变频）型后部刮板输送机是的新一代输送设备，适用于煤矿综采工作面的煤矿输送，具有高效、安全、环保等特点。该设备主要由机架、输送带、驱动装置、张紧装置、清扫装置、电气控制系统等部分组成。该设备具有输送能力大、输送距离远、输送效率高、安全性好、维护方便等特点。",
+      },
+      {
+        name: "转载机",
+        type: "转载机",
+        position: ["46%", "51.5%"],
+        brand: "SZZ1200/400",
+        gl: "400",
+        image: new URL("@/assets/img/zzj.png", import.meta.url).href,
+        description:
+          "SZZ1200/400型转载机是的新一代转载设备，适用于煤矿综采工作面的煤矿转载，具有高效、安全、环保等特点。该设备主要由机架、转载装置、驱动装置、电气控制系统等部分组成。该设备具有转载能力大、转载效率高、安全性好、维护方便等特点。",
+      },
+      {
+        name: "破碎机",
+        type: "破碎机",
+        position: ["46%", "45.5%"],
+        brand: "PLM3500",
+        gl: "250",
+        image: new URL("@/assets/img/psj.png", import.meta.url).href,
+        description:
+          "PLM3500型破碎机是的新一代破碎设备，适用于煤矿综采工作面的煤矿破碎，具有高效、安全、环保等特点。该设备主要由机架、破碎装置、驱动装置、电气控制系统等部分组成。该设备具有破碎能力大、破碎效率高、安全性好、维护方便等特点。",
+      },
+      {
+        name: "液压支架",
+        type: "液压支架",
+        position: ["34.5%", "50.4%"],
+        brand: "ZMJ",
+        image: new URL("@/assets/img/yzzj.png", import.meta.url).href,
+        description:
+          "ZMJ液压支架是的新一代支架设备，适用于煤矿综采工作面的煤矿支架，具有高效、安全、环保等特点。该设备主要由机架、支架装置、驱动装置、电气控制系统等部分组成。该设备具有支架能力大、支架效率高、安全性好、维护方便等特点。",
+      },
+      {
+        name: "移动变压器",
+        type: "移动变压器",
+        position: ["52%", "50.5%"],
+        brand: "YDQ",
+        image: new URL("@/assets/img/ydbyq.png", import.meta.url).href,
+        // description:
+        //   "YDQ移动变压器是的新一代变压器设备，适用于煤矿综采工作面的煤矿变压器，具有高效、安全、环保等特点。该设备主要由机架、变压器装置、驱动装置、电气控制系统等部分组成。该设备具有变压器能力大、变压器效率高、安全性好、维护方便等特点。",
+      },
+      {
+        name: "东翼主皮带",
+        type: "输送机",
+        position: ["56%", "40.5%"],
+        brand: "DTL140/350/4*1000",
+        gl: "4000",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+      {
+        name: "东翼1.2米皮带",
+        type: "输送机",
+        position: ["56%", "60.5%"],
+        brand: "DTL140/350/2*400",
+        gl: "800",
+        image: new URL("@/assets/img/dssb.jpg", import.meta.url).href,
+      },
+    ],
+    监测: [],
+  },
+};
+function showDeviceDetail(device) {
+  showDetail.value = true;
+  showingDevice.value = device;
+}
+const layers = ref([
+  {
+    name: "中央工业广场",
+    image: new URL("@/assets/img/bg.png", import.meta.url).href,
+  },
+  {
+    name: "地下总采区",
+    image: new URL("@/assets/img/采煤效果图6_b.jpg", import.meta.url).href,
+  },
+  {
+    name: "井下",
+    image: new URL("@/assets/img/采煤效果图6_b.jpg", import.meta.url).href,
+  },
+  { name: "南风井", image: new URL("@/assets/img/bgnfj.jpg", import.meta.url).href },
+  { name: "北风井", image: new URL("@/assets/img/bgbfj.jpg", import.meta.url).href },
+  {
+    name: "采区",
+    image: new URL("@/assets/img/caiqu2.jpg", import.meta.url).href,
+  },
+  // 添加更多层...
+]);
+
+const activeLayer = ref("中央工业广场");
+const currentLayerImage = computed(() => {
+  const layer = layers.value.find((layer) => layer.name === activeLayer.value);
+  return layer ? layer.image : "";
+});
+function switchLayer(layer) {
+  console.log(layer);
+  activeLayer.value = layer;
+  currentLayerImage.value = layer.image;
+}
+console.log(currentLayerImage.value);
+const boxStatus = ref({
+  qiyejianjie: false,
+  zongliangzhibiao: false,
+  tanpaifang: false,
+  nenghaoqushi: false,
+  wasiliyong: false,
+  huanjingbaohu: false,
+  zongliangzhibiaoTab: 0,
+});
+const showDetailBox = (layer, tab) => {
+  console.log(layer);
+  boxStatus.value[layer] = !boxStatus.value[layer];
+  if (tab) {
+    boxStatus.value[layer + "Tab"] = tab;
+  }
+};
+const closeDetail = (layer) => {
+  console.log(layer);
+  boxStatus.value[layer] = false;
+};
 </script>
 
 <template>
-  <main>
+  <main :style="{ backgroundImage: `url(${currentLayerImage})` }">
     <div class="left">
       <div class="left-box box" style="overflow: hidden">
         <div class="left-box-title title">>企业概况</div>
         <!-- <div class="left-box-content" style="max-height: 150px; overflow: hidden; width: 100%">
                     <img src="./../assets/img/bg.png.jpg" alt="" style="width: 100%" />
                 </div> -->
-        <div class="left-box-content" style="overflow: hidden; width: 100%">
+        <div
+          class="left-box-content"
+          style="overflow: hidden; width: 100%"
+          @click="showDetailBox('qiyejianjie')"
+        >
           <article class="jianjie">
             <img src="./../assets/img/bg.png.jpg" alt="" />
             <div class="jianjie_content">
@@ -30,10 +449,11 @@ import "@/assets/custom-font.css";
         <div class="left-box-title title">
           <div>>总量指标</div>
         </div>
-        <div class="left-box-content row" style="flex-wrap: wrap">
+        <div class="left-box-content row" style="flex-wrap: wrap; padding: 0">
           <div
             class="zl-card"
             style="border-right: 1px solid #bbb; border-bottom: 1px solid #bbb"
+            @click="showDetailBox('zongliangzhibiao', 0)"
           >
             <div class="zl-icon">
               <img src="./../assets/img/zl01.png" alt="" />
@@ -48,33 +468,41 @@ import "@/assets/custom-font.css";
                     src="./../assets/img/up.png"
                     alt=""
                   />
-                  <small style="color: #5ea755">4.5% 同比</small>
+                  <small style="color: #5ea755">11.60% 同比</small>
                 </div>
               </div>
-              <span class="zl-card-title">6801666 <small>吨</small></span>
+              <span class="zl-card-title">9588669 <small>吨</small></span>
             </div>
           </div>
-          <div class="zl-card" style="border-bottom: 1px solid #bbb">
+          <div
+            class="zl-card"
+            style="border-bottom: 1px solid #bbb"
+            @click="showDetailBox('zongliangzhibiao', 1)"
+          >
             <div class="zl-icon">
               <img src="./../assets/img/zl02.png" alt="" />
             </div>
             <div class="zl-card-content">
               <div>
                 <div style="display: flex; align-items: center; font-size: 0.8rem">
-                  营业收入
+                  能耗总量
                   <img
                     class="down"
                     style="width: 0.2rem; height: 0.6rem; margin: 1px 5px 0"
                     src="./../assets/img/up.png"
                     alt=""
                   />
-                  <small style="color: #5ea755">2.5% 同比</small>
+                  <small style="color: #5ea755">1.96% 同比</small>
                 </div>
               </div>
-              <span class="zl-card-title">366782 <small>万元</small></span>
+              <span class="zl-card-title">47135.55 <small>吨ce</small></span>
             </div>
           </div>
-          <div class="zl-card" style="border-right: 1px solid #bbb">
+          <div
+            class="zl-card"
+            style="border-right: 1px solid #bbb"
+            @click="showDetailBox('zongliangzhibiao', 2)"
+          >
             <div class="zl-icon">
               <img src="./../assets/img/zl03.png" alt="" />
             </div>
@@ -88,39 +516,39 @@ import "@/assets/custom-font.css";
                     src="./../assets/img/down.png"
                     alt=""
                   />
-                  <small style="color: #ff0000">3.5% 同比</small>
+                  <small style="color: #ff0000">3.70% 同比</small>
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >116855 <small>吨</small></span
+                >1973659.34 <small>吨</small></span
               >
             </div>
           </div>
 
-          <div class="zl-card">
+          <div class="zl-card" @click="showDetailBox('zongliangzhibiao', 2)">
             <div class="zl-icon">
               <img src="./../assets/img/zl04.png" alt="" />
             </div>
             <div class="zl-card-content">
               <div>
                 <div style="display: flex; align-items: center; font-size: 0.8rem">
-                  能耗总量
+                  碳资产量
                   <img
                     class="down"
                     style="width: 0.2rem; height: 0.6rem; margin: 1px 5px 0"
                     src="./../assets/img/down.png"
                     alt=""
                   />
-                  <small style="color: #ff0000">4.5% 同比</small>
+                  <small style="color: #ff0000">0% 同比</small>
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >26526 <small>吨ce</small></span
+                >0 <small>tCO₂</small></span
               >
             </div>
           </div>
         </div>
-        <div style="margin-top: -1.2rem; text-align: right">截止2024年8月</div>
+        <div style="margin-top: -1.2rem; text-align: right">截止2024年9月</div>
       </div>
       <div class="left-box box">
         <div class="left-box-title title">
@@ -128,8 +556,12 @@ import "@/assets/custom-font.css";
         </div>
 
         <div class="left-box-content">
-          <div style="width: 100%; height: 100%; margin-top: -2rem">
-            <co2 />
+          <div
+            style="width: 100%; height: 100%; margin-top: -2rem"
+            @click="showDetailBox('tanpaifang')"
+          >
+            <!-- <co2 /> -->
+            <Line6 />
             <div
               style="
                 display: flex;
@@ -141,13 +573,13 @@ import "@/assets/custom-font.css";
               <div style="display: flex">
                 碳排放总量
                 <div style="font-weight: 600; color: #ffde00; margin-left: 5px">
-                  116855.26 吨
+                  1973659.34 吨CO₂
                 </div>
               </div>
               <div style="display: flex">
                 碳排放强度
                 <div style="font-weight: 600; color: #ffde00; margin-left: 5px">
-                  17.18 kgCO₂/t原煤
+                  20.56 kgCO₂/t原煤
                 </div>
               </div>
             </div>
@@ -172,17 +604,46 @@ import "@/assets/custom-font.css";
       <!-- <div class="center-box box" style="padding: 0; height: 800px">
         <Map />
       </div> -->
-      <div style="position: absolute; top: 155px; left: 28%">
+      <!-- <div style="position: absolute; top: 155px; left: 28%">
         <div class="ebox">
-          <div class="ebg">2030 年</div>
+          <div class="ebg">2027 年</div>
           <div style="margin-top: -1rem">零碳矿山目标达成时间</div>
+        </div>
+      </div> -->
+      <div
+        style="
+          position: absolute;
+          top: 165px;
+          left: 50%;
+          width: 600px;
+          margin-left: -300px;
+          text-align: center;
+        "
+      >
+        <div
+          style="
+            font-family: 'YousheBiaotiHei', sans-serif;
+            font-size: 1.5rem;
+            color: #0ff;
+          "
+        >
+          零碳矿山目标达成倒计时<b
+            v-for="num in daysArray"
+            style="
+              margin: 0.5rem;
+              padding: 0.5rem 0.5rem 0.1rem;
+              background: linear-gradient(0deg, #074c58 0%, #2ba4c0 100%);
+              border-radius: 0.1rem;
+            "
+            >{{ num }}</b
+          >天
         </div>
       </div>
     </div>
     <div class="right">
       <div class="right-box box">
         <div class="right-box-title title">>能耗趋势分析</div>
-        <div class="right-box-content">
+        <div class="right-box-content" @click="showDetailBox('nenghaoqushi')">
           <div style="width: 100%; height: 100%; margin-top: -1.5rem">
             <line4 />
             <div
@@ -202,7 +663,7 @@ import "@/assets/custom-font.css";
               <div style="display: flex">
                 能耗强度
                 <div style="font-weight: 600; color: #ffde00; margin-left: 5px">
-                  3.9 kgce/t
+                  3.77 kgce/t
                 </div>
               </div>
             </div>
@@ -222,9 +683,10 @@ import "@/assets/custom-font.css";
             align-items: center;
             flex-wrap: wrap;
           "
+          @click="showDetailBox('wasiliyong')"
         >
           <div style="text-align: center; width: 32%">
-            <div class="num"><span>3398万 m³</span></div>
+            <div class="num"><span>5052万 m³</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
             <div style="font-size: 0.8rem">瓦斯利用总量</div>
           </div>
@@ -234,7 +696,7 @@ import "@/assets/custom-font.css";
             <div style="font-size: 0.8rem">瓦斯利用碳减排量</div>
           </div>
           <div style="text-align: center; width: 32%">
-            <div class="num"><span>52.25 %</span></div>
+            <div class="num"><span>31.2 %</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
             <div style="font-size: 0.8rem">瓦斯利用率</div>
           </div>
@@ -263,7 +725,7 @@ import "@/assets/custom-font.css";
               废气排放量
             </div>
             <div class="hb-process">
-              <span>60343.6 m³</span>
+              <span>1713.32 万m³</span>
             </div>
           </div>
           <div class="hb-box">
@@ -284,7 +746,7 @@ import "@/assets/custom-font.css";
               废水排放量
             </div>
             <div class="hb-process">
-              <span>34243.6 m³</span>
+              <span>15.2091 万m³</span>
             </div>
           </div>
           <div class="hb-box">
@@ -305,7 +767,7 @@ import "@/assets/custom-font.css";
               固废产生量
             </div>
             <div class="hb-process">
-              <span>2343.6 吨</span>
+              <span>263.36 万m³</span>
             </div>
           </div>
           <div class="hb-box">
@@ -326,75 +788,65 @@ import "@/assets/custom-font.css";
               危废产生量
             </div>
             <div class="hb-process">
-              <span>2475.1 吨</span>
+              <span>99.325 吨</span>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="switch-view">
-      <div class="select">
-        <div
-          class="selected"
-          data-default="中央工业广场"
-          data-one="北风井"
-          data-two="南风井"
-          data-three="地下总采区"
-          data-four="北风井东翼采区"
-          data-five="北风井西翼采区"
-          data-six="南五采区"
-          data-seven="南一采区"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 512 512"
-            class="arrow"
-          >
-            <path
-              d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-            ></path>
-          </svg>
-        </div>
-        <div class="options">
-          <div title="中央工业广场">
-            <input id="all" name="option" type="radio" checked="" />
-            <label class="option" for="中央工业广场" data-txt="中央工业广场"></label>
-          </div>
-          <div title="北风井">
-            <input id="option-1" name="option" type="radio" />
-            <label class="option" for="option-1" data-txt="北风井"></label>
-          </div>
-          <div title="南风井">
-            <input id="option-2" name="option" type="radio" />
-            <label class="option" for="option-2" data-txt="南风井"></label>
-          </div>
-          <div title="地下总采区">
-            <input id="option-3" name="option" type="radio" />
-            <label class="option" for="option-3" data-txt="地下总采区"></label>
-          </div>
-          <div title="北风井东翼采区">
-            <input id="option-4" name="option" type="radio" />
-            <label class="option" for="option-4" data-txt="北风井东翼采区"></label>
-          </div>
-          <div title="北风井西翼采区">
-            <input id="option-5" name="option" type="radio" />
-            <label class="option" for="option-5" data-txt="北风井西翼采区"></label>
-          </div>
-          <div title="南五采区">
-            <input id="option-6" name="option" type="radio" />
-            <label class="option" for="option-6" data-txt="南五采区"></label>
-          </div>
-          <div title="南一采区">
-            <input id="option-7" name="option" type="radio" />
-            <label class="option" for="option-7" data-txt="南一采区"></label>
-          </div>
-        </div>
+      <div class="radio-inputs view-radio">
+        <label>
+          <input
+            class="radio-input"
+            type="radio"
+            name="view"
+            :checked="
+              activeLayer === '中央工业广场' ||
+              activeLayer === '南风井' ||
+              activeLayer === '北风井'
+            "
+            @change="switchLayer('中央工业广场')"
+          />
+          <span class="radio-tile ground">
+            <span class="radio-label">地面</span>
+          </span>
+        </label>
+        <label>
+          <input
+            v-model="activeLayer"
+            value="井下"
+            class="radio-input"
+            type="radio"
+            name="view"
+          />
+          <span class="radio-tile under">
+            <span class="radio-label">井下</span>
+          </span>
+        </label>
+
+        <!-- <label>
+          <input
+            v-model="activeLayer"
+            value="采区"
+            class="radio-input"
+            type="radio"
+            name="view"
+          />
+          <span class="radio-tile caiqu">
+            <span class="radio-label">采区</span>
+          </span>
+        </label> -->
       </div>
       <div class="radio-inputs">
         <label>
-          <input class="radio-input" type="checkbox" name="engine" />
-          <span class="radio-tile">
+          <input
+            v-model="projectsChecked"
+            class="radio-input project"
+            type="checkbox"
+            name="engine"
+          />
+          <span class="radio-tile" style="color: #ea580c">
             <span class="radio-icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -403,16 +855,21 @@ import "@/assets/custom-font.css";
                 viewBox="0 0 8 8"
               >
                 <path
-                  fill="#00ffff"
+                  fill="#ea580c"
                   d="M0 0v7h1V0zm7 0v7h1V0zM2 1v1h2V1zm1 2v1h2V3zm1 2v1h2V5z"
                 />
               </svg>
             </span>
-            <span class="radio-label">项目</span>
+            <span class="radio-label" style="color: #ea580c">项目</span>
           </span>
         </label>
         <label>
-          <input checked="" class="radio-input" type="checkbox" name="engine" />
+          <input
+            v-model="devicesChecked"
+            class="radio-input"
+            type="checkbox"
+            name="engine"
+          />
           <span class="radio-tile">
             <span class="radio-icon">
               <svg
@@ -435,7 +892,7 @@ import "@/assets/custom-font.css";
             <span class="radio-label">设备</span>
           </span>
         </label>
-        <label>
+        <!-- <label>
           <input class="radio-input" type="checkbox" name="engine" />
           <span class="radio-tile">
             <span class="radio-icon">
@@ -461,28 +918,345 @@ import "@/assets/custom-font.css";
             </span>
             <span class="radio-label">监测</span>
           </span>
-        </label>
+        </label> -->
       </div>
     </div>
-    <!-- <div class="input">
-      <button class="value">中央工业广场</button>
-      <button class="value">北风井</button>
-      <button class="value">南风井</button>
-      <button class="value">地下总采区</button>
-      <button class="value">北风井东翼采区</button>
-      <button class="value">南五采区</button>
-      <button class="value">南一采区</button>
-    </div> -->
+    <div
+      class="toBfj"
+      @click="
+        activeLayer == '中央工业广场'
+          ? switchLayer('北风井')
+          : switchLayer('中央工业广场')
+      "
+      v-if="activeLayer == '中央工业广场' || activeLayer == '南风井'"
+    >
+      <div style="transform: rotate(180deg)">
+        {{ activeLayer == "中央工业广场" ? "北风井" : "中央工业广场" }}
+      </div>
+      <div style="--color: skyblue">
+        <div class="chevrons">
+          <div class="chevrondown"></div>
+          <div class="chevrondown"></div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="toNfj"
+      @click="
+        activeLayer == '中央工业广场'
+          ? switchLayer('南风井')
+          : switchLayer('中央工业广场')
+      "
+      v-if="activeLayer == '中央工业广场' || activeLayer == '北风井'"
+    >
+      <div>{{ activeLayer == "中央工业广场" ? "南风井" : "中央工业广场" }}</div>
+      <div style="--color: skyblue">
+        <div class="chevrons">
+          <div class="chevrondown"></div>
+          <div class="chevrondown"></div>
+        </div>
+      </div>
+    </div>
+    <div class="devices-marker" v-if="devicesChecked">
+      <div
+        v-if="activeLayer === '井下'"
+        style="
+          position: absolute;
+          top: 35%;
+          left: 54%;
+          width: 140px;
+          height: 200px;
+          z-index: 9999999999;
+        "
+        @click="activeLayer = '采区'"
+      ></div>
+      <div
+        class="marker"
+        v-for="(item, index) in devicesMarker[activeLayer]['设备']"
+        :key="index"
+        :style="{ top: item.position[0], left: item.position[1] }"
+        @click="showDeviceDetail(item)"
+      >
+        <div class="marker-icon" :title="item.name">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            v-if="item.type !== '输送机'"
+          >
+            <path
+              fill="#0891b2"
+              d="M5 3a2 2 0 0 0-2 2v2h2V5h14v2h2V5a2 2 0 0 0-2-2zm3 4v2h8V7zM3 9v3a9 9 0 0 0 9 9a9 9 0 0 0 9-9V9h-2v3a7 7 0 0 1-7 7a7 7 0 0 1-7-7V9zm9 3a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 12 17a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 12 12"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            v-else
+          >
+            <path
+              fill="#eab308"
+              d="M5 21q-1.25 0-2.125-.875T2 18t.875-2.125T5 15h14q1.25 0 2.125.875T22 18t-.875 2.125T19 21zm0-2h14q.425 0 .713-.288T20 18t-.288-.712T19 17H5q-.425 0-.712.288T4 18t.288.713T5 19m5-6q-.425 0-.712-.288T9 12V4q0-.425.288-.712T10 3h8q.425 0 .713.288T19 4v8q0 .425-.288.713T18 13zm-7.05-2.05q-.4 0-.675-.288T2 9.976t.288-.675t.687-.275h3q.4 0 .675.275t.275.675t-.275.688t-.675.287zM13 8h2.025q.425 0 .7-.288T16 7t-.275-.7t-.7-.275h-2.05q-.425 0-.7.275T12 7t.288.712T13 8M4.975 8q-.425 0-.7-.288T4 7t.288-.7T5 6.025h.95q.425 0 .7.275t.275.7t-.275.713t-.7.287z"
+            />
+          </svg>
+        </div>
+        <!-- <div class="marker-title">{{ item.name }}</div> -->
+        <!-- <div class="marker-content"></div> -->
+      </div>
+    </div>
+    <div class="devices-marker" v-if="projectsChecked">
+      <div
+        class="marker"
+        v-for="(item, index) in devicesMarker[activeLayer]['项目']"
+        :key="index"
+        :style="{ top: item.position[0], left: item.position[1] }"
+      >
+        <div class="marker-icon" style="border-color: #ea580c">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 1024 1024"
+          >
+            <path
+              fill="#e11d48"
+              d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8m192-280h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8m192 72h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8m216-432H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32m-40 728H184V184h656z"
+            />
+          </svg>
+        </div>
+        <!-- <div class="marker-title" style="color: #ea580c">{{ item.name }}</div> -->
+        <!-- <div class="marker-content"></div> -->
+      </div>
+    </div>
+    <div class="mask" @click="showDetail = false" v-if="showDetail"></div>
+    <div v-if="showDetail" class="detail-box">
+      <div class="detail-title">
+        <div class="tab-title active">设备详情</div>
+        <!-- <div class="tab-title">设备工艺</div> -->
+        <!-- <div class="tab-title">运行数据</div> -->
+      </div>
+      <div class="detail-content" style="gap: 0">
+        <div class="detail-item" style="align-items: center">
+          <div class="detail-img">
+            <img
+              style="width: 200px; height: 200px; border-radius: 10px"
+              :src="showingDevice.image"
+              alt=""
+            />
+          </div>
+          <div style="padding: 0 1rem">
+            <div style="display: flex; gap: 2rem; margin-bottom: 1rem">
+              <div>
+                <div class="detail-item-title">设备名称</div>
+                <div class="detail-item-content">{{ showingDevice.name }}</div>
+              </div>
+              <div>
+                <div class="detail-item-title">设备编号</div>
+                <div class="detail-item-content">{{ showingDevice.name }}</div>
+              </div>
+              <div>
+                <div class="detail-item-title">设备类型</div>
+                <div class="detail-item-content">{{ showingDevice.type }}</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 1rem">
+              <div>
+                <div class="detail-item-title">设备品牌</div>
+                <div class="detail-item-content">{{ showingDevice.brand || "-" }}</div>
+              </div>
+              <div>
+                <div class="detail-item-title">设备厂家</div>
+                <div class="detail-item-content">{{ showingDevice.model || "-" }}</div>
+              </div>
+              <div>
+                <div class="detail-item-title">出厂日期</div>
+                <div class="detail-item-content">{{ showingDevice.status || "-" }}</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 1rem">
+              <div>
+                <div class="detail-item-title">额定功率</div>
+                <div class="detail-item-content">{{ showingDevice.gl || "-" }} KW</div>
+              </div>
+              <div>
+                <div class="detail-item-title">额定电压</div>
+                <div class="detail-item-content">{{ showingDevice.dy || "-" }} V</div>
+              </div>
+              <div>
+                <div class="detail-item-title">额定电流</div>
+                <div class="detail-item-content">{{ showingDevice.dl || "-" }} A</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 2rem">
+              <div>
+                <div class="detail-item-title">日能耗</div>
+                <div class="detail-item-content">
+                  {{ showingDevice.gl * 18 || "-" }} kwh
+                </div>
+              </div>
+              <div>
+                <div class="detail-item-title">月能耗</div>
+                <div class="detail-item-content">
+                  {{ showingDevice.gl * 18 * 30 || "-" }} kwh
+                </div>
+              </div>
+              <div>
+                <div class="detail-item-title">年能耗</div>
+                <div class="detail-item-content">
+                  {{ showingDevice.gl * 18 * 365 || "-" }} kwh
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 0 1rem 1rem 1rem">
+          <div class="detail-item-title">设备用途</div>
+          <div class="detail-item-content">
+            {{ showingDevice.description || "-" }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <qiyejianjie :showDetail="boxStatus.qiyejianjie" @close-detail="closeDetail" />
+    <zongliangzhibiao
+      :showDetail="boxStatus.zongliangzhibiao"
+      @close-detail="closeDetail"
+      :activeTab="boxStatus.zongliangzhibiaoTab"
+    />
+    <tanpaifang :showDetail="boxStatus.tanpaifang" @close-detail="closeDetail" />
+    <nenghaoqushi :showDetail="boxStatus.nenghaoqushi" @close-detail="closeDetail" />
+    <wasiliyong :showDetail="boxStatus.wasiliyong" @close-detail="closeDetail" />
   </main>
 </template>
 <style scoped>
-/* From Uiverse.io by 3bdel3ziz-T */
-/* From Uiverse.io by Yaya12085 */
+.toNfj {
+  position: fixed;
+  bottom: 15%;
+  right: calc(50% - 50px);
+  margin: 1rem;
+  z-index: 100000;
+  color: #00ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+.toBfj {
+  position: fixed;
+  top: 30%;
+  right: calc(50% - 50px);
+
+  margin: 1rem;
+  z-index: 100000;
+  transform: rotate(180deg);
+  color: #00ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+.chevrons {
+  /* padding: 6px 0 0 0; */
+  margin-left: -3px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chevrondown {
+  margin-top: -6px;
+  position: relative;
+  border: solid var(--color);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) {
+  animation: pulse54012 500ms ease infinite alternate;
+}
+
+.chevrondown:nth-child(even) {
+  animation: pulse54012 500ms ease infinite alternate 250ms;
+}
+@keyframes pulse54012 {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 0.9;
+  }
+}
+.detail-box {
+  max-width: 700px;
+}
+.ground {
+  background-image: url("./../assets/img/bg-s.png");
+  background-size: 100% 100%;
+}
+.under {
+  background-image: url("./../assets/img/采煤效果图6-s.png");
+  background-size: 100% 100%;
+}
+.caiqu {
+  background-image: url("./../assets/img/caiqu-s.png");
+  background-size: 100% 100%;
+}
+.left,
+.right {
+  z-index: 100000;
+}
+.devices-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* z-index: 100000; */
+}
+.marker {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 0.8rem;
+  z-index: 100000;
+  cursor: pointer;
+}
+.marker-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #000000;
+  border: 2px solid #00ffff;
+}
+.marker-title {
+  margin-top: 0.5rem;
+  color: #00ffff;
+  background-color: #000000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+}
 .radio-inputs {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 350px;
+  /* max-width: 350px; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -505,7 +1279,13 @@ import "@/assets/custom-font.css";
   background-color: #00ffff;
   border-color: #00ffff;
 }
+.project:checked + .radio-tile {
+  border-color: #ea580c;
+}
 
+.project:checked + .radio-tile:before {
+  border-color: #ea580c;
+}
 .radio-input:checked + .radio-tile .radio-icon svg {
   fill: #2260ff;
 }
@@ -513,7 +1293,15 @@ import "@/assets/custom-font.css";
 .radio-input:checked + .radio-tile .radio-label {
   color: #00ffff;
 }
-
+.view-radio .radio-input:checked + .radio-tile {
+  border-color: #00ff66;
+}
+.view-radio .radio-input:checked + .radio-tile:before {
+  border-color: #00ff66;
+}
+.view-radio .radio-input:checked + .radio-tile .radio-label {
+  color: #00ff66;
+}
 .radio-input:focus + .radio-tile {
   /* border-color: #2260ff; */
   /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc; */
@@ -532,7 +1320,7 @@ import "@/assets/custom-font.css";
   width: 60px;
   min-height: 60px;
   border-radius: 0.5rem;
-  border: 2px solid #0632a7;
+  border: 2px solid #ffffffa3;
   background-color: #0000009e;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.15s ease;
@@ -572,10 +1360,13 @@ import "@/assets/custom-font.css";
 }
 
 .radio-label {
-  color: #707070;
+  color: #fff;
   transition: 0.375s ease;
   text-align: center;
   font-size: 13px;
+  background-color: #0000006e;
+  padding: 0.1rem 0.2rem;
+  border-radius: 5px;
 }
 
 .radio-input {
@@ -625,7 +1416,9 @@ import "@/assets/custom-font.css";
   z-index: 100000;
   transition: 300ms;
 }
-
+.disabled {
+  color: #7ba2c5;
+}
 .options {
   display: flex;
   flex-direction: column;
@@ -756,16 +1549,26 @@ import "@/assets/custom-font.css";
 .jianjie .jianjie_content {
   font-size: 0.8rem;
   text-align: justify;
+  cursor: pointer;
   /* width: 80%; */
   /* height: 100%; */
+}
+.jianjie .jianjie_content:hover {
+  color: #00ffff;
+  text-decoration: underline;
 }
 .zl-card {
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  cursor: pointer;
+  width: 50%;
+}
+.zl-card:hover {
+  background-color: #00000038;
 }
 .zl-icon {
-  margin-right: 0.5rem;
+  margin-right: 0.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -807,8 +1610,10 @@ import "@/assets/custom-font.css";
   right: 28vw;
   border-radius: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: end;
+  z-index: 1000000;
+  width: 44%;
   /* border-radius: 0.5rem; */
   /* border: 1px solid #00ffff33; */
   /* box-shadow: 0 0 4px #00ffffb3; */
@@ -1128,5 +1933,46 @@ tr td:nth-child(4) {
   color: #7ba2c5;
   font-size: 0.8rem;
   word-break: keep-all;
+}
+/* From Uiverse.io by gouthamnetha02 */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 9999999999999999999999;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #061d68b8;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  /* z-index: 1; */
+  bottom: 115%;
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 9999999999999999999999;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
 }
 </style>

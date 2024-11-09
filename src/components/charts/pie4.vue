@@ -8,14 +8,7 @@ import { useEcharts } from "@/hooks/useEcharts";
 import * as echarts from "echarts";
 const echartsRef = ref();
 const obj = {
-  "color": [
-        "#27e2f9",
-        "#27b0e8",
-        "#5394ef",
-        "#246bd3",
-        "#0b5abe",
-        "#11318d"
-    ],
+  color: ["#5394ef", "#11318d", "#27e2f9", "#27b0e8", "#246bd3", "#0b5abe"],
   backgroundColor: "rgba(252,252,252,0)",
   textStyle: {},
   title: {
@@ -117,14 +110,7 @@ const obj = {
     symbolSize: "8",
     symbol: "emptyCircle",
     smooth: false,
-    "color": [
-        "#27e2f9",
-        "#27b0e8",
-        "#5394ef",
-        "#246bd3",
-        "#0b5abe",
-        "#11318d"
-    ],
+    color: ["#11318d", "#27e2f9", "#27b0e8", "#5394ef", "#246bd3", "#0b5abe"],
     label: {
       color: "#ffffffb3fffb3",
     },
@@ -398,11 +384,18 @@ onMounted(() => {
         radius: "75%",
         center: ["50%", "50%"],
         data: [
-          { value: 20798.16, name: "电力" },
-          { value: 9819.8, name: "热力" },
-          { value: 1514.92, name: "气态天然气" },
-          { value: 565.73, name: "柴油" },
-          { value: 26.71, name: "汽油" },
+          { value: 0, name: "汽油" },
+          {
+            value: 29277.28716,
+            name: "电力",
+            itemStyle: {
+              color: "#0ff",
+            },
+          },
+          { value: 8213.6329, name: "热力" },
+          { value: 1558.361, name: "气态天然气" },
+          { value: 671.154831, name: "柴油" },
+          { value: 283.609579, name: "润滑油" },
         ].sort(function (a, b) {
           return a.value - b.value;
         }),
