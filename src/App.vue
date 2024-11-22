@@ -13,11 +13,15 @@ date.value = moment().format("YYYY-MM-DD");
 const path = ref("");
 const route = useRoute();
 const router = useRouter();
+const isLogin = sessionStorage.getItem("login");
 function changePath(data) {
   path.value = data;
   router.push(data);
 }
 onMounted(() => {
+  if (!isLogin) {
+    router.push("login");
+  }
   path.value = route.path;
 });
 </script>
@@ -57,7 +61,7 @@ onMounted(() => {
               余 吾 煤 业 公 司
             </div>
           </div>
-          <div>
+          <!-- <div>
             <div
               style="
                 font-size: 0.8rem;
@@ -68,7 +72,7 @@ onMounted(() => {
             >
               团 结 奋 进,守 正 创 新
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="time">
@@ -120,7 +124,7 @@ onMounted(() => {
         />
       </div>
     </div>
-    <div class="guide">
+    <div class="guide" v-if="$route.fullPath != '/login'">
       <div class="guide-button" :class="{ active: path == '/' }" @click="changePath('/')">
         综合展示
       </div>
@@ -129,7 +133,7 @@ onMounted(() => {
         :class="{ active: path == '/lingtankuangshan' }"
         @click="changePath('/lingtankuangshan')"
       >
-        余吾模式
+        零碳余吾
       </div>
       <div
         class="guide-button"

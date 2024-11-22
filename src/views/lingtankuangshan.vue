@@ -37,7 +37,18 @@ function changeTab(index) {
             <div style="text-align: center; width: 32%">
               <div class="num">
                 <span class="tooltip"
-                  >1
+                  >一
+                  <div
+                    style="
+                      font-size: 0.9rem;
+                      margin-top: -10px;
+                      color: #ffffffb3;
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    "
+                  >
+                    个智慧大脑
+                  </div>
+
                   <span
                     class="tooltiptext"
                     style="
@@ -53,12 +64,22 @@ function changeTab(index) {
                 alt=""
                 style="width: 100px; margin-top: -50px; height: 30px"
               />
-              <div style="font-size: 0.8rem; margin-top: -10px">1个智慧大脑</div>
+              <!-- <div style="font-size: 0.8rem; margin-top: -10px">一个智慧大脑</div> -->
             </div>
             <div style="text-align: center; width: 32%">
               <div class="num">
                 <span class="tooltip"
-                  >2
+                  >二
+                  <div
+                    style="
+                      font-size: 0.9rem;
+                      margin-top: -10px;
+                      color: #ffffffb3;
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    "
+                  >
+                    个重要指标
+                  </div>
                   <span
                     class="tooltiptext"
                     style="
@@ -74,12 +95,22 @@ function changeTab(index) {
                 alt=""
                 style="width: 100px; margin-top: -50px; height: 30px"
               />
-              <div style="font-size: 0.8rem; margin-top: -10px">2个重要指标</div>
+              <!-- <div style="font-size: 0.8rem; margin-top: -10px">二个重要指标</div> -->
             </div>
             <div style="text-align: center; width: 32%">
               <div class="num">
                 <span class="tooltip"
-                  >3
+                  >三
+                  <div
+                    style="
+                      font-size: 0.9rem;
+                      margin-top: -10px;
+                      color: #ffffffb3;
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    "
+                  >
+                    年建设时间
+                  </div>
                   <span
                     class="tooltiptext"
                     style="
@@ -95,7 +126,7 @@ function changeTab(index) {
                 alt=""
                 style="width: 100px; margin-top: -50px; height: 30px"
               />
-              <div style="font-size: 0.8rem; margin-top: -10px">3年建设时间</div>
+              <!-- <div style="font-size: 0.8rem; margin-top: -10px">三年建设时间</div> -->
             </div>
           </div>
           <div
@@ -112,7 +143,17 @@ function changeTab(index) {
             <div style="text-align: center; width: 32%">
               <div class="num">
                 <span class="tooltip"
-                  >4
+                  >四
+                  <div
+                    style="
+                      font-size: 0.9rem;
+                      margin-top: -10px;
+                      color: #ffffffb3;
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    "
+                  >
+                    大降碳抓手
+                  </div>
                   <span
                     class="tooltiptext"
                     style="
@@ -128,12 +169,22 @@ function changeTab(index) {
                 alt=""
                 style="width: 100px; margin-top: -50px; height: 30px"
               />
-              <div style="font-size: 0.8rem; margin-top: -10px">4大降碳抓手</div>
+              <!-- <div style="font-size: 0.8rem; margin-top: -10px">四大降碳抓手</div> -->
             </div>
             <div style="text-align: center; width: 32%">
               <div class="num">
                 <span class="tooltip"
-                  >5
+                  >五
+                  <div
+                    style="
+                      font-size: 0.9rem;
+                      margin-top: -10px;
+                      color: #ffffffb3;
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    "
+                  >
+                    套应用体系
+                  </div>
                   <span
                     class="tooltiptext"
                     style="
@@ -149,7 +200,7 @@ function changeTab(index) {
                 alt=""
                 style="width: 100px; margin-top: -50px; height: 30px"
               />
-              <div style="font-size: 0.8rem; margin-top: -10px">5套应用体系</div>
+              <!-- <div style="font-size: 0.8rem; margin-top: -10px">五套应用体系</div> -->
             </div>
           </div>
           <!-- <div class="list-container">
@@ -388,7 +439,43 @@ function changeTab(index) {
             >{{ num }}</b
           >天
         </div>
+        <div
+          style="
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 1rem;
+            color: #ffffffb3;
+            margin-top: 0.5rem;
+          "
+        >
+          <div>
+            碳排放量
+            <b
+              style="
+                font-family: 'YousheBiaotiHei', sans-serif;
+                color: #0ff;
+                font-size: 1.2rem;
+                margin: 0 0.5rem;
+              "
+              >-1038.3 </b
+            >吨
+          </div>
+          <div>
+            吨原煤生产电耗
+            <b
+              style="
+                font-family: 'YousheBiaotiHei', sans-serif;
+                color: #0ff;
+                font-size: 1.2rem;
+                margin: 0 0.5rem;
+              "
+              >18 kWh/t</b
+            >以内
+          </div>
+        </div>
       </div>
+
       <div class="center-box" style="padding: 0; height: 800px">
         <div class="circle-container">
           <!-- <div class="circle" style="--i: 0">二氧化碳排放量<br />≥20%</div>
@@ -401,16 +488,16 @@ function changeTab(index) {
           <!-- <div class="circle" style="--i: 2">运行管理</div> -->
           <!-- <div class="circle" style="--i: 3">用能结构</div> -->
           <div class="circle" style="--i: 1" @click="changeTab(1)">
-            绿色供能低碳<small>减碳量：3789 tCO₂</small>
+            绿色供能低碳<small>累计减碳量<br />3789 tCO₂</small>
           </div>
           <div class="circle" style="--i: 5" @click="changeTab(3)">
-            矿区增汇固碳<small>减碳量：4219 tCO₂</small>
+            矿区增汇固碳<small>累计减碳量<br />4219 tCO₂</small>
           </div>
           <div class="circle" style="--i: 4" @click="changeTab(2)">
-            瓦斯利用减碳<small>减碳量：5924 tCO₂</small>
+            瓦斯利用降碳<small>累计减碳量<br />5924 tCO₂</small>
           </div>
           <div class="circle" style="--i: 0" @click="changeTab(0)">
-            节能降耗减碳<small>减碳量：3154 tCO₂</small>
+            节能降耗减碳<small>累计减碳量<br />3154 tCO₂</small>
           </div>
         </div>
       </div>
@@ -1056,7 +1143,7 @@ function changeTab(index) {
 
 .front-content div {
   font-size: 0.8rem;
-  color: #00ffff;
+  color: #ffffff;
   opacity: 1;
   padding: 0.5rem;
   /* background: linear-gradient(-45deg, #29bdf8 0%, #0f48ff 100%); */
@@ -1076,7 +1163,7 @@ function changeTab(index) {
   align-items: center;
 }
 .list .front-content div b {
-  color: #00d112;
+  color: #00ffff;
   font-weight: bold;
   font-size: 0.8rem;
 }
@@ -1628,12 +1715,12 @@ main {
 .center-box-title {
   background-size: 50% 100%;
 } */
-.center-box {
+/* .center-box {
   background-image: url("./../assets/img/zhibiao.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position-y: 20%;
-}
+  background-position-y: center;
+} */
 .left-box-content,
 .right-box-content {
   padding: 0.5rem;
@@ -1795,7 +1882,7 @@ main {
   left: 125%;
   /* bottom: 20%; */
   /* margin-left: 100%; */
-  margin-top: -200%;
+  margin-top: -100%;
   opacity: 0;
   transition: opacity 0.3s;
   padding: 1.5rem;
@@ -1916,6 +2003,10 @@ p {
   height: calc(45vw / (1147 / 935));
   margin: 100px auto;
   border-radius: 50%;
+  background-image: url("./../assets/img/zhibiao.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 
 .circle {

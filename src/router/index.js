@@ -7,6 +7,7 @@ import zhongdianshebei from '../views/zhongdianshebei.vue'
 import wasiguankong from '../views/wasiguankong.vue'
 import tanpaishuangkong from '../views/tanpaishuangkong.vue'
 import mapLayer from '../views/mapLayer.vue'
+import login from '../views/login.vue'
 const router = createRouter({
   // base: '/aiapp/',
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
     {
       path: '/lingtankuangshan',

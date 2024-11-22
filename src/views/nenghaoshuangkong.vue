@@ -500,8 +500,8 @@ margin-bottom: 0.5rem;
       </div>
     </div>
     <div class="center">
-      
-          <sangji />
+      <img src="./../assets/img/nengliu.png" alt="" />
+          <!-- <sangji /> -->
     </div>
     <div v-if="showDetail" class="detail-box">
       <div class="detail-title">
@@ -2375,7 +2375,7 @@ margin-bottom: 0.5rem;
 .center{
   width: 73%;
   height: calc(100vh - 100px - 5rem);
-  margin-top: 3rem;
+  margin-top: 0.5rem;
   background-color: #0a1d7155;
 }
 .co2zonglan01 {

@@ -428,7 +428,7 @@ const closeDetail = (layer) => {
   <main :style="{ backgroundImage: `url(${currentLayerImage})` }">
     <div class="left">
       <div class="left-box box" style="overflow: hidden">
-        <div class="left-box-title title">>企业概况</div>
+        <div class="left-box-title title">>企业理念</div>
         <!-- <div class="left-box-content" style="max-height: 150px; overflow: hidden; width: 100%">
                     <img src="./../assets/img/bg.png.jpg" alt="" style="width: 100%" />
                 </div> -->
@@ -439,8 +439,17 @@ const closeDetail = (layer) => {
         >
           <article class="jianjie">
             <img src="./../assets/img/bg.png.jpg" alt="" />
-            <div class="jianjie_content">
-              余吾煤业公司位于山西省长治市屯留县，属潞安矿区。井田面积134.548平方公里，地质储量15.45亿吨，可采储量6.81亿吨，设计能力750万吨/年，配套900万吨/年的洗煤厂，可实现原煤的全部洗选。
+            <div
+              class="jianjie_content"
+              style="
+                font-size: 2rem;
+                font-weight: bold;
+                text-align: center;
+                color: #e62129;
+              "
+            >
+              团 结 奋 进<br />守 正 创 新
+              <!-- 余吾煤业公司位于山西省长治市屯留县，属潞安矿区。井田面积134.548平方公里，地质储量15.45亿吨，可采储量6.81亿吨，设计能力750万吨/年，配套900万吨/年的洗煤厂，可实现原煤的全部洗选。 -->
             </div>
           </article>
         </div>
@@ -1535,7 +1544,7 @@ const closeDetail = (layer) => {
   color: #7ba2c5;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
 }
 .jianjie img {
