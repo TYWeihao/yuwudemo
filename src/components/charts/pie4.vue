@@ -386,16 +386,16 @@ onMounted(() => {
         data: [
           { value: 0, name: "汽油" },
           {
-            value: 29277.28716,
+            value: 35791.90891,
             name: "电力",
             itemStyle: {
               color: "#0ff",
             },
           },
-          { value: 8213.6329, name: "热力" },
-          { value: 1558.361, name: "气态天然气" },
-          { value: 671.154831, name: "柴油" },
-          { value: 283.609579, name: "润滑油" },
+          { value: 9127.547, name: "热力" },
+          { value: 1915.067, name: "气态天然气" },
+          { value: 809.171343, name: "柴油" },
+          { value: 333.534369, name: "润滑油" },
         ].sort(function (a, b) {
           return a.value - b.value;
         }),

@@ -38,7 +38,7 @@ setInterval(() => {
           >
             <div style="font-size: 0.8rem">年碳排量</div>
 
-            <div class="num"><span>1973659.34吨</span></div>
+            <div class="num"><span>2377655.95吨</span></div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="3rem"
@@ -62,7 +62,7 @@ setInterval(() => {
           >
             <div style="font-size: 0.8rem">碳排强度</div>
 
-            <div class="num"><span>205.8kgCO2/吨</span></div>
+            <div class="num"><span>205.1kgCO2/吨</span></div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="3rem"
@@ -110,7 +110,7 @@ setInterval(() => {
                 </div>
               </div>
               <span class="zl-card-title">
-                <count-to :startVal="num1" :endVal="num2" :decimals="2"></count-to>
+                <count-to :start-val="num1" :end-val="num2" :decimals="2"></count-to>
                 <small>t</small></span
               >
             </div>

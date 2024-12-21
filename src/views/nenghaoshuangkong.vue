@@ -3,10 +3,10 @@ import sangji from "@/components/charts/sangji.vue";
 import pie4 from "@/components/charts/pie4.vue";
 import { ref } from "vue";
 const num1 = ref(0);
-const num2 = ref(40004.05);
+const num2 = ref(56136.73);
 setInterval(() => {
   num1.value = JSON.parse(JSON.stringify(num2.value));
-  num2.value += 40004.05 / 270 / 24 / 60 / 6;
+  num2.value += 56136.73 / 330 / 24 / 60 / 6;
 }, 10000);
 const showDetail = ref(false);
 const tab = ref(0);
@@ -244,7 +244,7 @@ const xiangmuData = [
            <div class="parent">
             <div class="card">
               <div class="content-box">
-                <span class="card-title">23822</span>
+                <span class="card-title">29122.79</span>
                 <p class="card-content">
                 <div>电力消耗量</div>
                 <small>兆瓦时</small>
@@ -266,7 +266,7 @@ const xiangmuData = [
            <div class="parent">
             <div class="card">
               <div class="content-box">
-                <span class="card-title">240869</span>
+                <span class="card-title">267670</span>
                 <p class="card-content">
                 <div>热力消耗量</div>
                 <small>百万千焦</small>
@@ -288,7 +288,7 @@ const xiangmuData = [
            <div class="parent">
             <div class="card">
               <div class="content-box">
-                <span class="card-title">7814607</span>
+                <span class="card-title">9585875</span>
                 <p class="card-content">
                 <div>水资源消耗</div>
                 <small>吨</small>
@@ -307,7 +307,7 @@ const xiangmuData = [
             </div>
           </div>
         </div>
-        <div style="margin-top: 1.2rem; text-align: right">截止2024年9月</div>
+        <div style="margin-top: 1.2rem; text-align: right">截止2024年11月</div>
 
       </div>
       <div class="left-box box">
@@ -335,7 +335,7 @@ margin-bottom: 0.5rem;
                 text-shadow: 0 0 10px #019de8, 0 0 20px #019de8, 0 0 30px #019de8;
                 margin: 0 0.5rem;
               "
-              >47135.55t</b
+              >56136.73t</b
             >
             |
             <div style="display: flex; align-items: center;font-size:0.8rem;margin-left: 0.5rem;">
@@ -407,7 +407,7 @@ margin-bottom: 0.5rem;
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >4.17 <small>kgce/t</small></span
+                >4.84 <small>kgce/t</small></span
               >
             </div>
             

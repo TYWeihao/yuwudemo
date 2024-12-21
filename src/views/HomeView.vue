@@ -480,7 +480,7 @@ const closeDetail = (layer) => {
                   <small style="color: #5ea755">11.60% 同比</small>
                 </div>
               </div>
-              <span class="zl-card-title">9588669 <small>吨</small></span>
+              <span class="zl-card-title">11591666 <small>吨</small></span>
             </div>
           </div>
           <div
@@ -504,7 +504,7 @@ const closeDetail = (layer) => {
                   <small style="color: #5ea755">1.96% 同比</small>
                 </div>
               </div>
-              <span class="zl-card-title">47135.55 <small>吨ce</small></span>
+              <span class="zl-card-title">56136.73 <small>吨ce</small></span>
             </div>
           </div>
           <div
@@ -529,7 +529,7 @@ const closeDetail = (layer) => {
                 </div>
               </div>
               <span class="zl-card-title" style="color: #ffde00"
-                >1973659.34 <small>吨</small></span
+                >2377655.95 <small>吨</small></span
               >
             </div>
           </div>
@@ -557,7 +557,7 @@ const closeDetail = (layer) => {
             </div>
           </div>
         </div>
-        <div style="margin-top: -1.2rem; text-align: right">截止2024年9月</div>
+        <div style="margin-top: -1.2rem; text-align: right">截止2024年11月</div>
       </div>
       <div class="left-box box">
         <div class="left-box-title title">
@@ -695,12 +695,12 @@ const closeDetail = (layer) => {
           @click="showDetailBox('wasiliyong')"
         >
           <div style="text-align: center; width: 32%">
-            <div class="num"><span>5052万 m³</span></div>
+            <div class="num"><span>4778.95万 m³</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
             <div style="font-size: 0.8rem">瓦斯利用总量</div>
           </div>
           <div style="text-align: center; width: 32%">
-            <div class="num"><span>478098 tCO₂</span></div>
+            <div class="num"><span>584342 tCO₂</span></div>
             <img src="./../assets/img/wsbg.png" alt="" style="width: 100%" />
             <div style="font-size: 0.8rem">瓦斯利用碳减排量</div>
           </div>
